@@ -20,7 +20,8 @@ ul {
 li {
   margin: 0;
   padding: 0;
-  font-size: 13px;
+  font-size: 15px;
+  float: right;
 }
 
 .chat-room-form {

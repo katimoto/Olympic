@@ -1,26 +1,14 @@
-.wrapper {
-  display: flex;
-}
 
-.side-bar {
-  background-color: #253141;
-  height: 100vh;
-  width: 300px;
-}
 
 .side-bar-header {
   height: 100px;
   padding: 0 20px;
+  background-color: #253141;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header-name a{
-  font-size: 16px;
-  color: #FAFAFA;
-  text-decoration: none;
-}
 
 .create-room {
   font-size: 10px;
@@ -41,20 +29,18 @@
 }
 
 .room {
-  padding: 20px 0 40px;
+  padding-top: 20px;
 }
 
 .room-name a {
   text-decoration: none;
-  color: white;
+  color: rgba(9,9,12,1)
 }
 
 .chat {
-  background-color: #ffffff;
-  height: 100vh;
+  background-color: transparent;
   width: calc(100% - 300px);
 }
-
 .chat-header {
   height: 100px;
   padding: 0 40px;
@@ -80,8 +66,8 @@
 }
 
 .messages {
-  background-color: #fafafa;
-  height: calc(100vh - 190px);
+  background-color: transparent;
+  height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
   overflow: scroll;
 }
@@ -116,7 +102,7 @@
 }
 
 .form {
-  background-color: #dddddd;
+  background-color: #DDDDDD;
   height: 90px;
   padding: 20px 40px;
   display: flex;
@@ -124,7 +110,6 @@
 
 .form-input {
   background-color: white;
-  display: flex;
   width: 100%;
 }
 
@@ -143,18 +128,4 @@
   height: 50px;
   margin-left: 15px;
   padding: 0 20px;
-}
-
-.form-image {
-  font-size: 12px;
-  background-color: lightblue;
-  color: white;
-  padding: 12px;
-  width: 60px;
-  margin: 5px 10px;
-  text-align: center;
-}
-
-.hidden {
-  display: none;
 }
