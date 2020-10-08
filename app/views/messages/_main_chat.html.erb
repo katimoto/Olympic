@@ -1,0 +1,27 @@
+<div class="chat-header">
+  <div class="left-header">
+    <div class="header-title">
+      <%= @room.name%>
+    </div>
+  </div>
+  <div class="right-header">
+    <div class="header-button">
+      <%= link_to "チャットを終了する", root_path %>
+    </div>
+  </div>
+</div>
+
+<div class="messages">
+  <%= render partial: 'message', collection: @messages %>
+</div>
+
+<%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
+  <div class="form-input">
+    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+    <label class="form-image">
+      <span class="image-file">画像</span>
+      <%= f.file_field :image, class: 'hidden' %>
+    </label>
+  </div>
+  <%= f.submit '送信', class: 'form-submit' %>
+<% end %>
