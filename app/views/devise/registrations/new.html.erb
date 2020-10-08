@@ -23,6 +23,9 @@
             <%= f.email_field :email%>
           </div>
         </div>
+        <%if @sns_id.present? %>
+          <%= hidden_field_tag :sns_auth, true %>
+        <% else %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :password%>
@@ -40,11 +43,14 @@
             <%= f.password_field :password_confirmation, autocomplete: "off"%>
           </div>
         </div>
+        <% end %>
         <div class='actions'>
           <%= f.submit "Create Account", class: 'btn'%>
         </div>
-      </div>
     <% end %>
+    </div>
+    <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
+    <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post%>
   </div>
 </div>
 
