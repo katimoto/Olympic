@@ -10,6 +10,7 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
+
     const html = `<p>${data.content.content}</p>`;
     const image = `<p>${data.content.image}</p>`;
     const messages = document.getElementById('messages');
@@ -17,5 +18,8 @@ consumer.subscriptions.create("MessageChannel", {
     messages.insertAdjacentHTML('afterbegin', html);
     messages.insertAdjacentHTML('afterbegin', image);
     newMessage.value='';
+
+    // Called when there's incoming data on the websocket for this channel
+
   }
 });

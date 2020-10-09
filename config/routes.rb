@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :favorites, only: :create
     collection do
       get 'search'
+      get 'tagsearch'
     end
   end
   resources :questions do
