@@ -16,6 +16,9 @@
     </ul>
   </div>
   <p><%= article.text %></p>
+  <% article.tags.each do |tag| %>
+    #<%= tag.word %>
+  <%end%>
   <span class="name">
     <a href="/users/<%= article.user.id %>">
       <span>投稿者</span><%= article.user.name %>
