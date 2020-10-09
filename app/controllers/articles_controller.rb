@@ -10,12 +10,17 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = ArticlesTag.new
   end
 
   def create
-    Article.create(article_params)
-    redirect_to root_path
+    @article = ArticlesTag.new(article_params)
+    if @article.valid?
+      @article.save
+      return redirect_to root_path
+    else
+      render "new"
+    end
   end
 
   def destroy
@@ -41,9 +46,15 @@ class ArticlesController < ApplicationController
     @articles = SearchArticlesService.search(params[:keyword])
   end
 
+  def tagsearch
+    return nil if params[:input] == ""
+    tag = Tag.where(['word LIKE ?', "%#{params[:input]}%"] )
+    render json:{ keyword: tag }
+  end
+
   private
   def article_params
-    params.require(:article).permit(:image, :text).merge(user_id: current_user.id)
+    params.require(:articles_tag).permit(:image, :text, :word).merge(user_id: current_user.id)
   end
 
   def set_article

@@ -1,3 +1,6 @@
 <%= form.text_field :image, placeholder: "Image Url" %>
 <%= form.text_area :text, placeholder: "text", rows: "10" %>
+<%= form.text_field :word, placeholder: "tag", class:"input-tag" %>
+<div id="search-result">
+</div>
 <%= form.submit "SEND" %>
