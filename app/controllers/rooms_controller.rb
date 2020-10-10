@@ -8,6 +8,10 @@ class RoomsController < ApplicationController
   end
 
   def create
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(user_id: current_user.id)
+    redirect_to new_card_path and return unless card.present?
+
     @room = Room.new(room_params)
     if @room.save
       redirect_to root_path
