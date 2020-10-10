@@ -1,3 +1,17 @@
+<p><span>name: </span><%= @user.name %></p>
+<p><span>email: </span><%= @user.email %></p>
+
+
+<p><%=link_to "フォロー", follows_user_path(@user.id) %></p>
+<p><%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+<% if current_user != @user %>
+  <% if @user.followed_by?(current_user) %>
+    <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
+  <% else %>
+    <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
+  <% end %>
+<% end %>
+
 <div class="contents row">
   <p><%= @name %>さんの投稿一覧</p>
   <% @articles.each do |article| %>

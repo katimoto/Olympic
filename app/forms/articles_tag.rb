@@ -5,7 +5,6 @@ class ArticlesTag
 
   with_options presence: true do
     validates :text
-    validates :word
   end
 
   def save

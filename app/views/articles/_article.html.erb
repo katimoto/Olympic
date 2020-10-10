@@ -24,4 +24,11 @@
       <span>投稿者</span><%= article.user.name %>
     </a>
   </span>
+    <% if current_user != article.user %>
+      <% if article.user.followed_by?(current_user) %>
+        <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete %></p>
+      <% else %>
+        <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post %></p>
+      <% end %>
+    <% end %>
 </div>
