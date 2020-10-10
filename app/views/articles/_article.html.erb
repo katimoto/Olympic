@@ -24,11 +24,20 @@
       <span>投稿者</span><%= article.user.name %>
     </a>
   </span>
-    <% if current_user != article.user %>
-      <% if article.user.followed_by?(current_user) %>
-        <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete %></p>
-      <% else %>
-        <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post %></p>
-      <% end %>
+  <% if current_user != article.user %>
+    <% if article.user.followed_by?(current_user) %>
+      <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete %></p>
+    <% else %>
+      <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post %></p>
     <% end %>
+  <% end %>
+  <% if user_signed_in? %>
+    <% if article.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+      <p id="favo"><span>お気に入り解除: </span><%=link_to article.favorites.count, article_favorites_path(article.id), method: :delete %></p>
+    <% else %>
+      <p id="favo"><span>お気に入り登録: </span><%=link_to article.favorites.count, article_favorites_path(article.id), method: :post %></p>
+    <% end %>
+  <% else %>
+    <p id="favo"><span>お気に入り数: </span><%= article.favorites.count %></p>
+  <% end %>
 </div>
