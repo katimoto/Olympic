@@ -39,13 +39,11 @@
       <% end %>
     <% end %>
     <div class="favorites">
-      <h4>＜コメント一覧＞</h4>
+      <h4>＜お気に入り一覧＞</h4>
       <% if @favorites %>
-        <% @favorites.each do |favorite| %>
-          <p>
-            <strong><%= link_to favorite.user.name, "/users/#{favorite.user_id}" %>：</strong>
-            <%= favorite.text %>
-          </p>
+        <% @favorite_articles.each do |article| %>
+          <hr>
+          <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
         <% end %>
       <% end %>
     </div>
