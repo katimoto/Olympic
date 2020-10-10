@@ -13,7 +13,7 @@
               <li class="nav__item">
                 <a href=#>Profile</a>
                 <ul class="dropdown">
-                  <li><%= link_to "ユーザー一覧", users_path %></li>
+                  <li><%= link_to "ユーザー一覧", users_path(current_user) %></li>
                   <li><%= link_to "フォロー" %></li>
                   <li><%= link_to "フォロワー" %></li>
                   <li><%= link_to "お気に入り" %></li>

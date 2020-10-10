@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_001634) do
+ActiveRecord::Schema.define(version: 2020_10_10_073415) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2020_10_10_001634) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_token", null: false
+    t.string "customer_token", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,6 +119,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_001634) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -143,6 +153,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_001634) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "article_tag_relations", "articles"
   add_foreign_key "article_tag_relations", "tags"
+  add_foreign_key "cards", "users"
   add_foreign_key "favorites", "articles"
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "rooms"

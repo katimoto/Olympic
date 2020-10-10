@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :questions
   has_many :answers
   has_many :sns_credentials
+  has_one :card, dependent: :destroy
 
   # 自分がフォローしているユーザーとの関連 
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
