@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
   resources :articles do
-    resources :favorites, only: :create
+    resource :favorites, only: [:create, :destroy]
     collection do
       get 'search'
       get 'tagsearch'
