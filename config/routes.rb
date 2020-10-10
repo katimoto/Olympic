@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
- devise_for :users, controllers: {
-   omniauth_callbacks: 'users/omniauth_callbacks',
-   registrations: 'users/registrations'
- }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
   get 'messages/index'
   root to: 'articles#index'
   # root to: "rooms#index"
-  resources :users, only: [:edit, :update, :show]
+  resources :users, only: [:edit, :update, :show] do
+    resource :relationships, only: [:create, :destroy]
+  end
   resources :articles do
     resources :favorites, only: :create
     collection do
