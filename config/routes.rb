@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # root to: "rooms#index"
   resources :users, only: [:index, :edit, :update, :show] do
     resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
   end
   resources :articles do
     resources :favorites, only: :create

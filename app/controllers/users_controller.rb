@@ -15,10 +15,20 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @name = @user.name
+    @articles = @user.articles
+    @questions = @user.questions
+  end
+
+  def follows
     user = User.find(params[:id])
-    @name = user.name
-    @articles = user.articles
-    @questions = user.questions
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
   private

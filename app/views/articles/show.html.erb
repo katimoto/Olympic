@@ -21,13 +21,22 @@
     </span>
   </div>
   <div class="container">
-    <% if current_user %>
-      <%= form_with(model: [@article, @favorite], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+    <%# if current_user %>
+      <%#= form_with(model: [@article, @favorite], local: true) do |form| %>
+        <%#= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%#= form.submit "SEND" %>
+      <%# end %>
+    <%# else %>
+      <!--strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong-->
+    <%# end %>  
+    <% @users.each do |user| %>
+      <% if current_user != user %>
+        <% if user.followed_by?(current_user) %>
+          <p><%=link_to "フォロー済み", user_relationships_path(user.id), method: :delete %></p>
+        <% else %>
+          <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post %></p>
+        <% end %>
       <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="favorites">
       <h4>＜コメント一覧＞</h4>
@@ -42,3 +51,4 @@
     </div>
   </div>
 </div>
+

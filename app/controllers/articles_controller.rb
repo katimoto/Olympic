@@ -38,6 +38,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @users = User.all
     @favorite = Favorite.new
     @favorites = @article.favorites.includes(:user)
   end
