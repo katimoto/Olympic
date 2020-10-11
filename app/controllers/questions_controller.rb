@@ -19,16 +19,17 @@ class QuestionsController < ApplicationController
 
   def destroy
     question = Question.find(params[:id])
-    Question.destroy
-    render root_path
+    question.destroy
+    redirect_to root_path
   end
 
   def edit
   end
 
   def update
-    question = Question.find(params[:id])
-    Question.update(question_params)
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    redirect_to root_path
   end
 
   def show
@@ -42,7 +43,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:image, :text).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :text).merge(user_id: current_user.id)
   end
 
   def set_question
