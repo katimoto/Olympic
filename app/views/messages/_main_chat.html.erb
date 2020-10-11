@@ -6,7 +6,12 @@
   </div>
   <div class="right-header">
     <div class="header-button">
-      <%= link_to "チャットを終了する", root_path %>
+      <%= link_to root_path do %>
+        <i class="fas fa-fast-backward"></i>
+      <% end %>
+      <%= link_to room_path(@room), method: :delete do %>
+        <i class="fas fa-toilet"></i>
+      <% end %>
     </div>
   </div>
 </div>

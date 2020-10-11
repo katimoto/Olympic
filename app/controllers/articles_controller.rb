@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   def destroy
     article = Article.find(params[:id])
     article.destroy
-    render root_path
+    redirect_to root_path
   end
 
   def edit

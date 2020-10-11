@@ -24,6 +24,7 @@
 .rooms {
   background-color: #2F3E51;
   height: calc(100vh - 100px);
+  width: 200px;
   padding: 0 20px;
   overflow: scroll;
 }
@@ -60,17 +61,21 @@
 
 .header-button a {
   text-decoration: none;
-  border: 1px solid darkred;
-  color: darkred;
-  padding: 20px;
+}
+
+i {
+  font-size: 30px;
+  margin-left: 10px;
 }
 
 .messages {
   background-color: rgba(240,240,240,1);
-  height: calc(100vh - 100px - 90px);
+  height: calc(100vh - 100px - 150px);
+  width: 80%;
   padding: 46px 40px 0;
   overflow: auto;
   border-radius: 10px;
+  margin-left: 100px;
 }
 
 .message {

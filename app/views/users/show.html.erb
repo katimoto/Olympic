@@ -24,6 +24,14 @@
   <% end %>
 </div>
 
+<div class="favorites">
+  <h4>＜お気に入り一覧＞</h4>
+  <% @favorite_articles.each do |article| %>
+    <hr>
+    <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
+  <% end %>
+</div>
+
 <div class="AccountPage">
   <div class="AccountPage__title">
     <h1>マイページ</h1>
