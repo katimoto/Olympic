@@ -13,6 +13,7 @@
         </ul>
       </div>
     <% end %>
+    <%= image_tag @question.image, class: 'question-image' if @question.image.attached? %>
     <p><%= @question.text %></p>
     <span class="name">
       <a href="/users/<%= @question.user.id %>">

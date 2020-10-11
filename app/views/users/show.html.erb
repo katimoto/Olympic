@@ -1,4 +1,5 @@
 <p><span>name: </span><%= @user.name %></p>
+<%= image_tag @user.image.variant(resize: '100x100'), class: 'user-image' if @user.image.attached? %>
 <p><span>email: </span><%= @user.email %></p>
 
 
