@@ -10,16 +10,27 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-
-    const html = `<p>${data.content.content}</p>`;
-    const image = `<p>${data.content.image}</p>`;
-    const messages = document.getElementById('messages');
+    // const username = JSON.parse(document.getElementById("user-name").dataset.json);
+    const html = `
+                    <div class="upper-message">
+                      <div class="message-user">
+                        ${data.content.user_id}
+                      </div>
+                      <div class="message-date">
+                        ${data.content.created_at}
+                      </div>
+                    </div>
+                    <div class="lower-message">
+                      <div class="message-content", id="messages">
+                        ${data.content.content}
+                      </div>
+                    </div>`;
+    const messages = document.getElementById('message');
     const newMessage = document.getElementById('message_content');
-    messages.insertAdjacentHTML('afterbegin', html);
-    messages.insertAdjacentHTML('afterbegin', image);
+    messages.insertAdjacentHTML('beforeend', html);
     newMessage.value='';
-
     // Called when there's incoming data on the websocket for this channel
-
   }
 });
+
+//, class: 'message-image' if message.image.attached?%>

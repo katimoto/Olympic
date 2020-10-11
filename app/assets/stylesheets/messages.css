@@ -66,14 +66,19 @@
 }
 
 .messages {
-  background-color: transparent;
+  background-color: rgba(240,240,240,1);
   height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
-  overflow: scroll;
+  overflow: auto;
+  border-radius: 10px;
 }
 
 .message {
   margin: 10px 0;
+  background-color: #3b6f81;
+  border-radius: 10px;
+  padding: 10px;
+  width: 70%;
 }
 
 .upper-message{
@@ -96,31 +101,34 @@
 }
 
 .message-content {
-  color: #434a54;
+  color: #8d9eb6;
   font-size: 14px;
-  margin-bottom: 40px;
 }
 
-.form {
-  background-color: #DDDDDD;
+.message-form {
+  background-color: transparent;
   height: 90px;
   padding: 20px 40px;
   display: flex;
 }
 
-.form-input {
-  background-color: white;
+.message-form-input {
+  background-color: transparent;
+  display: flex;
   width: 100%;
 }
 
 .form-message {
-  border: none;
+  border: 1px solid #fff;
   height: 50px;
   width: 100%;
   padding-left: 10px;
+  margin: 0;
+  box-shadow: none;
+  background-color: transparent;
 }
 
-.form-submit {
+.message-form-submit {
   background-color: #38AEF0;
   border: none;
   color: white;
@@ -128,4 +136,19 @@
   height: 50px;
   margin-left: 15px;
   padding: 0 20px;
+  width: 20%;
+}
+
+.form-image {
+  font-size: 12px;
+  background-color: lightblue;
+  color: white;
+  padding: 12px;
+  width: 60px;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
