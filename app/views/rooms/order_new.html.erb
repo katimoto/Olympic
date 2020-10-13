@@ -1,0 +1,72 @@
+<%# 商品の概要 %>
+<div class="room-show">
+  <div class="room-box">
+    <h2 class="name">
+      <%= @room.name %>
+    </h2>
+    <div class='room-img-content'>
+      
+
+    </div>
+    <div class="room-price-box">
+      <span class="room-price">
+        <%= @room.price %>
+      </span>
+    </div>
+
+
+    <%= link_to '購入する', order_new_room_path(@room.id), class:"room-red-btn"%>
+
+
+    <div class="room-explain-box">
+      <span><%#= @room.text %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-room">出品者</th>
+          <td class="detail-value"><%#= @room.user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-room">カテゴリー</th>
+          <td class="detail-value"><%#= @room.category.name %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%#= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%#= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な商品の通報</span>
+      </div>
+    </div>
+  </div>
+  <%# /商品の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%#= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  <div class="links">
+    <a href="#" class="change-room-btn">
+      ＜ 前の商品
+    </a>
+    <a href="#" class="change-room-btn">
+      後ろの商品 ＞
+    </a>
+  </div>
+  <a href="#" class='another-room'><%= "商品のカテゴリー名" %>をもっと見る</a>
+</div>
