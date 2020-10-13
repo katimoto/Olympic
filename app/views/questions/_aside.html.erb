@@ -1,5 +1,6 @@
 <h1><%= link_to "質問一覧", questions_path %></h1>
 <div class="contents low">
     <%= question_lists(@questions) %>
+    <%= paginate @questions %>
 </div>
 
