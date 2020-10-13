@@ -52,11 +52,12 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
     t.string "text", null: false
     t.text "image"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,12 +91,12 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "text", null: false
+    t.string "title", null: false
     t.text "image"
     t.integer "category_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -124,9 +125,11 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "price", null: false
+    t.string "text", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

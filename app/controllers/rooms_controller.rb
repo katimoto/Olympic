@@ -49,11 +49,10 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :price, user_ids:[])
+    params.require(:room).permit(:name, :price, :text, :category_id, user_ids:[])
   end
 
   def find_room
     @room = Room.find(params[:id]) # 購入する商品を特定
   end
-
 end

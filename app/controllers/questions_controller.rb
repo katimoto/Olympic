@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @questions = Question.includes(:user).order("created_at DESC")
+    @questions = Question.includes(:user).page(params[:page]).per(3).order("created_at DESC")
   end
 
   def new
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :image, :text).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :text, :category_id).merge(user_id: current_user.id)
   end
 
   def set_question

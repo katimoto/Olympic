@@ -15,6 +15,9 @@
     <% end %>
     <%= image_tag @question.image, class: 'question-image' if @question.image.attached? %>
     <p><%= @question.text %></p>
+    <div class="question-category">
+      <%= @question.category.name %>
+    </div>
     <span class="name">
       <a href="/users/<%= @question.user.id %>">
         <span>投稿者</span><%= @question.user.name %>

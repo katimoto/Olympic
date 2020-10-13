@@ -8,6 +8,8 @@
       <div class='chat-room-form__field--right'>
         <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
         <%= f.text_field :price, class: 'chat__room_name chat-room-form__input', placeholder: '金額を入力してください'%>
+        <%= f.text_field :text, class: 'chat__room_name chat-room-form__input', placeholder: '内容を入力してください'%>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
       </div>
     </div>
     <div class='chat-room-form__field'>

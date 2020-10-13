@@ -12,6 +12,7 @@
     <div class="contents row">
         <%= article_lists(@articles) %>
     </div>
+    <%= paginate @articles %>
   </div>
   <div class='aside'>
     <%= render "questions/aside"%>

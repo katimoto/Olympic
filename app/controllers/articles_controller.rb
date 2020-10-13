@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @articles = Article.includes(:user).order("created_at DESC")
-    @questions = Question.includes(:user).order("created_at DESC")
+    @articles = Article.includes(:user).page(params[:page]).per(3).order("created_at DESC")
+    @questions = Question.includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
 
   def new
@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:articles_tag).permit(:image, :text, :word).merge(user_id: current_user.id)
+    params.require(:articles_tag).permit(:title, :image, :text, :word).merge(user_id: current_user.id)
   end
 
   def set_article

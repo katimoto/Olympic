@@ -8,14 +8,7 @@
     <div class="contents low">
         <%= question_lists(@questions) %>
     </div>
-    <nav class='pagination'>
-      <ul class='pagination'>
-        <li class='prev_page'></li>
-        <li class='active_page'></li>
-        <li class='page_item'></li>
-        <li class='next_page'></li>
-      </ul>
-    </nav>
+    <%= paginate @questions %>
   </div>
   <div class='question_aside'>
     <div class='question_category'>
