@@ -7,6 +7,8 @@
               <li class="nav__item">
                 <%= link_to current_user.name , edit_user_path(current_user), class: "name" %>
                 <ul class="dropdown">
+                  <li><%= link_to "プロフィール", users_path(current_user) %></li>
+                  <li><%= link_to "編集", edit_user_path(current_user), class: "name" %></li>
                   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>
@@ -14,9 +16,9 @@
                 <a href=#>Profile</a>
                 <ul class="dropdown">
                   <li><%= link_to "ユーザー一覧", users_path(current_user) %></li>
-                  <li><%= link_to "フォロー" %></li>
-                  <li><%= link_to "フォロワー" %></li>
-                  <li><%= link_to "お気に入り" %></li>
+                  <li><%= link_to "フォロー", follows_user_path(current_user) %></li>
+                  <li><%= link_to "フォロワー", followers_user_path(current_user) %></li>
+                  <li><%= link_to "お気に入り", article_favorites_path(current_user) %></li>
                 </ul>                
               </li>
               <li class="nav__item">
@@ -42,9 +44,9 @@
             </ul>
         </div>
       <% else %>
-        <div class="grid-6">
-          <%= link_to "Login", new_user_session_path, class: "post" %>
-          <%= link_to "Signup", new_user_registration_path, class: "post" %>
+        <div class="not_login">
+          <%= link_to "Login", new_user_session_path, class: "login" %>
+          <%= link_to "Signup", new_user_registration_path, class: "signup" %>
         </div>
       <% end %>
     
