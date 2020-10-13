@@ -16,7 +16,7 @@
 <div class="contents row">
   <p><%= @name %>さんの投稿一覧</p>
   <% @articles.each do |article| %>
-    <%= render partial: "articles/article", locals: { article: article } %>
+    <%= link_to article.text, article_path(article.id)  %>
   <% end %>
 </div>
 <div class="contents low">

@@ -46,7 +46,7 @@ template {
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom. */
 html {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -130,7 +130,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   font-size: 1em;
 }
 
@@ -223,7 +223,7 @@ button,
 input,
 select,
 textarea {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   /* 1 */
   font-size: 100%;
   /* 2 */
@@ -628,7 +628,7 @@ ul li {
 body,
 html {
   height: 100%;
-	background-color: #fafafa;
+	background-color: #d5e68b;
   /* background-color: #fff; */
   /* background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
   background-position: center;
@@ -637,7 +637,12 @@ html {
 	overflow-x: hidden;
 	-webkit-transition: all 300ms linear;
   transition: all 300ms linear;
-  
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
 }
 
 body {
@@ -655,7 +660,7 @@ body {
   letter-spacing: 0.15em;
   font-size: 16px;
   color: black;
-  font-family: 'fantasy';
+  /* font-family: 'fantasy'; */
   font-weight: 900;
   margin: 0;
 }
@@ -675,7 +680,7 @@ a:hover {
 
 .serif,
 div.contents.row div.content_post p {
-  font-family: 'fantasy';
+  /* font-family: 'fantasy'; */
 }
 
 .ultra {
@@ -738,7 +743,7 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
 header.header {
   padding: 10px;
   border-bottom: 1px solid #557ae0;
-  background-color: rgba(30, 171, 206, 0);
+  background-color: #267594 !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -776,6 +781,8 @@ header.header .user_nav {
   position: relative;
   height: 50px;
   right: 0;
+  width: 80%;
+  margin-left: 200px;
 }
 
 header.header .user_nav span {
@@ -851,7 +858,7 @@ div.contents.row h2 strong {
 }
 
 div.contents.row .new_user {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 div.contents.row div.content_post {
@@ -983,7 +990,7 @@ div.contents.row div.content_post p {
   font-size: 20px;
   z-index: 2;
   font-weight: bold;
-  text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+  /* text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000; */
 }
 
 div.contents.row div.content_post span.name {
@@ -1029,7 +1036,7 @@ form textarea {
   padding: 10px;
   border: 1px solid #D8D8D8;
   border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.3);
 }
 
@@ -1043,7 +1050,7 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-  background-color: #84d3ef;
+  background-color: #267594;
 }
 
 .container {
