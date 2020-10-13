@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     end
   end
   resources :rooms, only: [:new, :create, :destroy] do
+    post 'order', on: :member
+    get 'order_new', on: :member
     resources :messages, only: [:index, :create]
   end
   resources :cards, only: [:new, :create]
