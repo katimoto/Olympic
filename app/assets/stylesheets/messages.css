@@ -69,7 +69,7 @@ i {
 }
 
 .messages {
-  background-color: rgba(240,240,240,1);
+  background-color: rgba(157,204,224,0.65);
   height: calc(100vh - 100px - 150px);
   width: 80%;
   padding: 46px 40px 0;
@@ -80,7 +80,7 @@ i {
 
 .message {
   margin: 10px 0;
-  background-color: #3b6f81;
+  background-color: #fff;
   border-radius: 10px;
   padding: 10px;
   width: 70%;
@@ -106,7 +106,7 @@ i {
 }
 
 .message-content {
-  color: #8d9eb6;
+  color: #020304;
   font-size: 14px;
 }
 

@@ -17,8 +17,10 @@
  * {
   box-sizing: border-box;
   /* background-color: #fff; */
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+  /* background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
   background-position: center;
   background-repeat: repeat;
-  background-size: 4%;
+  background-size: 4%; */
+  color: #1B515D;
+  font-family: "きんいろサンセリフ", sans-serif;
 }

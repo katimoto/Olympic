@@ -1,8 +1,4 @@
-
-<%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+<h1><%= link_to "質問一覧", questions_path %></h1>
 <div class="contents low">
     <%= question_lists(@questions) %>
 </div>
