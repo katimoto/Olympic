@@ -4,8 +4,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.includes(:user).order("created_at DESC")
-    query = "SELECT * FROM articles"
-    @articles = Article.find_by_sql(query)
     @questions = Question.includes(:user).order("created_at DESC")
   end
 
