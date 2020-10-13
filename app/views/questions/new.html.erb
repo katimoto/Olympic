@@ -2,7 +2,6 @@
   <div class="container">
     <%= form_with(model: @question, local: true) do |form| %>
       <h3>質問しちゃう？？</h3>
-      <%= form.text_field :title, placeholder: "title", rows: "10" %>
       <%= render partial: "form", locals: { form: form } %>
     <% end %>
   </div>
