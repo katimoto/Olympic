@@ -1,5 +1,5 @@
 <div class="content_post_question">
-  <%= link_to question.text, question_path(question.id), method: :get %>
+  <%= link_to question.title, question_path(question.id), method: :get %>
   <span class="name">
     <a href="/users/<%= question.user.id %>">
       <span>投稿者</span><%= question.user.name %>

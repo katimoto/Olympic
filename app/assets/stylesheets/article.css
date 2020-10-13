@@ -1038,6 +1038,7 @@ form textarea {
   border-radius: 5px;
   /* font-family: 'Montserrat', sans-serif; */
   box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.3);
+  color: black;
 }
 
 form input[type="submit"] {

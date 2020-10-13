@@ -4,8 +4,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.includes(:user).order("created_at DESC")
-    query = "SELECT * FROM questions"
-    @questions = Question.find_by_sql(query)
   end
 
   def new
