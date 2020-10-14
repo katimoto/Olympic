@@ -27,9 +27,9 @@
   </span>
   <% if user_signed_in? && current_user != article.user %>
     <% if article.user.followed_by?(current_user) %>
-      <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete %></p>
+      <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete, remote: true %></p>
     <% else %>
-      <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post %></p>
+      <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post, remote: true %></p>
     <% end %>
   <% end %>
   <div class='favorites'>

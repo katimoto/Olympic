@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     if @message.save
       ActionCable.server.broadcast 'message_channel', content: @message
     end
-    redirect_to and return
+    # redirect_to and return
   end
 
   private

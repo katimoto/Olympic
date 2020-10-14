@@ -20,7 +20,7 @@
   <%= render partial: 'message', collection: @messages %>
 </div>
 
-<%= form_with model: [@room, @message], html: {class: "message-form"}, local: true do |f|%>
+<%= form_with model: [@room, @message], html: {class: "message-form"}, remote: true do |f|%>
   <div class="message-form-input">
     <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
     <label class="form-image">

@@ -26,7 +26,7 @@
   </div>
   <div class="container">
     <% if current_user %>
-      <%= form_with(model: [@question, @answer], local: true) do |form| %>
+      <%= form_with(model: [@question, @answer], remote: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
         <%= form.submit "SEND" %>
       <% end %>
