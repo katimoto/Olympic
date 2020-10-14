@@ -29,5 +29,5 @@ Rails.application.routes.draw do
     get 'order_new', on: :member
     resources :messages, only: [:index, :create]
   end
-  resources :cards, only: [:new, :create]
+  resources :cards, only: [:new, :create, :show]
 end

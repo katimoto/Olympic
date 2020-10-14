@@ -31,10 +31,10 @@
         <%= form.submit "SEND" %>
       <% end %>
     <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <strong><p>※※※ 回答には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="answers">
-      <h4>＜コメント一覧＞</h4>
+      <h4>＜アンサー一覧＞</h4>
       <% if @answers %>
         <% @answers.each do |answer| %>
           <p>

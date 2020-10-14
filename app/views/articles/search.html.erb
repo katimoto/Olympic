@@ -6,6 +6,7 @@
     <div class='main_menu'>
       <h1 class="head_en">Article</h1>
       <h3 class="head__ja">タイムライン</h3>
+      <%= render 'heading'%>
     </div>
     <div class='main_content'>
       <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>

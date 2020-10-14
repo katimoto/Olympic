@@ -10,7 +10,7 @@
 }
 
 .room-box {
-  background-color: #FFF;
+  background-color: #eee;
   width: 70vw;
   min-width: 1200px;
   padding: 10vh 15vw;
@@ -142,7 +142,7 @@
 
 .comment-box {
   width: 40vw;
-  background-color: #fff;
+  background-color: #eee;
   margin: 5vh 0;
   text-align: center;
 }

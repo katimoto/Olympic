@@ -1,8 +1,8 @@
 .account-page .account-page__inner {
-  width: 980px;
+  width: 100%;
   margin: 60px auto;
   padding: 60px;
-  background-color: #fff;
+  background-color: #eee;
   border: 1px solid #ddd;
   border-radius: 5px;
 }

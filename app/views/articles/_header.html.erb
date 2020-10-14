@@ -3,8 +3,7 @@
   <% if user_signed_in? %>
     <div class="navigation grid-6">
       <%= link_to "TopPage", root_path, class:"nav"%>
-      <%= link_to current_user.name , edit_user_path(current_user), class: "nav" %>
-      <%= link_to "Profile",users_path(current_user), class:"nav"%>
+      <%= link_to "Profile", user_path(current_user), class:"nav"%>
       <%= link_to "Room", new_room_path, class:"nav"%>
       <%= link_to "Article", search_articles_path, class:"nav" %>
       <%= link_to "Question", questions_path, class:"nav" %>
