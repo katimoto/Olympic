@@ -1,9 +1,9 @@
 class SearchArticlesService
   def self.search(search)
     if search != ""
-      Article.where('text LIKE(?)', "%#{search}%").order("created_at DESC")
+      Article.where('text LIKE(?)', "%#{search}%")
     else
-      Article.includes(:user).order("created_at DESC")
+      Article.all
     end
   end
 end

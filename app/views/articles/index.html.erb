@@ -2,21 +2,32 @@
 
 <div class='wrapper'>
   <div class='nav_main'>
-    <%= render "messages/side_bar"%>
+    <%= render "header"%>
   </div>
-  <div class="content">
-    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
-    <div class="contents row">
-        <%= article_lists(@articles) %>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">My page</h1>
+      <h3 class="head__ja">マイページ</h3>
     </div>
-    <%= paginate @articles %>
-  </div>
-  <div class='aside'>
-    <%= render "questions/aside"%>
+    <div class='main_content'>
+      <div class="content">
+        <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
+        <div class="contents row">
+            <%= article_lists(@articles) %>
+        </div>
+        <%= paginate @articles %>
+      </div>
+      <div class='aside'>
+        <%= render "questions/aside"%>
+      </div>
+    </div>
   </div>
 </div>
 
-<%#= render "footer" %>
+<ul class="dropdown">
+  <li><%#= link_to "記事一覧", search_articles_path %></li>
+  <li><%#= link_to "投稿する", new_article_path, class: "post" %></li>
+</ul>  

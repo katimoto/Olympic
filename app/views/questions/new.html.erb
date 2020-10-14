@@ -1,8 +1,23 @@
-<div class="contents row">
-  <div class="container">
-    <%= form_with(model: @question, local: true) do |form| %>
-      <h3>質問しちゃう？？</h3>
-      <%= render partial: "form", locals: { form: form } %>
-    <% end %>
+
+
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">MakeQuestion</h1>
+      <h3 class="head__ja">質問を投稿しよう！</h3>
+    </div>
+    <div class='main_content'>
+      <div class="contents row">
+        <div class="container">
+          <%= form_with(model: @question, local: true) do |form| %>
+            <h3>質問しちゃう？？</h3>
+            <%= render partial: "form", locals: { form: form } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

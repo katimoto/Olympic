@@ -1,41 +1,53 @@
-<div class='chat-room-form'>
-  <h1>新規チャットルーム</h1>
-  <%=form_with model: @room, local: true do |f|%>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <%= f.label :チャットルーム名, class: 'chat-room-form__label'%>
-        <%= f.label :価格設定, class: 'chat-room-form__label'%>
-        <%= f.label :内容, class: 'chat-room-form__label'%>
-        <%= f.label :カテゴリー, class: 'chat-room-form__label'%>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
-        <%= f.text_field :price, class: 'chat__room_name chat-room-form__input', placeholder: '金額を入力してください'%>
-        <%= f.text_field :text, class: 'chat__room_name chat-room-form__input', placeholder: '内容を入力してください'%>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">New Chat</h1>
+      <h3 class="head__ja">チャットルーム</h3>
+    </div>
+    <div class='main_content'>
+      <div class='chat-room-form'>
+        <%=form_with model: @room, local: true do |f|%>
+          <div class='chat-room-form__field'>
+            <div class='chat-room-form__field--left'>
+              <%= f.label :ルーム名, class: 'chat-room-form__label'%>
+              <%= f.label :価格設定, class: 'chat-room-form__label'%>
+              <%= f.label :内容, class: 'chat-room-form__label'%>
+              <%= f.label :カテゴリー, class: 'chat-room-form__label'%>
+            </div>
+            <div class='chat-room-form__field--right'>
+              <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+              <%= f.text_field :price, class: 'chat__room_name chat-room-form__input', placeholder: '金額を入力してください'%>
+              <%= f.text_field :text, class: 'chat__room_name chat-room-form__input', placeholder: '内容を入力してください'%>
+              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+            </div>
+          </div>
+          <div class='chat-room-form__field'>
+          </div>
+          <div class='chat-room-form__field'>
+            <div class='chat-room-form__field--left'>
+              <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
+            </div>
+            <div class='chat-room-form__field--right'>
+              <select name="room[user_ids][]">
+                <option value="">チャットするユーザーを選択してください</option>
+                <% User.all.where.not(id: current_user.id).each do |user| %>
+                  <option value=<%=user.id%>><%= user.name %></option>
+                <% end %>
+              </select>
+              <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
+            </div>
+          </div>
+          <div class='chat-room-form__field'>
+            <div class='chat-room-form__field--left'></div>
+            <div class='chat-room-form__field--right'>
+              <%= f.submit class: 'chat-room-form__action-btn'%>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-    <div class='chat-room-form__field'>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <select name="room[user_ids][]">
-          <option value="">チャットするユーザーを選択してください</option>
-          <% User.all.where.not(id: current_user.id).each do |user| %>
-            <option value=<%=user.id%>><%= user.name %></option>
-          <% end %>
-        </select>
-        <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
-      </div>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
-      <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>

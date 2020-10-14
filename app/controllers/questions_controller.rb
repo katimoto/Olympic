@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @questions = SearchQuestionsService.search(params[:keyword])
+    @questions = SearchQuestionsService.search(params[:keyword]).page(params[:page]).per(8).order("created_at DESC")
   end
 
   private

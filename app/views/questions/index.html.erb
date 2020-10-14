@@ -1,30 +1,49 @@
-<%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input", id: "qt" %>
-  <%= form.submit "検索", class: "search-btn", id: "qs" %>
-<% end %>
-<div class='question_wrapper'>
-  <div class='question_index'>
-    <h1>質問一覧</h1>
-    <div class="contents low">
-        <%= question_lists(@questions) %>
-    </div>
-    <%= paginate @questions %>
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
   </div>
-  <div class='question_aside'>
-    <div class='question_category'>
-      <h3>カテゴリーから探す</h3>
-      <div class='category_row'>
-      </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">Question</h1>
+      <h3 class="head__ja">質問コーナー</h3>
     </div>
-    <div class='question_answer'>
-      <h3>回答数ランキング</h3>
-      <div class='ranking_answer'>
+    <div class='main_content'>
+      <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
+        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input", id: "qt" %>
+        <%= form.submit "検索", class: "search-btn", id: "qs" %>
+      <% end %>
+      <div class='question_wrapper'>
+        <div class='question_index'>
+          <h1>質問一覧</h1>
+          <div class="contents low">
+              <%= question_lists(@questions) %>
+          </div>
+          <%= paginate @questions %>
+        </div>
+        <div class='question_aside'>
+          <div class='question_category'>
+            <h3>カテゴリーから探す</h3>
+            <div class='category_row'>
+            </div>
+          </div>
+          <div class='question_answer'>
+            <h3>回答数ランキング</h3>
+            <div class='ranking_answer'>
+            </div>
+          </div>
+          <div class='question_like'>
+            <h3>いいね数ランキング</h3>
+            <div class='ranking_like'>
+            </div>      
+          </div>
+        </div>
       </div>
-    </div>
-    <div class='question_like'>
-      <h3>いいね数ランキング</h3>
-      <div class='ranking_like'>
-      </div>      
     </div>
   </div>
 </div>
+
+
+                <ul class="dropdown">
+                  <li><%#= link_to "一覧表示", questions_path %></li>
+                  <li><%#= link_to "投稿する", new_question_path, class: "post" %></li>
+                </ul> 
