@@ -10,7 +10,7 @@
           <%= link_to '編集', edit_article_path(article.id), method: :get %>
         </li>
         <li>
-        <%= link_to '削除', article_path(article.id), method: :delete %>
+        <%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
         </li>
       <% end %>
     </ul>
@@ -32,13 +32,7 @@
       <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post %></p>
     <% end %>
   <% end %>
-  <% if user_signed_in? %>
-    <% if article.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-      <p id="favo"><i class="far fa-thumbs-up"></i><%=link_to article.favorites.count, article_favorites_path(article.id), method: :delete %></p>
-    <% else %>
-      <p id="favo"><i class="far fa-thumbs-up"></i><%=link_to article.favorites.count, article_favorites_path(article.id), method: :post %></p>
-    <% end %>
-  <% else %>
-    <p id="favo"><i class="far fa-thumbs-up"></i><%= article.favorites.count %></p>
-  <% end %>
+  <div class='favorites'>
+    <%= render partial: 'favorites/favorite', locals: { article: article } %>
+  </div>
 </div>

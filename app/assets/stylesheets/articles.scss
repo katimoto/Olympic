@@ -65,7 +65,7 @@ a {
     // box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.3);
     margin: 40px;
     border-radius: 20px;
-    overflow: scroll;
+    overflow-y: auto;
   }
 
   .aside {
@@ -79,7 +79,7 @@ a {
             transition-delay: 0s;
     box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.3);
     margin: 100px 10px;
-    overflow: scroll;
+    overflow-y: auto;
   }
 }
 

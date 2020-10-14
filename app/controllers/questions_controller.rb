@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @questions = Question.includes(:user).page(params[:page]).per(3).order("created_at DESC")
+    @questions = Question.includes(:user).page(params[:page]).per(8).order("created_at DESC")
   end
 
   def new
