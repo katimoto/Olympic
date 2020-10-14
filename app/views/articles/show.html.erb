@@ -21,14 +21,7 @@
       </a>
     </span>
   </div>
-    <%# if current_user %>
-      <%#= form_with(model: [@article, @favorite], local: true) do |form| %>
-        <%#= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%#= form.submit "SEND" %>
-      <%# end %>
-    <%# else %>
-      <!--strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong-->
-    <%# end %>  
+
     <% @users.each do |user| %>
       <% if user_signed_in? && current_user != user %>
         <% if user.followed_by?(current_user) %>

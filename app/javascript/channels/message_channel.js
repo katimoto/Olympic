@@ -10,11 +10,11 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    // const username = JSON.parse(document.getElementById("user-name").dataset.json);
-    const html = `
+    const username = JSON.parse(document.getElementById("user-name").dataset.json);
+    const html = `<div class="message">
                     <div class="upper-message">
                       <div class="message-user">
-                        ${data.content.user_id}
+                        ${username}
                       </div>
                       <div class="message-date">
                         ${data.content.created_at}
@@ -24,7 +24,8 @@ consumer.subscriptions.create("MessageChannel", {
                       <div class="message-content", id="messages">
                         ${data.content.content}
                       </div>
-                    </div>`;
+                    </div>
+                  </div>`;
     const messages = document.getElementById('message');
     const newMessage = document.getElementById('message_content');
     messages.insertAdjacentHTML('beforeend', html);

@@ -23,8 +23,6 @@
 
 .rooms {
   background-color: #2F3E51;
-  height: calc(100vh - 100px);
-  width: 200px;
   padding: 0 20px;
   overflow: scroll;
 }
