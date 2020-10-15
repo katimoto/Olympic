@@ -1,85 +1,73 @@
-<p><span>name: </span><%= @user.name %></p>
-<%= image_tag @user.image.variant(resize: '100x100'), class: 'user-image' if @user.image.attached? %>
-<p><span>email: </span><%= @user.email %></p>
 
 
-<p><%=link_to "フォロー", follows_user_path(@user.id) %></p>
-<p><%=link_to "フォロワー", followers_user_path(@user.id) %></p>
-<% if current_user != @user %>
-  <% if @user.followed_by?(current_user) %>
-    <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
-  <% else %>
-    <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
-  <% end %>
-<% end %>
-
-<div class="contents row">
-  <p><%= @name %>さんの投稿一覧</p>
-  <% @articles.each do |article| %>
-    <%= link_to article.text, article_path(article.id)  %>
-  <% end %>
-</div>
-<div class="contents low">
-  <% @questions.each do |question| %>
-    <%= render partial: "questions/question", locals: { question: question } %>
-  <% end %>
-</div>
-
-<div class="favorites">
-  <h4>＜お気に入り一覧＞</h4>
-  <% @favorite_articles.each do |article| %>
-    <hr>
-    <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
-  <% end %>
-</div>
-
-<div class="AccountPage">
-  <div class="AccountPage__title">
-    <h1>マイページ</h1>
-  <div class="Card__title">
-    <h2>カード情報<h2>
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
   </div>
-  <%if current_user.id == @user.id %>
-    <div class="Card_info">
-      【カード番号】
-      <br>
-      <%= "**** **** **** " + @card[:last4] %>
-      <%# カード番号の下4桁を取得 %>
-
-      <br>
-      【有効期限】
-      <br>
-      <%= @card[:exp_month] %>
-      <%# 有効期限の「月」を取得 %>
-      /
-      <%= @card[:exp_year] %>
-      <%# 有効期限の「年」を取得 %>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">My page</h1>
+      <h3 class="head__ja">マイページ</h3>
+      <%= render "header"%>
     </div>
-    </div><br>
-    <div class="Account__info">
-  <% end %>
-    <h2>ユーザー情報</h2>
-  </div>
-  <div class="AccountPage__form">
-    <%= form_for(current_user) do |f| %>
-      <div class="FormField">
-        <div class="FormField__name">
-          <%= f.label :name %>
+    <div class='user_content'>
+      <div class='user_left'>
+        <%= image_tag @user.image.variant(resize: '200x200'), class: 'user-image' if @user.image.attached? %>
+      </div>
+      <div class='user_right'>
+        <table class="table-name">
+          <tbody>
+            <tr>
+              <th>氏名</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>eメール</th>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th>スポーツ</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>経歴</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>プロフィール内容</th>
+              <td><%= @user.name %></td>
+            </tr>
+          </tbody>    
+        </table>    
+
+        <% if current_user != @user %>
+          <% if @user.followed_by?(current_user) %>
+            <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
+          <% else %>
+            <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
+          <% end %>
+        <% end %>
+
+        <div class="contents row">
+          <p><%= @name %>さんの投稿一覧</p>
+          <% @articles.each do |article| %>
+            <%= link_to article.text, article_path(article.id)  %>
+          <% end %>
         </div>
-        <div class="FormField__name">
-          <%= f.text_field :name, autofocus: true %>
+        <div class="contents low">
+          <% @questions.each do |question| %>
+            <%= render partial: "questions/question", locals: { question: question } %>
+          <% end %>
+        </div>
+
+        <div class="favorites">
+          <h4>＜お気に入り一覧＞</h4>
+          <% @favorite_articles.each do |article| %>
+            <hr>
+            <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
+          <% end %>
         </div>
       </div>
-      <div class="FormField">
-        <div class="FormField__email">
-          <%= f.label :email %>
-        </div>
-        <div class="FormField__email">
-          <%= f.email_field :email %>
-        </div>
-        <br>
-      </div>
-      <%= f.submit "更新する" %>
-    <% end %>
+    </div>
   </div>
 </div>

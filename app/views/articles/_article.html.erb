@@ -10,35 +10,31 @@
           <%= link_to '編集', edit_article_path(article.id), method: :get %>
         </li>
         <li>
-        <%= link_to '削除', article_path(article.id), method: :delete %>
+        <%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
         </li>
       <% end %>
     </ul>
   </div>
   <%= image_tag article.image.variant(resize: '500x500'), class: 'article-image' if article.image.attached? %>
-  <p><%= article.text %></p>
-  <% article.tags.each do |tag| %>
-    #<%= tag.word %>
-  <%end%>
-  <span class="name">
-    <a href="/users/<%= article.user.id %>">
-      <span>投稿者</span><%= article.user.name %>
-    </a>
-  </span>
-  <% if user_signed_in? && current_user != article.user %>
-    <% if article.user.followed_by?(current_user) %>
-      <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete %></p>
-    <% else %>
-      <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post %></p>
+  <div class='content_show'>
+    <p><%= article.text %></p>
+    <% article.tags.each do |tag| %>
+      #<%= tag.word %>
+    <%end%>
+    <span class="name">
+      <a href="/users/<%= article.user.id %>">
+        <span>投稿者</span><%= article.user.name %>
+      </a>
+    </span>
+    <% if user_signed_in? && current_user != article.user %>
+      <% if article.user.followed_by?(current_user) %>
+        <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete, remote: true %></p>
+      <% else %>
+        <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post, remote: true %></p>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if user_signed_in? %>
-    <% if article.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-      <p id="favo"><i class="far fa-thumbs-up"></i><%=link_to article.favorites.count, article_favorites_path(article.id), method: :delete %></p>
-    <% else %>
-      <p id="favo"><i class="far fa-thumbs-up"></i><%=link_to article.favorites.count, article_favorites_path(article.id), method: :post %></p>
-    <% end %>
-  <% else %>
-    <p id="favo"><i class="far fa-thumbs-up"></i><%= article.favorites.count %></p>
-  <% end %>
+    <div class='favorites_<%= article.id %>'>
+      <%= render partial: 'favorites/favorite', locals: { article: article } %>
+    </div>
+  </div>
 </div>

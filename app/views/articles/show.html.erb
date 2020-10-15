@@ -1,43 +1,49 @@
-<div class="contents row">
-  <div class="content_post" style="background-image: url(<%= @article.image %>);">
-    <% if user_signed_in? && current_user.id == @article.user_id %>
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', edit_article_path(@article.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', article_path(@article.id), method: :delete %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
-    <%= image_tag @article.image, class: 'article-image' if @article.image.attached? %>
-    <p><%= @article.text %></p>
-    <span class="name">
-      <a href="/users/<%= @article.user.id %>">
-        <span>投稿者</span><%= @article.user.name %>
-      </a>
-    </span>
+
+
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "header"%>
   </div>
-    <%# if current_user %>
-      <%#= form_with(model: [@article, @favorite], local: true) do |form| %>
-        <%#= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%#= form.submit "SEND" %>
-      <%# end %>
-    <%# else %>
-      <!--strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong-->
-    <%# end %>  
-    <% @users.each do |user| %>
-      <% if user_signed_in? && current_user != user %>
-        <% if user.followed_by?(current_user) %>
-          <p><%=link_to "フォロー済み", user_relationships_path(user.id), method: :delete %></p>
-        <% else %>
-          <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post %></p>
-        <% end %>
-      <% end %>
-    <% end %>
-</div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">Article Show</h1>
+      <h3 class="head__ja">記事の詳細</h3>
+      <%= render "heading"%>
+    </div>
+    <div class='main_content'>
+      <div class="contents row">
+        <div class="content_post" style="background-image: url(<%= @article.image %>);">
+          <% if user_signed_in? && current_user.id == @article.user_id %>
+            <div class="more">
+              <span><%= image_tag 'arrow_top.png' %></span>
+              <ul class="more_list">
+                <li>
+                  <%= link_to '編集', edit_article_path(@article.id), method: :get %>
+                </li>
+                <li>
+                  <%= link_to '削除', article_path(@article.id), method: :delete %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+          <%= image_tag @article.image, class: 'article-image' if @article.image.attached? %>
+          <p><%= @article.text %></p>
+          <span class="name">
+            <a href="/users/<%= @article.user.id %>">
+              <span>投稿者</span><%= @article.user.name %>
+            </a>
+          </span>
+        </div>
 
-
+          <% @users.each do |user| %>
+            <% if user_signed_in? && current_user != user %>
+              <% if user.followed_by?(current_user) %>
+                <p><%=link_to "フォロー済み", user_relationships_path(user.id), method: :delete %></p>
+              <% else %>
+                <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post %></p>
+              <% end %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>

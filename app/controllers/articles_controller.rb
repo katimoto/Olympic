@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = SearchArticlesService.search(params[:keyword])
+    @articles = SearchArticlesService.search(params[:keyword]).page(params[:page]).per(3).order("created_at DESC")
   end
 
   def tagsearch

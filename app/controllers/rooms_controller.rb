@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :find_room, only: :order
 
   def index
+    @rooms = Room.includes(:user).page(params[:page]).per(20).order("created_at DESC")
   end
 
   def new
@@ -19,6 +20,9 @@ class RoomsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def destroy

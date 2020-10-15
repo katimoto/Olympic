@@ -1,9 +1,25 @@
-<div class="contents row">
-  <div class="container">
-    <%= form_with(model: @article, url: articles_path, local: true) do |form| %>
-      <h3>投稿する</h3>
-      <%= render 'layouts/error_messages', model: form.object %>
-      <%= render partial: "form", locals: { form: form } %>
-    <% end %>
+
+
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">Post Articles</h1>
+      <h3 class="head__ja">記事を投稿しよう！</h3>
+      <%= render "heading"%>
+    </div>
+    <div class='main_content'>
+      <div class="contents row">
+        <div class="container">
+          <%= form_with(model: @article, url: articles_path, local: true) do |form| %>
+            <h3>投稿する</h3>
+            <%= render 'layouts/error_messages', model: form.object %>
+            <%= render partial: "form", locals: { form: form } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

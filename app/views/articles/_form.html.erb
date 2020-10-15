@@ -1,10 +1,10 @@
-<%= form.text_field :title, placeholder: "title", class:"input-tag" %>
+<%= form.text_field :title, placeholder: "タイトル", class:"input-tag" %>
 <label class="form-image">
   <span class="image-file">画像</span>
   <%= form.file_field :image, class: 'hidden' %>
 </label>
-<%= form.text_area :text, placeholder: "text", rows: "10" %>
-<%= form.text_field :word, placeholder: "tag", class:"input-tag" %>
+<%= form.text_area :text, placeholder: "テキスト", rows: "10" %>
+<%= form.text_field :word, placeholder: "タグ", class:"input-tag" %>
 <div id="search-result">
 </div>
 <%= form.submit "SEND" %>

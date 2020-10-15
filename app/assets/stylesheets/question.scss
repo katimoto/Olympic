@@ -4,7 +4,6 @@
 
   .question_index {
     width: 70%;
-    background-color: yellow;
 
     h1 {
       text-align: left;
@@ -14,13 +13,12 @@
     }
 
     .low {
-      margin: 50px;
+      
     }
   }
 
   .question_aside {
     width: 30%;
-    background-color: yellowgreen;
 
     .question_category {
       height: 30%;
@@ -61,7 +59,6 @@
 h3 {
   font-size: 30px;
   margin-left: 30px;
-  color: #fff;
 }
 
 #qf {
@@ -73,5 +70,6 @@ h3 {
 
   #qs {
     height: 50%;
+    font-size: 30px;
   }
 }

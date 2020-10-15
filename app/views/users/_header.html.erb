@@ -1,0 +1,13 @@
+<ul class='show_head'>
+  <li><%= link_to "home", user_path(current_user) %></li>
+  <li><%= link_to "記事一覧", articles_path %></li>
+  <li><%= link_to "質問一覧", questions_path %></li>
+  <li><%= link_to "フォロー", follows_user_path(current_user) %></li>
+  <li><%= link_to "フォロワー", followers_user_path(current_user) %></li>
+  <li><%= link_to "出品一覧", rooms_path %></li>
+  <li><%= link_to "お気に入り", article_favorites_path(current_user) %></li>
+  <li><%= link_to "ユーザー一覧", users_path(current_user) %></li>
+  <% if current_user == @user%>
+  <li><%= link_to "カード", card_path(current_user) %></li>
+  <% end %>
+</ul>

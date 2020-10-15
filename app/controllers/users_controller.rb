@@ -14,18 +14,20 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   def show
     @user = User.find(params[:id])
     @name = @user.name
-    @articles = @user.articles
-    @favorite_articles = @user.favorite_articles
+    @articles = @user.articles.page(params[:page]).per(3).order("created_at DESC")
+    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order("created_at DESC")
     @questions = @user.questions
 
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    card = Card.find_by(user_id: current_user.id)
+    # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    # card = Card.find_by(user_id: current_user.id)
 
-    customer = Payjp::Customer.retrieve(card.customer_token) # 先程のカード情報を元に、顧客情報を取得
-    @card = customer.cards.first
+    # customer = Payjp::Customer.retrieve(card.customer_token) # 先程のカード情報を元に、顧客情報を取得
+    # @card = customer.cards.first
   end
 
   def follows

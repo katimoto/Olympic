@@ -1,0 +1,32 @@
+.nav_main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .olympic {
+    font-size: 38px;
+    color: #fff;
+    margin-top: 80%;
+    margin-bottom: 30%;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .nav {
+      color: #fff;
+      line-height: 3rem;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+.wrapper .nav_main {
+  width: 25%;
+  background-color: #1b515c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

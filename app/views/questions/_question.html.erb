@@ -1,28 +1,8 @@
 <div class="content_post_question">
-  <%= link_to question.title, question_path(question.id), method: :get %>
-  <span class="name">
-    <a href="/users/<%= question.user.id %>">
-      <span>投稿者</span><%= question.user.name %>
-    </a>
-  </span>
+  <div class='q_category'><%=link_to question.category.name, questions_path %></div>
+  <div class='q_title'><%= link_to question.title, question_path(question.id), method: :get %></div>
+  <p class="q_time"><%= l question.created_at %></p>
 </div>
 
 
-  <% if false %>
-  <div class="more">
-    <span><%= image_tag 'arrow_top.png' %></span>
-    <ul class="more_list">
-      <li>
-        <%= link_to '詳細', question_path(question.id), method: :get %>
-      </li>
-      <% if user_signed_in? && current_user.id == question.user_id %>
-        <li>
-          <%= link_to '編集', edit_question_path(question.id), method: :get %>
-        </li>
-        <li>
-        <%= link_to '削除', question_path(question.id), method: :delete %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+

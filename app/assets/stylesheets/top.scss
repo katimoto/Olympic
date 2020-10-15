@@ -1,0 +1,136 @@
+html {
+  // font-family: 'fantasy';
+  font-weight: 900;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+
+
+
+.wrapper {
+  display: flex;
+  width: 100%;
+
+  .nav_main {
+    width: 25%;
+    background-color: #1b515c;
+  }
+
+  .main {
+    background-color: #eee;
+    text-align: center;
+    padding: 5% 8% 5%;
+    width: 75%;
+
+    .main_menu {
+      border-bottom: 1px solid #1b515c;
+
+      .head_en {
+        font-size: 100px;
+      }
+
+      .head__ja {
+        font-size: 30px;
+        margin-left: 30px;
+        margin-bottom: 5%;
+      }
+
+      .show_head {
+        display: flex;
+        list-style: none;
+        justify-content: left;
+
+        li {
+          display: inline-block;
+          padding: 0 10px;
+          border: 1px solid transparent;
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+          border-radius: 10px 10px 0 0;
+
+          &:active {
+            background-color: #626a6d !important;
+            color: #fff !important;
+            border-color: #626a6d !important;
+            border-radius: 10px 10px 0 0;
+          }
+
+          a {
+            color: #1b515c;
+            letter-spacing: 0em;
+
+            &:hover {
+              color: rgb(111, 112, 173);
+            }
+          }
+        }
+      }
+    }
+
+    .main_content {
+      margin-top: 10%;
+      
+
+
+    }
+  }
+}
+
+.user_content {
+  display: flex;
+
+      .user_left {
+        width: 30%;
+
+        .user-image {
+          margin-top: 50px;
+          margin-left: 50px;
+          border-radius: 100px;
+        }
+      }
+
+      .user_right {
+        width: 70%;
+
+        .table-name{
+          height: 500px;
+          margin-left: 200px;
+          margin-top: 100px;
+
+          th {
+            font-size: 20px;
+          }
+
+          td {
+            font-size: 20px;
+          }
+        }
+      }
+}
+
+.follow {
+  position: absolute;
+}
+
+.search-form {
+  background-color: transparent;
+}
+
+.not_login {
+  float: right;
+  margin: 20px 30px;
+
+  .login {
+    padding: 10px;
+    color: black;
+  }
+
+  .signup {
+    padding: 10px;
+    color: black;
+  }
+}
