@@ -14,7 +14,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def article
+    @user = User.find(params[:id])
+    @name = @user.name
+    @articles = @user.articles.page(params[:page]).per(3).order("created_at DESC")
+  end
 
+  def question
+    @user = User.find(params[:id])
+    @name = @user.name
+    @questions = @user.questions.page(params[:page]).per(8).order("created_at DESC")
+  end
 
   def show
     @user = User.find(params[:id])

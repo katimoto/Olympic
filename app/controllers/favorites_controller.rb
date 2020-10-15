@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
   def show
-    @favorites = Favorite.where(user_id: current_user.id)
+    @user = User.find(current_user.id)
+    @name = @user.name
+    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order("created_at DESC")
   end
 
   def create
