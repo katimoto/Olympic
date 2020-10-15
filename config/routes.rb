@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :rooms, only: [:new, :create, :destroy] do
+  resources :rooms, only: [:index, :new, :create, :destroy, :show] do
     post 'order', on: :member
     get 'order_new', on: :member
     resources :messages, only: [:index, :create]

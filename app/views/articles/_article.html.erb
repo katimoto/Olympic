@@ -33,7 +33,7 @@
         <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post, remote: true %></p>
       <% end %>
     <% end %>
-    <div class='favorites'>
+    <div class='favorites_<%= article.id %>'>
       <%= render partial: 'favorites/favorite', locals: { article: article } %>
     </div>
   </div>

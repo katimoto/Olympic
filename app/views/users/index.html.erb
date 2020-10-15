@@ -30,7 +30,7 @@
   <li><%#= link_to "トップページに戻る", articles_path %></li>
   <li><%#= link_to "プロフィール", users_path(current_user) %></li>
   <li><%#= link_to "編集", edit_user_path(current_user), class: "name" %></li>
-  <li><%#= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 </ul>
 
 <ul class="dropdown">

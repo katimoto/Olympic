@@ -4,8 +4,9 @@
   </div>
   <div class='main'>
     <div class='main_menu'>
-      <h1 class="head_en">SearchQuestion</h1>
+      <h1 class="head_en">Search Question</h1>
       <h3 class="head__ja">質問を探そう！</h3>
+      <%= render "header"%>
     </div>
     <div class='main_content'>
       <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>

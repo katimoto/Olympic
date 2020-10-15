@@ -62,6 +62,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    awesome_print (1.8.0)
     aws-eventstream (1.1.0)
     aws-partitions (1.380.0)
     aws-sdk-core (3.109.1)
@@ -79,6 +80,10 @@ GEM
     aws-sigv4 (1.2.2)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
+    better_errors (2.8.3)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -342,7 +347,9 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
+  awesome_print (~> 1.8)
   aws-sdk-s3
+  better_errors (~> 2.8, >= 2.8.3)
   bootsnap (>= 1.4.2)
   byebug
   capistrano

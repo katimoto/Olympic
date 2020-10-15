@@ -1,48 +1,64 @@
-<div class="contents row">
-  <div class="content_post" style="background-image: url(<%= @question.image %>);">
-    <% if user_signed_in? && current_user.id == @question.user_id %>
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', edit_question_path(@question.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', question_path(@question.id), method: :delete %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
-    <%= image_tag @question.image, class: 'question-image' if @question.image.attached? %>
-    <p><%= @question.text %></p>
-    <div class="question-category">
-      <%= @question.category.name %>
-    </div>
-    <span class="name">
-      <a href="/users/<%= @question.user.id %>">
-        <span>投稿者</span><%= @question.user.name %>
-      </a>
-    </span>
+
+
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
   </div>
-  <div class="container">
-    <% if current_user %>
-      <%= form_with(model: [@question, @answer], remote: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ 回答には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
-    <div class="answers">
-      <h4>＜アンサー一覧＞</h4>
-      <% if @answers %>
-        <% @answers.each do |answer| %>
-          <p>
-            <strong><%= link_to answer.user.name, "/users/#{answer.user_id}" %>：</strong>
-            <%= answer.text %>
-          </p>
-        <% end %>
-      <% end %>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">Question Show</h1>
+      <h3 class="head__ja">質問の詳細ー</h3>
+      <%= render "header"%>
+    </div>
+    <div class='main_content'>
+      <div class="contents row">
+        <div class="content_post" style="background-image: url(<%= @question.image %>);">
+          <% if user_signed_in? && current_user.id == @question.user_id %>
+            <div class="more">
+              <span><%= image_tag 'arrow_top.png' %></span>
+              <ul class="more_list">
+                <li>
+                  <%= link_to '編集', edit_question_path(@question.id), method: :get %>
+                </li>
+                <li>
+                  <%= link_to '削除', question_path(@question.id), method: :delete %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+          <%= image_tag @question.image, class: 'question-image' if @question.image.attached? %>
+          <p><%= @question.text %></p>
+          <div class="question-category">
+            <%= @question.category.name %>
+          </div>
+          <span class="name">
+            <a href="/users/<%= @question.user.id %>">
+              <span>投稿者</span><%= @question.user.name %>
+            </a>
+          </span>
+        </div>
+        <div class="container">
+          <% if current_user %>
+            <%= form_with(model: [@question, @answer], remote: true) do |form| %>
+              <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+              <%= form.submit "SEND" %>
+            <% end %>
+          <% else %>
+            <strong><p>※※※ 回答には新規登録/ログインが必要です ※※※</p></strong>
+          <% end %>
+          <div class="answers">
+            <h4>＜アンサー一覧＞</h4>
+            <% if @answers %>
+              <% @answers.each do |answer| %>
+                <p>
+                  <strong><%= link_to answer.user.name, "/users/#{answer.user_id}" %>：</strong>
+                  <%= answer.text %>
+                </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

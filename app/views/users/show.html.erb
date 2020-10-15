@@ -10,17 +10,36 @@
       <h3 class="head__ja">マイページ</h3>
       <%= render "header"%>
     </div>
-    <div class='main_content'>
+    <div class='user_content'>
       <div class='user_left'>
         <%= image_tag @user.image.variant(resize: '200x200'), class: 'user-image' if @user.image.attached? %>
       </div>
       <div class='user_right'>
-        <p><span>name: </span><%= @user.name %></p>
-        <p><span>email: </span><%= @user.email %></p>
+        <table class="table-name">
+          <tbody>
+            <tr>
+              <th>氏名</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>eメール</th>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th>スポーツ</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>経歴</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>プロフィール内容</th>
+              <td><%= @user.name %></td>
+            </tr>
+          </tbody>    
+        </table>    
 
-
-        <p><%=link_to "フォロー", follows_user_path(@user.id) %></p>
-        <p><%=link_to "フォロワー", followers_user_path(@user.id) %></p>
         <% if current_user != @user %>
           <% if @user.followed_by?(current_user) %>
             <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>

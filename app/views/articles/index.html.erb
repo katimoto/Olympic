@@ -12,14 +12,12 @@
     </div>
     <div class='main_content'>
       <div class="content">
-        <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-        <div class="contents row">
-            <%= article_lists(@articles) %>
+        <div class='article_show'>
+          <div class="contents row">
+              <%= article_lists(@articles) %>
+          </div>
+          <%= paginate @articles %>
         </div>
-        <%= paginate @articles %>
       </div>
       <div class='aside'>
         <%= render "questions/aside"%>

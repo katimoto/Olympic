@@ -1,8 +1,25 @@
-<div class="contents row">
-  <div class="container">
-    <%= form_with(model: @article, local: true) do |form| %>
-      <h3>編集する</h3>
-      <%= render partial: "form", locals: { form: form } %>
-    <% end %>
+
+
+
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">Article Edit</h1>
+      <h3 class="head__ja">記事の編集</h3>
+      <%= render "heading"%>
+    </div>
+    <div class='main_content'>
+      <div class="contents row">
+        <div class="container">
+          <%= form_with(model: @article, local: true) do |form| %>
+            <h3>編集する</h3>
+            <%= render partial: "form", locals: { form: form } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

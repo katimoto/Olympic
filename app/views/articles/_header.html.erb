@@ -7,6 +7,7 @@
       <%= link_to "Room", new_room_path, class:"nav"%>
       <%= link_to "Article", search_articles_path, class:"nav" %>
       <%= link_to "Question", questions_path, class:"nav" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav" %>
     </div>
   <% else %>
     <div class="not_login">

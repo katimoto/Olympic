@@ -1,5 +1,3 @@
-
-
 <div class='wrapper'>
   <div class='nav_main'>
     <%= render "articles/header"%>
@@ -15,11 +13,10 @@
         <div class='side-bar'>
           <% if user_signed_in? %>
           <div class="rooms">
-            <% @rooms.each do |room| %>
+            <% current_user.rooms.each do |room| %>
               <div class="room">
                 <div class="room-name">
                   <%= link_to room.name, room_messages_path(room) %>
-                  <%= link_to '購入画面へ', order_new_room_path(room.id) %>
                 </div>
               </div>
             <% end %>

@@ -1,7 +1,21 @@
-<div class="favorites">
-  <h4>＜お気に入り一覧＞</h4>
-  <% @favorite_articles.each do |article| %>
-    <hr>
-    <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
-  <% end %>
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en">Favorites</h1>
+      <h3 class="head__ja">お気に入り一覧</h3>
+      <%= render "header"%>
+    </div>
+    <div class='main_content'>
+      <div class="favorites">
+        <h4>＜お気に入り一覧＞</h4>
+        <% @favorite_articles.each do |article| %>
+          <hr>
+          <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

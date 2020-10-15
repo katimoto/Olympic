@@ -30,6 +30,7 @@ consumer.subscriptions.create("MessageChannel", {
     const newMessage = document.getElementById('message_content');
     messages.insertAdjacentHTML('beforeend', html);
     newMessage.value='';
+    $(".messages").scrollTop($("#message")[0].scrollHeight);
     // Called when there's incoming data on the websocket for this channel
   }
 });

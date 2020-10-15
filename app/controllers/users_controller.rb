@@ -14,11 +14,13 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   def show
     @user = User.find(params[:id])
     @name = @user.name
-    @articles = @user.articles
-    @favorite_articles = @user.favorite_articles
+    @articles = @user.articles.page(params[:page]).per(3).order("created_at DESC")
+    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order("created_at DESC")
     @questions = @user.questions
 
     # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
