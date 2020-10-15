@@ -91,6 +91,14 @@ html {
           margin-left: 50px;
           border-radius: 100px;
         }
+
+        .follow {
+          background-color: #1b515c;
+          color: #eee;
+          margin-top: 20px;
+          padding: 10px;
+          border-radius: 10px;
+        }
       }
 
       .user_right {
@@ -110,10 +118,6 @@ html {
           }
         }
       }
-}
-
-.follow {
-  position: absolute;
 }
 
 .search-form {

@@ -15,4 +15,11 @@ class ArticlesTag
     ArticleTagRelation.create(article_id: article.id, tag_id: tag.id)
   end
 
+  def update(article_id)
+    article = Article.find(article_id)
+    article_tag = article.tags
+    article.update(user_id: user_id, title: title, text: text, image: image)
+    article_tag.update(word: word)
+  end
+
 end

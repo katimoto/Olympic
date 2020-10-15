@@ -7,7 +7,7 @@
   <div class='main'>
     <div class='main_menu'>
       <h1 class="head_en">UserList</h1>
-      <h3 class="head__ja">ユーザーリスト</h3>
+      <h3 class="head__ja">ユーザー一覧</h3>
       <%= render "header"%>
     </div>
     <div class='main_content'>
@@ -25,17 +25,3 @@
     </div>
   </div>
 </div>
-
-<ul class="dropdown">
-  <li><%#= link_to "トップページに戻る", articles_path %></li>
-  <li><%#= link_to "プロフィール", users_path(current_user) %></li>
-  <li><%#= link_to "編集", edit_user_path(current_user), class: "name" %></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-</ul>
-
-<ul class="dropdown">
-  <li><%#= link_to "ユーザー一覧", users_path(current_user) %></li>
-  <li><%#= link_to "フォロー", follows_user_path(current_user) %></li>
-  <li><%#= link_to "フォロワー", followers_user_path(current_user) %></li>
-  <li><%#= link_to "お気に入り", article_favorites_path(current_user) %></li>
-</ul>     

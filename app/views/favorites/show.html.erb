@@ -13,7 +13,7 @@
         <p><%= @name %>さんのお気に入り一覧</p>
         <% @favorite_articles.each do |article| %>
           <hr>
-          <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
+          <p id="fav_content"><span id="fav_content">ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
         <% end %>
       </div>
     </div>
