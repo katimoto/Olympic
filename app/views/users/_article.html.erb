@@ -1,20 +1,5 @@
 <div class="content_post">
-  <div class="more">
-    <span><%= image_tag 'arrow_top.png' %></span>
-    <ul class="more_list">
-      <li>
-        <%= link_to '詳細', article_path(article.id), method: :get %>
-      </li>
-      <% if user_signed_in? && current_user.id == article.user_id %>
-        <li>
-          <%= link_to '編集', edit_article_path(article.id), method: :get %>
-        </li>
-        <li>
-        <%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+
   <%= image_tag article.image.variant(resize: '500x500'), class: 'article-image' if article.image.attached? %>
   <div class='content_show'>
     <p><%= article.text %></p>
@@ -26,13 +11,19 @@
         <span>投稿者</span><%= article.user.name %>
       </a>
     </span>
-    <% if user_signed_in? && current_user != article.user %>
-      <% if article.user.followed_by?(current_user) %>
-        <p><%=link_to "フォロー済み", user_relationships_path(article.user.id), class: "follow", method: :delete, remote: true %></p>
-      <% else %>
-        <p><%=link_to "フォローする", user_relationships_path(article.user.id), class: "follow", method: :post, remote: true %></p>
-      <% end %>
-    <% end %>
+      <ul class="more_list">
+        <li>
+          <%= link_to '詳細', article_path(article.id), method: :get %>
+        </li>
+        <% if user_signed_in? && current_user.id == article.user_id %>
+          <li>
+            <%= link_to '編集', edit_article_path(article.id), method: :get %>
+          </li>
+          <li>
+          <%= link_to '削除', article_path(article.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        <% end %>
+      </ul>
     <div class='favorites_<%= article.id %>'>
       <%= render partial: 'favorites/favorite', locals: { article: article } %>
     </div>

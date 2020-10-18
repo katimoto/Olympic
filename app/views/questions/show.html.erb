@@ -15,7 +15,6 @@
         <div class="content_post" style="background-image: url(<%= @question.image %>);">
           <% if user_signed_in? && current_user.id == @question.user_id %>
             <div class="more">
-              <span><%= image_tag 'arrow_top.png' %></span>
               <ul class="more_list">
                 <li>
                   <%= link_to '編集', edit_question_path(@question.id), method: :get %>

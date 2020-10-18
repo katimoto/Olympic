@@ -1,7 +1,7 @@
 
   <h6 class="olympic">Olympic</h6>
   <% if user_signed_in? %>
-    <div class="navigation grid-6">
+    <div class="navigation">
       <%= link_to "TopPage", root_path, class:"nav"%>
       <%= link_to "Profile", user_path(current_user), class:"nav"%>
       <%= link_to "Room", room_path(current_user), class:"nav"%>
