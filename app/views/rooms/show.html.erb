@@ -13,7 +13,7 @@
         <div class='side-bar'>
           <% if user_signed_in? %>
           <div class="rooms">
-            <% current_user.rooms.each do |room| %>
+            <% Room.where(:id == RoomUser.where(:user_id==current_user.id).pluck(:room_id)).each do |room| %>
               <div class="room">
                 <div class="room-name">
                   <%= link_to room.name, room_messages_path(room) %>

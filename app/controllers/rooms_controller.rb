@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :find_room, only: :order
+  before_action :find_room, only: [:edit, :show, :update, :order]
 
   def index
     @rooms = Room.includes(:user).page(params[:page]).per(20).order("created_at DESC")
@@ -16,13 +16,16 @@ class RoomsController < ApplicationController
 
     @room = Room.new(room_params)
     if @room.save
-      redirect_to root_path
+      redirect_to rooms_path
     else
       render :new
     end
   end
 
   def show
+    @message = Message.new
+    @room = Room.find(params[:id])
+    @messages = @room.messages.includes(:user)
   end
 
   def destroy
@@ -42,19 +45,23 @@ class RoomsController < ApplicationController
       currency: 'jpy' # 通貨の種類（日本円）
       )
 
-    RoomOrder.create(room_id: params[:id]) # 商品のid情報を「room_id」として保存する
+    order = RoomOrder.new(room_id: params[:id], user_id: current_user.id) # 商品のid情報を「room_id」として保存する
+    if order.save
+      roomuser = Room.find(params[:id]).user_id
+      RoomUser.create(room_id: params[:id], user_id: current_user.id)
+      RoomUser.create(room_id: params[:id], user_id: roomuser)
+    end
     redirect_to root_path
   end
 
   def order_new
     @room = Room.find(params[:id])
-    redirect_to root_path
   end
 
   private
 
   def room_params
-    params.require(:room).permit(:name, :price, :text, :category_id, user_ids:[])
+    params.require(:room).permit(:name, :price, :text, :category_id, :user_id)
   end
 
   def find_room

@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
 
   create_table "room_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_room_orders_on_room_id"
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
     t.string "price", null: false
     t.string "text", null: false
     t.integer "category_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -12,6 +12,7 @@
       <div class='chat-room-form'>
         <%=form_with model: @room, local: true do |f|%>
           <div class='chat-room-form__field'>
+          <%= render 'shared/error_messages', model: f.object %>
             <div class='chat-room-form__field--left'>
               <%= f.label :ルーム名, class: 'chat-room-form__label'%>
               <%= f.label :価格設定, class: 'chat-room-form__label'%>
@@ -25,24 +26,12 @@
               <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
             </div>
           </div>
-          <div class='chat-room-form__field'>
-          </div>
-          <div class='chat-room-form__field'>
-            <div class='chat-room-form__field--left'>
-              <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
-            </div>
             <div class='chat-room-form__field--right'>
-              <select name="room[user_ids][]">
-                <option value="">チャットするユーザーを選択してください</option>
-                <% User.all.where.not(id: current_user.id).each do |user| %>
-                  <option value=<%=user.id%>><%= user.name %></option>
-                <% end %>
-              </select>
               <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
             </div>
-          </div>
           <div class='chat-room-form__field'>
             <div class='chat-room-form__field--left'></div>
+            <%= f.hidden_field :user_id, value: current_user.id%>
             <div class='chat-room-form__field--right'>
               <%= f.submit class: 'chat-room-form__action-btn'%>
             </div>

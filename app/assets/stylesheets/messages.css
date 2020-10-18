@@ -68,11 +68,10 @@ i {
 .messages {
   background-color: rgba(157,204,224,0.65);
   height: calc(100vh - 100px - 150px);
-  width: 80%;
+  width: 100%;
   padding: 46px 40px 0;
   overflow: auto;
   border-radius: 10px;
-  margin-left: 100px;
 }
 
 .message {
@@ -105,6 +104,7 @@ i {
 .message-content {
   color: #020304;
   font-size: 14px;
+  text-align: left;
 }
 
 .message-form {

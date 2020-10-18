@@ -4,10 +4,10 @@
     <div class="navigation grid-6">
       <%= link_to "TopPage", root_path, class:"nav"%>
       <%= link_to "Profile", user_path(current_user), class:"nav"%>
-      <%= link_to "Room", new_room_path, class:"nav"%>
+      <%= link_to "Room", room_path(current_user), class:"nav"%>
       <%= link_to "Article", search_articles_path, class:"nav" %>
       <%= link_to "Question", questions_path, class:"nav" %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
     </div>
   <% else %>
     <div class="not_login">
