@@ -28,11 +28,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @articles_tag = ArticlesTag.new(title: @article.title, text: @article.text, image: @article.image, word: @tag.word )
   end
 
   def update
-    article = Article.find(params[:id])
-    article.update(article_params)
+    @articles_tag = ArticlesTag.new(article_params)
+    if @articles_tag.update(params[:id])
+      redirect_to articles_path 
+    else
+      render :edit
+    end 
   end
 
   def show
@@ -55,10 +60,17 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:articles_tag).permit(:title, :image, :text, :word).merge(user_id: current_user.id)
   end
-
+  
   def set_article
     @article = Article.find(params[:id])
   end
+
+  # def tag
+  #   set_article
+  #   @article.tags.each do |tag|
+  #     @tag = tag
+  #   end
+  # end  
 
   def move_to_index
     unless user_signed_in?

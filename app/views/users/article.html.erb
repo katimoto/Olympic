@@ -1,0 +1,19 @@
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en"><%= @user.name %> Article</h1>
+      <h3 class="head__ja"><%= @user.name %>さんの記事</h3>
+      <%= render "header"%>
+    </div>
+    <div class='main_content'>
+      <div class="contents row">
+        <p><%= @name %>さんの投稿一覧</p>
+          <%= article_lists(@articles) %>
+      </div>
+      <%= paginate @articles %>
+    </div>
+  </div>
+</div>

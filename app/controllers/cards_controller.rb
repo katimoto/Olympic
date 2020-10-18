@@ -22,7 +22,9 @@ class CardsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    redirect_to new_card_path and return unless current_user.card.present?
+    
+    @user = User.find(current_user.id)
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     card = Card.find_by(user_id: current_user.id)
 

@@ -4,16 +4,16 @@
   </div>
   <div class='main'>
     <div class='main_menu'>
-      <h1 class="head_en">Favorites</h1>
-      <h3 class="head__ja">お気に入り一覧</h3>
+      <h1 class="head_en"><%= @user.name %> Favorites</h1>
+      <h3 class="head__ja"><p><%= @user.name %>さんのお気に入り一覧</p></h3>
       <%= render "header"%>
     </div>
     <div class='main_content'>
       <div class="favorites">
-        <h4>＜お気に入り一覧＞</h4>
+        <p><%= @name %>さんのお気に入り一覧</p>
         <% @favorite_articles.each do |article| %>
           <hr>
-          <p><span>ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
+          <p id="fav_content"><span id="fav_content">ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
         <% end %>
       </div>
     </div>

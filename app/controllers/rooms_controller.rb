@@ -48,6 +48,7 @@ class RoomsController < ApplicationController
 
   def order_new
     @room = Room.find(params[:id])
+    redirect_to root_path
   end
 
   private

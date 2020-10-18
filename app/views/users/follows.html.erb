@@ -1,18 +1,17 @@
-
-
 <div class='wrapper'>
   <div class='nav_main'>
     <%= render "articles/header"%>
   </div>
   <div class='main'>
     <div class='main_menu'>
-      <h1 class="head_en">My page</h1>
-      <h3 class="head__ja">マイページ</h3>
+      <h1 class="head_en">Following</h1>
+      <h3 class="head__ja">フォロー</h3>
       <%= render "header"%>
     </div>
     <div class='main_content'>
       <% @users.each do |user| %>
         <hr>
+        <%= image_tag user.image.variant(resize: '200x200'), class: 'user-image' if user.image.attached? %>
         <p><span>email: </span><%= link_to user.email, user_path(user.id) %></p>
           <% if current_user != user %>
             <% if user.followed_by?(current_user) %>

@@ -1,0 +1,27 @@
+<div class='wrapper'>
+  <div class='nav_main'>
+    <%= render "articles/header"%>
+  </div>
+  <div class='main'>
+    <div class='main_menu'>
+      <h1 class="head_en"><%= @user.name %> Question</h1>
+      <h3 class="head__ja"><%= @user.name %>さんの質問</h3>
+      <%= render "header"%>
+    </div>
+    <div class='main_content'>
+      <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
+        <%= form.text_field :keyword, placeholder: "質問を探す", class: "search-input", id: "qt" %>
+        <%= form.submit "Go", class: "search-btn", id: "qs" %>
+      <% end %>
+      <div class='question_wrapper'>
+        <div class='question_index'>
+          <p><%= @name %>さんの投稿一覧</p>
+          <div class="contents low">
+              <%= question_lists(@questions) %>
+          </div>
+          <%= paginate @questions %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

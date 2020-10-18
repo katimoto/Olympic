@@ -22,7 +22,6 @@
 }
 
 .rooms {
-  background-color: #2F3E51;
   padding: 0 20px;
   overflow: scroll;
 }
@@ -38,7 +37,6 @@
 
 .chat {
   background-color: transparent;
-  width: calc(100% - 300px);
 }
 .chat-header {
   height: 100px;
