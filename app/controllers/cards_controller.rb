@@ -15,7 +15,7 @@ class CardsController < ApplicationController
         user_id: current_user.id # ログインしているユーザー
       )
     if card.save
-      redirect_to root_path
+      redirect_to card_path(current_user)
     else
       redirect_to "new" # カード登録画面
     end

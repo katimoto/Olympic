@@ -15,6 +15,7 @@
       <div class="contents row">
         <div class="container">
           <%= form_with(model: @articles_tag, url: article_path(@article.id),method: :patch, local: true) do |form| %>
+            <%= render 'shared/error_messages', model: form.object %>
             <h3>編集する</h3>
             <%= render partial: "form", locals: { form: form } %>
           <% end %>

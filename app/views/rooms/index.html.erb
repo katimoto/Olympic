@@ -18,8 +18,17 @@
             <% @rooms.each do |room| %>
               <div class="room">
                 <div class="room-name">
-                  <%= link_to room.name, room_messages_path(room) %>
-                  <%= link_to '購入画面へ', order_new_room_path(room.id) %>
+                  <%= room.name %>
+                  <% if room.room_order %>
+                    <div class='sold-out'>
+                      <span>Sold Out!!</span>
+                    </div>
+                  <% end %>
+                  <% if user_signed_in? && room.user_id != current_user.id %>
+                    <% if !room.room_order %>
+                      <%= link_to '購入画面へ', order_new_room_path(room.id) %>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
             <% end %>
