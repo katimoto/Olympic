@@ -1,0 +1,19 @@
+<h1>
+  検索結果
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.name %>
+      <%= result.category_id %>
+      <%= result.price %>
+    </li>
+  <% end %>
+<% else %>
+  該当するルームはありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', rooms_path %>

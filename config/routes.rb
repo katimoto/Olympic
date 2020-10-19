@@ -18,15 +18,21 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'tagsearch'
+      get 'searches'
     end
   end
   resources :questions do
-  resources :answers, only: :create
+    resources :answers do
+      resources :reactions
+    end
     collection do
       get 'search'
     end
   end
   resources :rooms, only: [:index, :new, :create, :destroy, :show] do
+    collection do
+      get 'search'
+    end
     post 'order', on: :member
     get 'order_new', on: :member
     resources :messages, only: [:index, :create]

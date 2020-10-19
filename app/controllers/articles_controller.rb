@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :search_article, only: [:index, :searches]
 
   def index
     @articles = Article.includes(:user).page(params[:page]).per(6).order("created_at DESC")
     @questions = Question.includes(:user).page(params[:page]).per(10).order("created_at DESC")
+    set_article_column 
   end
 
   def new
@@ -56,6 +58,11 @@ class ArticlesController < ApplicationController
     render json:{ keyword: tag }
   end
 
+  def searches
+    @results = @p.result.includes(:articles)  # 検索条件にマッチした商品の情報を取得
+    set_article_column
+  end
+
   private
   def article_params
     params.require(:articles_tag).permit(:title, :image, :text, :word).merge(user_id: current_user.id)
@@ -71,6 +78,14 @@ class ArticlesController < ApplicationController
   #     @tag = tag
   #   end
   # end  
+
+  def search_article
+    @p = Tag.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def set_article_column
+    @article_tag = Tag.select("word").distinct  # 重複なくnameカラムのデータを取り出す
+  end
 
   def move_to_index
     unless user_signed_in?
