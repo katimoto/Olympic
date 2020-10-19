@@ -12,6 +12,12 @@
     </div>
     <div class='main_content'>
       <div class="content">
+        <%= search_form_for @p, url: searches_articles_path do |f| %>
+          <%= f.label :word_eq, '商品名：' %>
+          <%= f.collection_select :word_eq, @article_tag, :word, :word, include_blank: '指定なし' %>
+          <br>
+        <%= f.submit '検索' %>
+        <% end %>
         <div class='article_show'>
           <div class="contents row">
             <%= article_lists(@articles) %>

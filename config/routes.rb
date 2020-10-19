@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'tagsearch'
+      get 'searches'
     end
   end
   resources :questions do

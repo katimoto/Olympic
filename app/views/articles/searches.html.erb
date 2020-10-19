@@ -1,0 +1,11 @@
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.word %>
+    </li>
+  <% end %>
+<% else %>
+  該当する記事はありません
+<% end %>
