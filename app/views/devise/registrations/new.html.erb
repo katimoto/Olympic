@@ -17,7 +17,8 @@
         </div>
         <label class="form-image">
           <span class="image-file">画像</span>
-          <%= f.file_field :image, class: 'hidden' %>
+          <%= f.file_field :image, id: 'pre_image' %>
+          <div id="image-list"></div>
         </label>
         <div class='field'>
           <div class='field-label'>

@@ -12,7 +12,7 @@
 <% else %>
   <div class="not_login">
     <%= link_to "Login", new_user_session_path, class: "login" %>
-    <%= link_to "Signup", new_user_registration_path, class: "signup" %>
+    <%= link_to "Signup", new_user_registration_path, class: "signup", data: {"turbolinks"=>false} %>
   </div>
 <% end %>
 

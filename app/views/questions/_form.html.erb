@@ -1,7 +1,8 @@
 <%= form.text_field :title, placeholder: "title", class:"input-tag" %>
 <label class="form-image">
   <span class="image-file">画像</span>
-  <%= form.file_field :image, class: 'hidden' %>
+  <%= form.file_field :image, id: 'pre_image' %>
+  <div id="image-list"></div>
 </label>
 <%= form.text_area :text, placeholder: "text", rows: "10" %>
 <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
