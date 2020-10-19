@@ -12,8 +12,8 @@
     </div>
     <div class='main_content'>
       <div class="contents row">
-        <div class="content_post_show">
-          <div class='post_picture_show ques'>
+        <div class="content_post_show_ques">
+          <div class='post_picture_show'>
             <%= image_tag @question.image, class: 'question-image' if @question.image.attached? %>
             <span class="name">
               <a href="/users/<%= @question.user.id %>">
@@ -53,8 +53,18 @@
                 <% @answers.each do |answer| %>
                   <p>
                     <strong><%= link_to answer.user.name, "/users/#{answer.user_id}" %>：</strong>
+                    <p class="text-right"><%= link_to '反応する', "/reactions/new/#{answer.id}" %></p>
                     <%= answer.text %>
                   </p>
+                  <div class="ba-child text-center disabled<%= "disabled" if @question.best_answer_id != nil %>">
+                    <%= button_to "BA", {controller: 'questions', action: 'update'},
+                                  {method: :put, params: {question: {title: @question.title,
+                                                                    text: @question.text,
+                                                                    category_id: @question.category_id,
+                                                                    best_answer_id: answer.id
+                                  }}} %>
+          
+                  </div>
                 <% end %>
               <% end %>
             </div>

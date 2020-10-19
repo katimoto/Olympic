@@ -1,0 +1,7 @@
+<h1>New Reaction</h1>
+ 
+<div>回答情報</div>
+内容：<%= @answer.text %><br>
+<%= render "form", reaction: @reaction %>
+ 
+<%= link_to 'Back', questions_path %>

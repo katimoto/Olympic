@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_055634) do
+ActiveRecord::Schema.define(version: 2020_10_19_054837) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -97,7 +97,18 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "best_answer_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "answer_id"
+    t.bigint "user_id"
+    t.string "text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_reactions_on_answer_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -171,6 +182,8 @@ ActiveRecord::Schema.define(version: 2020_10_13_055634) do
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "questions", "users"
+  add_foreign_key "reactions", "answers"
+  add_foreign_key "reactions", "users"
   add_foreign_key "room_orders", "rooms"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"

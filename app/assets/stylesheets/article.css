@@ -567,23 +567,7 @@ form input[type="submit"]:hover {
   background-color: #267594;
 }
 
-.container {
-  margin: 20px 0;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-  background-color: white;
-  box-sizing: border-box;
-  width: 80%;
-  margin: 10px auto;
-}
 
-.container h3 {
-  margin: 0 0 20px;
-  text-align: center;
-  font-weight: normal;
-  font-size: 20px;
-  color: #1e6997;
-}
 
 .search-form {
   text-align: center;

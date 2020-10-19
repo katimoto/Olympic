@@ -12,13 +12,13 @@ class QuestionsController < ApplicationController
 
   def create
     Question.create(question_params)
-    redirect_to root_path
+    redirect_to questions_path
   end
 
   def destroy
     question = Question.find(params[:id])
     question.destroy
-    redirect_to root_path
+    redirect_to questions_path
   end
 
   def edit
@@ -27,12 +27,13 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
-    redirect_to root_path
+    redirect_to question_path(@question.id)
   end
 
   def show
     @answer = Answer.new
     @answers = @question.answers.includes(:user)
+    @reaction = Reaction.new
   end
 
   def search
@@ -41,7 +42,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :image, :text, :category_id).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :image, :text, :category_id, :best_answer_id).merge(user_id: current_user.id)
   end
 
   def set_question

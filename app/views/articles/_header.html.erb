@@ -1,20 +1,20 @@
 
-  <h6 class="olympic">Olympic</h6>
-  <% if user_signed_in? %>
-    <div class="navigation">
-      <%= link_to "TopPage", root_path, class:"nav"%>
-      <%= link_to "Profile", user_path(current_user), class:"nav"%>
-      <%= link_to "Room", room_path(current_user), class:"nav"%>
-      <%= link_to "Article", search_articles_path, class:"nav" %>
-      <%= link_to "Question", questions_path, class:"nav" %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
-    </div>
-  <% else %>
-    <div class="not_login">
-      <%= link_to "Login", new_user_session_path, class: "login" %>
-      <%= link_to "Signup", new_user_registration_path, class: "signup" %>
-    </div>
-  <% end %>
+<h6 class="olympic">Olympic</h6>
+<% if user_signed_in? %>
+  <div class="navigation">
+    <%= link_to "TopPage", root_path, class:"nav"%>
+    <%= link_to "Profile", user_path(current_user), class:"nav"%>
+    <%= link_to "Room", room_path(current_user), class:"nav"%>
+    <%= link_to "Article", search_articles_path, class:"nav" %>
+    <%= link_to "Question", questions_path, class:"nav" %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
+  </div>
+<% else %>
+  <div class="not_login">
+    <%= link_to "Login", new_user_session_path, class: "login" %>
+    <%= link_to "Signup", new_user_registration_path, class: "signup" %>
+  </div>
+<% end %>
 
 
 
