@@ -12,38 +12,28 @@
     </div>
     <div class='main_content'>
       <div class="contents row">
-        <div class="content_post" style="background-image: url(<%= @article.image %>);">
-          <% if user_signed_in? && current_user.id == @article.user_id %>
-            <div class="more">
-              <span><%= image_tag 'arrow_top.png' %></span>
-              <ul class="more_list">
-                <li>
-                  <%= link_to '編集', edit_article_path(@article.id), method: :get %>
-                </li>
-                <li>
-                  <%= link_to '削除', article_path(@article.id), method: :delete %>
-                </li>
-              </ul>
+        <div class="content_post_show">
+          <div class='post_picture_show'>
+            <%= image_tag @article.image.variant(resize: '500x500'), class: '@article-image' if @article.image.attached? %>
+            <span class="name">
+              <a href="/users/<%= @article.user.id %>">
+                <span>投稿者:<%= @article.user.name %></span>
+              </a>
+            </span>
+          </div>
+          <div class='content_show'>
+            <h3><%= @article.title %></h3>
+            <p>内容：<%= @article.text %></p>
+            <% @article.tags.each do |tag| %>
+              <h6>#<%= tag.word %></h6>
+            <%end%>
+            <p><%= link_to '詳しく見る', article_path(@article.id), method: :get, class:"ren" %></p>
+            <div class='favorites_<%= @article.id %>'>
+              <%= render partial: 'favorites/favorite', locals: { article: @article } %>
             </div>
-          <% end %>
-          <%= image_tag @article.image, class: 'article-image' if @article.image.attached? %>
-          <p><%= @article.text %></p>
-          <span class="name">
-            <a href="/users/<%= @article.user.id %>">
-              <span>投稿者</span><%= @article.user.name %>
-            </a>
-          </span>
+          </div>
         </div>
-
-          <% @users.each do |user| %>
-            <% if user_signed_in? && current_user != user %>
-              <% if user.followed_by?(current_user) %>
-                <p><%=link_to "フォロー済み", user_relationships_path(user.id), method: :delete %></p>
-              <% else %>
-                <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post %></p>
-              <% end %>
-            <% end %>
-          <% end %>
       </div>
     </div>
   </div>
+</div>

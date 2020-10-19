@@ -4,7 +4,8 @@ class ArticlesTag
   attr_accessor :user_id, :text, :image, :word, :title
 
   with_options presence: true do
-    validates :text, :title
+    validates :title
+    validates :text 
   end
 
   def save

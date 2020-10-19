@@ -9,9 +9,9 @@
       <%= render "header"%>
     </div>
     <div class='main_content'>
+      <h4><%= @name %>さんの投稿一覧</h4>
       <div class="contents row">
-        <p><%= @name %>さんの投稿一覧</p>
-          <%= article_lists(@articles) %>
+        <%= article_lists(@articles) %>
       </div>
       <%= paginate @articles %>
     </div>
