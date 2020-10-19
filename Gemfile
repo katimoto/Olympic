@@ -78,3 +78,4 @@ gem 'payjp'
 gem 'kaminari'
 gem 'active_hash'
 gem 'awesome_print', '~> 1.8'
+gem "gretel"
