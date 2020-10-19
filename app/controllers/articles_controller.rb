@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @articles = Article.includes(:user).page(params[:page]).per(3).order("created_at DESC")
-    @questions = Question.includes(:user).page(params[:page]).per(5).order("created_at DESC")
+    @articles = Article.includes(:user).page(params[:page]).per(6).order("created_at DESC")
+    @questions = Question.includes(:user).page(params[:page]).per(10).order("created_at DESC")
   end
 
   def new
@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = SearchArticlesService.search(params[:keyword]).page(params[:page]).per(3).order("created_at DESC")
+    @articles = SearchArticlesService.search(params[:keyword]).page(params[:page]).per(6).order("created_at DESC")
   end
 
   def tagsearch

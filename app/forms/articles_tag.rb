@@ -5,7 +5,7 @@ class ArticlesTag
 
   with_options presence: true do
     validates :title
-    validates :text ,length: {minimum: 50}
+    validates :text 
   end
 
   def save

@@ -21,7 +21,9 @@ summary {
   display: block;
 }
 
-
+a {
+  text-decoration: none;
+}
 audio,
 canvas,
 video {
@@ -452,188 +454,6 @@ ul li {
   margin: 0;
 }
 
-.row {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 660px;
-  *zoom: 1;
-}
-
-.row:before,
-.row:after {
-  content: " ";
-  display: table;
-}
-
-.row:after {
-  clear: both;
-}
-
-.row.collapse>.column,
-.row.collapse>.columns {
-  position: relative;
-  padding-left: 0;
-  padding-right: 0;
-  float: left;
-}
-
-.row.collapse .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.row .row {
-  width: auto;
-  margin-left: -0.9375em;
-  margin-right: -0.9375em;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: none;
-  *zoom: 1;
-}
-
-.row .row:before,
-.row .row:after {
-  content: " ";
-  display: table;
-}
-
-.row .row:after {
-  clear: both;
-}
-
-.row .row.collapse {
-  width: auto;
-  margin: 0;
-  max-width: none;
-  *zoom: 1;
-}
-
-.row .row.collapse:before,
-.row .row.collapse:after {
-  content: " ";
-  display: table;
-}
-
-.row .row.collapse:after {
-  clear: both;
-}
-
-/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
-body,
-html {
-  height: 100%;
-	background-color: #eee;
-	overflow-x: hidden;
-	-webkit-transition: all 300ms linear;
-  transition: all 300ms linear;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  color: #212529;
-  text-align: left;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-body {
-  letter-spacing: 0.15em;
-  font-size: 16px;
-  font-weight: 900;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #236881;
-}
-
-a:hover {
-  background-color: rgb(172, 171, 171);
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.ultra {
-  font-size: 2em !important;
-}
-
-::selection {
-  background: #D8D8D8;
-}
-
-.transition,
-a,
-form input[type="submit"] {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
-}
-
-.title {
-  font-weight: bold;
-}
-
-.title--big {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.title--big i {
-  font-style: italic;
-  font-size: 1.8em;
-}
-
-header.header div.header__bar.row {
-  position: relative;
-}
-
-header.header .user_nav {
-  position: relative;
-  height: 50px;
-  right: 0;
-  width: 80%;
-  margin-left: 200px;
-}
-
-header.header .user_nav span {
-  top: 5px;
-  display: block;
-  float: left;
-  margin-left: 30px;
-  width: 150px;
-  height: 50px;
-  font-size: 1em;
-  cursor: pointer;
-  position: relative;
-}
-
-
-header.header .user_nav ul li a {
-  display: block;
-  padding: 10px 20px;
-  text-align: left;
-  text-shadow: 6px 7px 20px rgba(16, 16, 16, 0.3);
-}  
-
 .form {
   background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
   background-size: cover;
@@ -647,32 +467,31 @@ header.header .user_nav ul li a {
   right: 0;
 }
 
-.form footer {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-}
-
-div.contents.row h2 {
-  margin: 20px 0;
+div.contents.row {
   padding: 0;
-  font-weight: normal;
+  margin: 0;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 div.contents.row div.content_post {
-
+  background-color: #fff;
+  border-radius: 10px;
+  height: 350px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+  margin: 10px 5px 10px 8px;
 }
 
 div.contents.low div.content_post_question{
-  background-color: #eee;
+  background-color: #fff;
   margin: 10px 20px;
   padding: 30px;
   position: relative;
   background-size: cover;
   background-position: center center;
-  border-radius: 3px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   background-image: url();
   height: 100px;
   border-bottom: 1px solid black;
@@ -682,9 +501,6 @@ div.contents.low div.content_post_question{
   align-items: center;
 }
 
-#favo {
-  color: #323232;
-}
 
 #fav_content {
   text-align: left;
@@ -697,14 +513,35 @@ div.contents.low div.content_post_question{
   width: 100%;
 }
 
+.q_time {
+  text-align: right;
+  font-size: 12px;
+  font-family: sans-serif;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
 .q_category a {
   display: block;
-  font-size: 20px;
+  font-size: 10px;
+  text-align: left;
+  font-family: sans-serif;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 
 .q_title {
   width: 100%;
-  font-size: 40px;
+  font-size: 10px;
+  text-align: left;
+}
+
+.q_title a {
+  font-family: sans-serif;
+  text-align: left;
+  font-size: 10px;
 }
 
 form input,
@@ -736,6 +573,8 @@ form input[type="submit"]:hover {
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   background-color: white;
   box-sizing: border-box;
+  width: 80%;
+  margin: 10px auto;
 }
 
 .container h3 {
@@ -785,3 +624,4 @@ form input[type="submit"]:hover {
   justify-content: center;
   align-items: center;
 }
+
