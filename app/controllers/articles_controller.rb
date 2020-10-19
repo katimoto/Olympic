@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    tag
     @articles_tag = ArticlesTag.new(title: @article.title, text: @article.text, image: @article.image, word: @tag.word )
   end
 
@@ -72,12 +73,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  # def tag
-  #   set_article
-  #   @article.tags.each do |tag|
-  #     @tag = tag
-  #   end
-  # end  
+  def tag
+    set_article
+    @article.tags.each do |tag|
+      @tag = tag
+    end
+  end  
 
   def search_article
     @p = Tag.ransack(params[:q])  # 検索オブジェクトを生成

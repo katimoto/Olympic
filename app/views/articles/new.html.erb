@@ -13,7 +13,7 @@
     <div class='main_content'>
       <div class="contents row">
         <div class="container">
-          <%= form_with(model: @article, url: articles_path, local: true) do |form| %>
+          <%= form_with(model: @article, url: articles_path, local: true,) do |form| %>
             <h3>投稿する</h3>
             <%= render 'layouts/error_messages', model: form.object %>
             <%= render partial: "form", locals: { form: form } %>

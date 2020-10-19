@@ -27,7 +27,18 @@
             <% @article.tags.each do |tag| %>
               <h6>#<%= tag.word %></h6>
             <%end%>
-            <p><%= link_to '詳しく見る', article_path(@article.id), method: :get, class:"ren" %></p>
+            <% if user_signed_in? && current_user.id == @article.user_id %>
+            <div class="more">
+              <ul class="more_list">
+                <li>
+                  <%= link_to '編集', edit_article_path(@article.id), method: :get, class:"ren", data: {"turbolinks"=>false} %>
+                </li>
+                <li>
+                  <%= link_to '削除', article_path(@article.id), method: :delete %>
+                </li>
+              </ul>
+            </div>
+            <% end %>
             <div class='favorites_<%= @article.id %>'>
               <%= render partial: 'favorites/favorite', locals: { article: @article } %>
             </div>
