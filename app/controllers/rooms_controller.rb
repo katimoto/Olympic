@@ -1,8 +1,10 @@
 class RoomsController < ApplicationController
   before_action :find_room, only: [:edit, :show, :update, :order]
+  before_action :search_room, only: [:index, :search]
 
   def index
     @rooms = Room.includes(:user).page(params[:page]).per(20).order("created_at DESC")
+    set_room_column 
   end
 
   def new
@@ -58,6 +60,11 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def search
+    @results = @p.result.includes(:user)  # 検索条件にマッチした商品の情報を取得
+    set_room_column
+  end
+
   private
 
   def room_params
@@ -66,5 +73,15 @@ class RoomsController < ApplicationController
 
   def find_room
     @room = Room.find(params[:id]) # 購入する商品を特定
+  end
+
+  def search_room
+    @p = Room.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def set_room_column
+    @room_name = Room.select("name").distinct  # 重複なくnameカラムのデータを取り出す
+    @room_category = Room.select("category_id").distinct
+    @room_price = Room.select("price").distinct
   end
 end

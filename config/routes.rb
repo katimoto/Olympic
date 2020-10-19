@@ -22,14 +22,16 @@ Rails.application.routes.draw do
   end
   resources :questions do
     resources :answers do
-      resources :reactions, except: [:new]
+      resources :reactions
     end
     collection do
       get 'search'
     end
   end
-  get 'reactions/new/:answerId' => 'reactions#new'
   resources :rooms, only: [:index, :new, :create, :destroy, :show] do
+    collection do
+      get 'search'
+    end
     post 'order', on: :member
     get 'order_new', on: :member
     resources :messages, only: [:index, :create]

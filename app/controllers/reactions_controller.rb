@@ -1,6 +1,6 @@
 class ReactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_reaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_reaction, only: [:new, :show, :edit, :update, :destroy]
   @@answer_id = nil
   
   def index
