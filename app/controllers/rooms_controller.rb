@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :find_room, only: [:edit, :show, :update, :order]
+  before_action :find_room, only: [:edit, :update, :order]
   before_action :search_room, only: [:index, :search]
 
   def index

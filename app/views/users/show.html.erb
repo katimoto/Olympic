@@ -35,15 +35,15 @@
             </tr>
             <tr>
               <th>スポーツ</th>
-              <td><%= @user.name %></td>
+              <td><%= Category.find(@user.category_id).name %></td>
             </tr>
             <tr>
               <th>経歴</th>
-              <td><%= @user.name %></td>
+              <td><%= @user.career %></td>
             </tr>
             <tr>
               <th>プロフィール内容</th>
-              <td><%= @user.name %></td>
+              <td><%= @user.introduce %></td>
             </tr>
           </tbody>    
         </table> 

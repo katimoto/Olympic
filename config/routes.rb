@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   }
   get 'messages/index'
   root to: 'articles#index'
-  # root to: "rooms#index"
   resources :users, only: [:index, :edit, :update, :show] do
     get 'article', on: :member
     get 'question', on: :member

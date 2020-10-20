@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @articles = @user.articles.page(params[:page]).per(6).order("created_at DESC")
     @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order("created_at DESC")
     @questions = @user.questions
+    @sport = Category.find_by(id: params[:category_id])
 
     # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     # card = Card.find_by(user_id: current_user.id)

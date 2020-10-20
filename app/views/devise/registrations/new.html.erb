@@ -3,6 +3,7 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>Create Account</h2>
       <h5>新規アカウントの作成</h5>
+      <%= render "devise/shared/links"%>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
@@ -26,6 +27,30 @@
           </div>
           <div class='field-input'>
             <%= f.email_field :email%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :category%>
+          </div>
+          <div class='field-input'>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :career%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :career%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :introduce%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :introduce%>
           </div>
         </div>
         <%if @sns_id.present? %>
