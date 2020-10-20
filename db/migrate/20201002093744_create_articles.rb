@@ -3,8 +3,7 @@ class CreateArticles < ActiveRecord::Migration[6.0]
     create_table :articles do |t|
       t.string :title, null: false
       t.string :text, null: false
-      t.text :image
-      t.integer :user_id, null: false, foreign_key: true
+      t.integer :user_id, null: false
       t.timestamps
     end
   end

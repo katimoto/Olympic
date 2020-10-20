@@ -1,6 +1,6 @@
 class ReactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_reaction, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_reaction, only: [ :show, :edit, :update, :destroy]
   @@answer_id = nil
   
   def index
@@ -11,7 +11,7 @@ class ReactionsController < ApplicationController
   end
  
   def new
-    @@answer_id = params[:answerId]
+    @@answer_id = params[:answer_id]
     @answer = Answer.find(@@answer_id)
     @reaction = Reaction.new
   end

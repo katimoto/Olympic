@@ -2,6 +2,9 @@
   <div class='q_category'><%=link_to question.category.name, questions_path %></div>
   <div class='q_title'><%= link_to question.title, question_path(question.id), method: :get %></div>
   <p class="q_time"><%= l question.created_at %></p>
+  <div class='likes_<%= question.id %>'>
+    <%= render partial: 'likes/like', locals: { question: question } %>
+  </div>
 </div>
 
 

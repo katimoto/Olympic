@@ -44,6 +44,24 @@
             </div>
           </div>
         </div>
+        <div class="container">
+        <ul>
+          <li class="comment-create">
+            <h3 class="text-left title">レビュー</h3>
+          </li>
+          <li id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments } %>
+          </li>
+        </ul>
+        <hr>
+          <% if user_signed_in? %>
+            <div class="comment-create">
+                <h3 class="text-left">レビューを投稿する</h3>
+                <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+            </div>
+          <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,2 +1,2 @@
 
-$(".favorites_<%= article.id %>").html("<%= j(render partial: 'favorites/favorite', loclas: {article: @article} ) %>");
+$(".favorites_<%= @article.id %>").html("<%= j(render partial: 'favorites/favorite', locals: {article: @article} ) %>");
