@@ -11,8 +11,7 @@ class AnswersController < ApplicationController
   end
  
   def new
-    @@question_id = params[:questionId]
-    @question = Question.find(@@question_id)
+    @question = Question.find(params[:id])
     @answer = Answer.new
   end
  
