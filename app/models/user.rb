@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_articles, through: :favorites, source: :article
   has_many :questions
+  has_many :likes
   has_many :answers
   has_many :sns_credentials
   has_one :card, dependent: :destroy
