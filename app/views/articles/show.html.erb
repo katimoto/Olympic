@@ -45,24 +45,21 @@
           </div>
         </div>
         <div class="container">
-          <% if current_user %>
-            <%= form_with(model: [@article, @comment], remote: true) do |form| %>
-              <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-              <%= form.submit "SEND" %>
-            <% end %>
-          <% else %>
-            <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <ul>
+          <li class="comment-create">
+            <h3 class="text-left title">レビュー</h3>
+          </li>
+          <li id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments } %>
+          </li>
+        </ul>
+        <hr>
+          <% if user_signed_in? %>
+            <div class="comment-create">
+                <h3 class="text-left">レビューを投稿する</h3>
+                <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+            </div>
           <% end %>
-          <div class="comments">
-            <h4>＜コメント一覧＞</h4>
-            <% if @comments %>
-              <% @comments.each do |comment| %>
-                <p>
-                  <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
-                  <%= comment.text %>
-                </p>
-              <% end %>
-            <% end %>
           </div>
         </div>
       </div>

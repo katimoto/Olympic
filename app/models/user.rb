@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  has_many :room_users
-  has_many :rooms
+  has_many :room_users 
+  has_many :rooms ,through: :room_users
   has_many :messages
-  has_many :articles
-  has_many :comments
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :favorites
   has_many :favorite_articles, through: :favorites, source: :article
   has_many :questions

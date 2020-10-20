@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
     @favorite = Favorite.new
     @favorites = @article.favorites.includes(:user)
     @comment = Comment.new
-    @comments = @article.comments.includes(:user)
+    @comments = @article.comments.includes(:user).order(created_at: :desc)
   end
 
   def search
