@@ -53,7 +53,7 @@
                 <% @answers.each do |answer| %>
                   <p>
                     <strong><%= link_to answer.user.name, "/users/#{answer.user_id}" %>：</strong>
-                    <p class="text-right"><%= link_to '反応する', "/reactions/new/#{answer.id}" %></p>
+                    <p class="text-right"><%= link_to '反応する', new_question_answer_reaction_path(@question.id,answer.id) %></p>
                     <%= answer.text %>
                   </p>
                   <div class="ba-child text-center disabled<%= "disabled" if @question.best_answer_id != nil %>">

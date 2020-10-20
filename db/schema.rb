@@ -34,10 +34,9 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   end
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "question_id"
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
     t.text "text"
-    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,7 +53,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "text", null: false
-    t.text "image"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -112,12 +110,11 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "text", null: false
     t.string "title", null: false
-    t.text "image"
+    t.integer "best_answer_id"
     t.integer "category_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "best_answer_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -158,7 +155,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "price", null: false
-    t.string "text", null: false
+    t.text "text", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -184,6 +181,9 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "category_id", null: false
+    t.text "career"
+    t.text "introduce"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
