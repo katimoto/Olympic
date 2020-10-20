@@ -47,6 +47,8 @@ class ArticlesController < ApplicationController
     @users = User.all
     @favorite = Favorite.new
     @favorites = @article.favorites.includes(:user)
+    @comment = Comment.new
+    @comments = @article.comments.includes(:user)
   end
 
   def search

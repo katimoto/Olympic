@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :messages
   has_many :articles
+  has_many :comments
   has_many :favorites
   has_many :favorite_articles, through: :favorites, source: :article
   has_many :questions

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
   resources :articles do
+    resources :comments, only: :create
     resource :favorites, only: [:show, :create, :destroy]
     collection do
       get 'search'
