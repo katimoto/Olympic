@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :search_article, only: [:index, :searches]
 
+  def news
+  end
+  
   def index
     @articles = Article.includes(:user).page(params[:page]).per(6).order("created_at DESC")
     @questions = Question.includes(:user).page(params[:page]).per(10).order("created_at DESC")

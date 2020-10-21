@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
   end
 
   def new
+    redirect_to new_card_path and return unless current_user.card.present?
     @room = Room.new
   end
 
@@ -82,6 +83,5 @@ class RoomsController < ApplicationController
   def set_room_column
     @room_name = Room.select("name").distinct  # 重複なくnameカラムのデータを取り出す
     @room_category = Room.select("category_id").distinct
-    @room_price = Room.select("price").distinct
   end
 end

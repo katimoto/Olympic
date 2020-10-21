@@ -79,3 +79,4 @@ gem 'kaminari'
 gem 'active_hash'
 gem 'awesome_print', '~> 1.8'
 gem "gretel"
+gem 'devise-i18n'

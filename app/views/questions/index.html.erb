@@ -9,17 +9,9 @@
       <%= render "header"%>
     </div>
     <div class='main_content'>
-      <%#= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
-        <%#= form.text_field :keyword, placeholder: "質問を探す", class: "search-input", id: "qt" %>
-        <%#= form.submit "Go", class: "search-btn", id: "qs" %>
-      <%# end %>
-      <%= search_form_for @p, url: search_questions_path do |f| %>
-        <%= f.label :created_at_eq, '時系列：' %>
-        <%= f.collection_select :created_at_eq, @question_created, :created_at, :created_at, include_blank: '指定なし' %>
-        <br>
-        <%= f.label :category_id_eq, 'カテゴリー：' %>
-        <%= f.collection_select :category_id_eq, @question_category, :id, :id, include_blank: '指定なし' %>
-      <%= f.submit '検索' %>
+      <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
+        <%= form.text_field :keyword, placeholder: "質問を探す", class: "search-input", id: "qt" %>
+        <%= form.submit "Go", class: "search-btn", id: "qs" %>
       <% end %>
       <div class='question_wrapper'>
         <div class='question_index'>
