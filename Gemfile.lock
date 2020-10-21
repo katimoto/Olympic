@@ -125,6 +125,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
@@ -366,6 +368,7 @@ DEPENDENCIES
   capistrano3-unicorn
   capybara (>= 2.15)
   devise
+  devise-i18n
   gretel
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
