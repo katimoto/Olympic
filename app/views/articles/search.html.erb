@@ -9,6 +9,19 @@
       <%= render 'heading'%>
     </div>
     <div class='main_content'>
+      <div class='aside'>
+        <div class='article_like'>
+          <h3>いいね数ランキング</h3>
+          <div class='ranking_like'>
+            <th>１位：</th>
+            <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
+            <th>２位：</th>
+            <td><%= link_to @article_ranking.second.user.name, user_path(@article_ranking.second.user) %></td>
+            <th>３位：</th>
+            <td><%= link_to @article_ranking.third.user.name, user_path(@article_ranking.third.user) %></td>
+          </div>
+        </div>
+      </div>
       <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
         <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
         <%= form.submit "検索", class: "search-btn" %>
