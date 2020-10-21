@@ -22,6 +22,7 @@
       padding-top: 100px;
       background-image: url(mono.jpg);
       background-size: cover;
+      background-position: center;
       height: 400px;
 
       .head_en {
@@ -86,7 +87,9 @@
         height: calc(100%-100px);
       }
 
-
+      .news {
+        display: flex;
+      }
     }
   }
 }
