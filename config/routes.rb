@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get 'messages/index'
-  root to: 'articles#index'
+  root to: 'articles#news'
   resources :users, only: [:index, :edit, :update, :show] do
     get 'article', on: :member
     get 'question', on: :member

@@ -22,12 +22,12 @@
           <%= f.label :price, '価格：' %>
           <%= f.radio_button :price_lteq, '' %>
           指定なし
-          <%= f.radio_button :price_lteq, '1000' %>
-          1000円以下
-          <%= f.radio_button :price_lteq, '2500' %>
-          2500円以下
+          <%= f.radio_button :price_lteq, '3000' %>
+          3000円以下
           <%= f.radio_button :price_lteq, '5000' %>
           5000円以下
+          <%= f.radio_button :price_gteq, '10000' %>
+          10000円以上
           <br>
         <%= f.submit '検索' %>
         <% end %>
@@ -36,19 +36,25 @@
           <div class="rooms">
             <% @rooms.each do |room| %>
               <div class="room">
-                <div class="room-name">
-                  <%= room.name %>
-                  <% if room.room_order %>
-                    <div class='sold-out'>
-                      <span>Sold Out!!</span>
-                    </div>
-                  <% end %>
-                  <% if user_signed_in? && room.user_id != current_user.id %>
-                    <% if !room.room_order %>
-                      <%= link_to '購入画面へ', order_new_room_path(room.id) %>
-                    <% end %>
-                  <% end %>
-                </div>
+                <table class="table-name">
+                  <tbody>
+                    <tr>
+                      <th>ルーム名:<%= room.name %>
+                        <% if room.room_order %>
+                          <div class='sold-out'>
+                            <span>売り切れ!!</span>
+                          </div>
+                        <% end %>
+                      </th>
+                      <td>
+                        <% if user_signed_in? && room.user_id != current_user.id %>
+                          <% if !room.room_order %>
+                            <%= link_to '購入画面へ', order_new_room_path(room.id) %>
+                          <% end %>
+                        <% end %>
+                      </td>
+                  </tbody>    
+                </table> 
               </div>
             <% end %>
           </div>

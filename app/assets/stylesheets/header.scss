@@ -23,6 +23,10 @@
       line-height: 3rem;
       display: block;
       text-align: center;
+
+      &:hover {
+        background-color: lightgray;
+      }
     }
 
     .logout {
