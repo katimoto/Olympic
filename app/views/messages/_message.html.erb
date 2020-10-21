@@ -6,7 +6,7 @@
     </div>
     <div class="message-date">
     <!-- 投稿した時刻を出力する -->
-      <%= l message.created_at%>
+      <%= message.created_at.to_s(:datetime_jp)%>
     </div>
   </div>
   <div class="lower-message">
