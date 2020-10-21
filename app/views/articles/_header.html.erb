@@ -1,18 +1,18 @@
 <%= breadcrumbs separator: " &rsaquo; "%>
-<h6 class="olympic">Olympic</h6>
+<h6 class="olympic">オンラインピック</h6>
 <% if user_signed_in? %>
   <div class="navigation">
-    <%= link_to "TopPage", root_path, class:"nav"%>
-    <%= link_to "Profile", user_path(current_user), class:"nav"%>
-    <%= link_to "Room", room_path(current_user), class:"nav"%>
-    <%= link_to "Article", search_articles_path, class:"nav" %>
-    <%= link_to "Question", questions_path, class:"nav" %>
+    <%= link_to "トップページ", root_path, class:"nav"%>
+    <%= link_to "プロフィール", user_path(current_user), class:"nav"%>
+    <%= link_to "サロンルーム", room_path(current_user), class:"nav"%>
+    <%= link_to "番宣", search_articles_path, class:"nav" %>
+    <%= link_to "知恵袋", questions_path, class:"nav" %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
   </div>
 <% else %>
   <div class="not_login">
-    <%= link_to "Login", new_user_session_path, class: "login" %>
-    <%= link_to "Signup", new_user_registration_path, class: "signup", data: {"turbolinks"=>false} %>
+    <%= link_to "ログイン", new_user_session_path, class: "login" %>
+    <%= link_to "サインアップ", new_user_registration_path, class: "signup", data: {"turbolinks"=>false} %>
   </div>
 <% end %>
 

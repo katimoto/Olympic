@@ -6,7 +6,7 @@
 
   .nav_main {
     width: 15%;
-    background-color: #1b515c;
+    background-color: rgb(36, 36, 35);
   }
 
   .main {
@@ -16,10 +16,13 @@
     width: 85%;
 
     .main_menu {
-      border-bottom: 1px solid #1b515c;
-      color: #1b515c;
+      color: #eee;
       font-family: "GN-きんいろサンセリフ", sans-serif;
       font-size: 30px;
+      padding-top: 100px;
+      background-image: url(mono.jpg);
+      background-size: cover;
+      height: 400px;
 
       .head_en {
         font-size: 100px;
@@ -27,8 +30,7 @@
 
       .head__ja {
         font-size: 30px;
-        margin-left: 30px;
-        margin-bottom: 5%;
+        margin-bottom: 18%;
       }
 
       .show_head {
@@ -43,6 +45,11 @@
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
           border-radius: 10px 10px 0 0;
+          background-color: #fff;
+
+          &:hover {
+            background-color: rgb(34, 34, 34);
+          }
 
           &:active {
             background-color: #626a6d !important;
@@ -52,9 +59,10 @@
           }
 
           a {
-            color: #1b515c;
+            color: rgb(34, 34, 34);
             letter-spacing: 0em;
             font-size: 30px;
+            
 
             &:hover {
               color: rgb(255, 255, 255);
@@ -65,10 +73,9 @@
     }
 
     .main_content {
-      margin-top: 10%;
-      
-
-
+      margin-top: 5%;
+      padding-top: 5%;
+      border-top: 1px solid rgb(36, 36, 35);
     }
   }
 }
@@ -86,7 +93,7 @@
         }
 
         .follow {
-          background-color: #1b515c;
+          background-color: rgb(36, 36, 35);
           color: #eee;
           margin-top: 20px;
           padding: 10px;
@@ -118,18 +125,19 @@
 }
 
 .not_login {
-  float: right;
+  display: flex;
+  flex-direction: column;
   margin: 20px 30px;
   margin-bottom: 400px;
 
 
   .login {
     padding: 10px;
-    color: black;
+    color: #eee;
   }
 
   .signup {
     padding: 10px;
-    color: black;
+    color: #eee;
   }
 }

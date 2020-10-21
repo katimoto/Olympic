@@ -9,11 +9,53 @@
       text-align: left;
       font-size: 30px;
       margin-left: 30px;
-      color: black;
+      color: rgb(36, 35, 35);
+      margin-bottom: 20px;
     }
 
     .low {
       width: 100%;
+
+      .content_post_question {
+        background-color: #ffff;
+        border: 1px solid rgb(36, 35, 35);
+        padding-bottom: 20px;
+        height: 100px;
+        position: relative;
+
+        .question_text {
+          display: flex;
+          flex-direction: column;
+          
+          .q_category {
+            font-size: 12px;
+            text-align: left;
+            
+          }
+          .q_title {
+            font-size: 16px;
+            text-align: left;
+          }
+        }
+
+        .question_sub {
+          display: flex;
+
+          .likey {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+          }
+          .q_time {
+            text-align: right;
+            font-size: 10px;
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+          }
+          
+        }
+      }
     }
   }
 

@@ -1,5 +1,3 @@
-
-
 <div class='wrapper'>
   <div class='nav_main'>
     <%= render "header"%>
@@ -13,7 +11,7 @@
     <div class='main_content'>
       <div class="content">
         <%= search_form_for @p, url: searches_articles_path do |f| %>
-          <%= f.label :word_eq, '商品名：' %>
+          <%= f.label :word_eq, 'タグ検索：' %>
           <%= f.collection_select :word_eq, @article_tag, :word, :word, include_blank: '指定なし' %>
           <br>
         <%= f.submit '検索' %>

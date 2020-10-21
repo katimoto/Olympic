@@ -14,10 +14,10 @@
       <div class="contents row">
         <div class="content_post_show">
           <div class='post_picture_show'>
-            <%= image_tag @question.image.variant(resize: '500x500'), class: 'question-image' if @question.image.attached? %>
+            <%= image_tag @question.image.variant(resize: '50x50'), class: 'question-image' if @question.image.attached? %>
             <span class="name">
               <a href="/users/<%= @question.user.id %>">
-                <span>投稿者</span><%= @question.user.name %>
+                <span>投稿者:<%= @question.user.name %></span>
               </a>
             </span>
           </div>

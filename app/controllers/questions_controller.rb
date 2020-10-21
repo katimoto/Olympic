@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :search_question, only: [:index, :search]
 
   def index
-    @questions = Question.includes(:user).page(params[:page]).per(8).order("created_at DESC")
+    @questions = Question.includes(:user).page(params[:page]).per(6).order("created_at DESC")
     set_question_column
   end
 

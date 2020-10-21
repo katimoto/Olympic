@@ -17,7 +17,7 @@
 .create-room a {
   border: 1px solid lightblue;
   padding: 14px;
-  color: deepskyblue;
+  color: rgb(36, 35, 35);
   text-decoration: none;
 }
 
@@ -36,7 +36,7 @@
 
 .room-name a {
   text-decoration: none;
-  color: rgba(9,9,12,1)
+  color: rgb(36, 35, 35)
 }
 
 .chat {
@@ -50,7 +50,7 @@
 }
 
 .header-title {
-  color: #333;
+  color: rgb(36, 35, 35);
   font-size: 24px;
   margin-top: 36px;
 }
@@ -91,7 +91,7 @@ i {
 }
 
 .message-user {
-  color: #434a54;
+  color: rgb(36, 35, 35);
   font-size: 16px;
 }
 
@@ -106,7 +106,7 @@ i {
 }
 
 .message-content {
-  color: #020304;
+  color: rgb(36, 35, 35);
   font-size: 14px;
   text-align: left;
 }
@@ -137,7 +137,7 @@ i {
 .message-form-submit {
   background-color: #38AEF0;
   border: none;
-  color: white;
+  color: rgb(36, 35, 35);
   font-size: 16px;
   height: 50px;
   margin-left: 15px;
@@ -148,7 +148,7 @@ i {
 .form-image {
   font-size: 12px;
   background-color: lightblue;
-  color: white;
+  color: rgb(36, 35, 35);
   padding: 12px;
   width: 60px;
   margin: 5px 10px;
