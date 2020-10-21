@@ -25,7 +25,6 @@ class LikesController < ApplicationController
   end
 
   private
-  # こちらを記入しないとajaxが上手く起動しませんでした。
   def set_question
     @question = Question.find(params[:question_id])
   end

@@ -29,15 +29,15 @@
                 <tbody>
                   <tr>
                     <th>１位：</th>
-                    <td><%= Category.find(@user.category_id).name %></td>
+                    <td><%= Category.find(5).name %></td>
                   </tr>
                   <tr>
                     <th>２位</th>
-                    <td><%= Category.find(@user.category_id).name %></td>
+                    <td><%= Category.find(3).name %></td>
                   </tr>
                   <tr>
                     <th>３位</th>
-                    <td><%= Category.find(@user.category_id).name %></td>
+                    <td><%= Category.find(9).name %></td>
                   </tr>
                 </tbody>    
               </table> 
@@ -51,6 +51,22 @@
           <div class='question_like'>
             <h3>いいね数ランキング</h3>
             <div class='ranking_like'>
+              <table class="table-name">
+                <tbody>
+                  <tr>
+                    <th>１位：</th>
+                    <td><%= @question_ranking.first.title %></td>
+                  </tr>
+                  <tr>
+                    <th>２位</th>
+                    <td><%= @question_ranking.second.title %></td>
+                  </tr>
+                  <tr>
+                    <th>３位</th>
+                    <td><%= @question_ranking.third.title %></td>
+                  </tr>
+                </tbody>    
+              </table> 
             </div>      
           </div>
         </div>

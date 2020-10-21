@@ -9,7 +9,7 @@
       <%= render "heading"%>
     </div>
     <div class='main_content'>
-      <div class="content">
+      <div class='content'>
         <%= search_form_for @p, url: searches_articles_path do |f| %>
           <%= f.label :word_eq, 'タグ検索：' %>
           <%= f.collection_select :word_eq, @article_tag, :word, :word, include_blank: '指定なし' %>
@@ -22,9 +22,6 @@
           </div>
           <%= paginate @articles %>
         </div>
-      </div>
-      <div class='aside'>
-        <%= render "questions/aside"%>
       </div>
     </div>
   </div>

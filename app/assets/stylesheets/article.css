@@ -487,3 +487,7 @@ div.contents.row div.content_post {
   margin: 10px 5px 10px 8px;
 }
 
+#map {
+  height: 400px;
+  width: 600px;
+} 

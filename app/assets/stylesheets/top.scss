@@ -22,6 +22,7 @@
       padding-top: 100px;
       background-image: url(mono.jpg);
       background-size: cover;
+      background-position: center;
       height: 400px;
 
       .head_en {
@@ -76,6 +77,19 @@
       margin-top: 5%;
       padding-top: 5%;
       border-top: 1px solid rgb(36, 36, 35);
+      display: flex;
+      flex-direction: column;
+
+      .aside {
+        height: 100px;
+      }
+      .content {
+        height: calc(100%-100px);
+      }
+
+      .news {
+        display: flex;
+      }
     }
   }
 }

@@ -56,11 +56,14 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = SearchArticlesService.search(params[:keyword]).page(params[:page]).per(6).order("created_at DESC")
+    article_favorite_count = Article.joins(:favorites).group(:article_id).count
+    article_favorited_ids = Hash[article_favorite_count.sort_by{ |_, v| -v }].keys
+    @article_ranking = Article.where(id: article_favorited_ids)
   end
 
   def tagsearch
     return nil if params[:input] == ""
-    tag = Tag.where(['word LIKE ?', "%#{params[:input]}%"] )
+    tag = Tag.where(['word favoritE ?', "%#{params[:input]}%"] )
     render json:{ keyword: tag }
   end
 
