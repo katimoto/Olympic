@@ -6,7 +6,12 @@
     <div class='main_menu'>
       <h1 class="head_en">My page</h1>
       <h3 class="head__ja">マイページ</h3>
-      <%= render "heading"%>
+      <ul class='show_head'>
+        <li><%= link_to "記事一覧", articles_path %></li>
+        <li><%= link_to "質問一覧", questions_path %></li>
+        <li><%= link_to "ルーム一覧", room_path(current_user), class: "post", data: {"turbolinks"=>false} %></li>
+        <li><%= link_to "ユーザ一覧", users_path(current_user) %></li>
+      <ul class='show_head'>
     </div>
     <div class='main_content'>
       <a class="twitter-timeline" data-chrome='noheader' data-chrome='nofooter' data-lang="ja" data-width="340" data-height="500" data-theme="dark" href="https://twitter.com/470Kanto?ref_src=twsrc%5Etfw">Tweets by 470Kanto</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

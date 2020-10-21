@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
   def destroy
     room = Room.find(params[:id])
     room.destroy
-    redirect_to root_path
+    redirect_to room_path(current_user)
   end
 
   def order
@@ -54,7 +54,7 @@ class RoomsController < ApplicationController
       RoomUser.create(room_id: params[:id], user_id: current_user.id)
       RoomUser.create(room_id: params[:id], user_id: roomuser)
     end
-    redirect_to root_path
+    redirect_to room_path(current_user)
   end
 
   def order_new

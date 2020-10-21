@@ -1,10 +1,10 @@
 class Room < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
-  has_many :room_users
+  has_many :room_users, dependent: :destroy
   belongs_to :user
   has_many :messages, dependent: :destroy
-  has_one :room_order
+  has_one :room_order, dependent: :destroy
 
   validates :name, presence: true
   validates :category_id, numericality: { other_than: 1 } 

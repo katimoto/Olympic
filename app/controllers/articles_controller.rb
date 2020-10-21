@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = ArticlesTag.new(article_params)
     if @article.valid?
       @article.save
-      return redirect_to root_path
+      return redirect_to articles_path
     else
       render "new"
     end
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   def destroy
     article = Article.find(params[:id])
     article.destroy
-    redirect_to root_path
+    redirect_to articles_path
   end
 
   def edit
