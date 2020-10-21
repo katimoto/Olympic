@@ -14,7 +14,7 @@
       <div class="contents row">
         <div class="content_post_show">
           <div class='post_picture_show'>
-            <%= image_tag @article.image.variant(resize: '500x500'), class: '@article-image' if @article.image.attached? %>
+            <%= image_tag @article.image.variant(resize: '500x500'), class: 'article-image' if @article.image.attached? %>
             <span class="name">
               <a href="/users/<%= @article.user.id %>">
                 <span>投稿者:<%= @article.user.name %></span>

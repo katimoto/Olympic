@@ -12,9 +12,9 @@
     </div>
     <div class='main_content'>
       <div class="contents row">
-        <div class="content_post_show_ques">
+        <div class="content_post_show">
           <div class='post_picture_show'>
-            <%= image_tag @question.image, class: 'question-image' if @question.image.attached? %>
+            <%= image_tag @question.image.variant(resize: '500x500'), class: 'question-image' if @question.image.attached? %>
             <span class="name">
               <a href="/users/<%= @question.user.id %>">
                 <span>投稿者</span><%= @question.user.name %>
@@ -41,7 +41,7 @@
         </div>
         <div class="container">
           <% if current_user %>
-            <%= form_with(model: [@question, @answer], remote: true) do |form| %>
+            <%= form_with(model: [@question, @answer], local: true) do |form| %>
               <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
               <%= form.submit "SEND" %>
             <% end %>
@@ -64,7 +64,6 @@
                                                                   category_id: @question.category_id,
                                                                   best_answer_id: answer.id
                                 }}} %>
-        
                 </div>
               <% end %>
             <% end %>
