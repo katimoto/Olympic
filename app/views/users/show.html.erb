@@ -13,13 +13,9 @@
     <div class='user_content'>
       <div class='user_left'>
         <%= image_tag @user.image.variant(resize: '200x200'), class: 'user-image' if @user.image.attached? %>
-          <% if current_user != @user %>
-            <% if @user.followed_by?(current_user) %>
-              <%=link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class:"follow" %>
-            <% else %>
-              <%=link_to "フォローする", user_relationships_path(@user.id), method: :post, class:"follow"  %>
-            <% end %>
-          <% end %>
+        <div class='users_<%= @user.id %>'>
+          <%= render partial: 'relationships/following', locals: {user: @user}%>
+        </div>
       </div>
       <div class='user_right'>
       <%= link_to "編集", edit_user_path(current_user) %>
