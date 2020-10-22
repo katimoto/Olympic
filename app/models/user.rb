@@ -21,7 +21,8 @@ class User < ApplicationRecord
   has_many :sns_credentials
   has_one :card, dependent: :destroy
   has_one_attached :image
-  has_many :reations
+  has_many :reactions
+  has_one :room_orders
 
   # 自分がフォローしているユーザーとの関連 
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
