@@ -33,5 +33,8 @@
         <%= paginate @articles %>
       </div>
     </div>
+    <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
+      <%= image_tag 'surf.png', class:"surf_img" %>
+    <% end %>
   </div>
 </div>

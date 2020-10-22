@@ -1,6 +1,8 @@
 <div class="content_post">
   <div class='post_picture'>
+  <%= link_to article_path(article.id) do%>
     <%= image_tag article.image.variant(resize: '250x250'), class: 'article-image' if article.image.attached? %>
+  <% end %>
     <span class="name">
       <a href="/users/<%= article.user.id %>">
         <span>投稿者:<%= article.user.name %></span>
