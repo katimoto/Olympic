@@ -1,11 +1,13 @@
 # README
 
-# :ocean: アプリ名
-Olympic
+# :ocean: アプリ名:Olympic
 
 # :speaker: 概要
 記事、チャット、質問を通じて、マイナースポーツ界の発展につながるようなサービスです。このアプリはプロスポーツ選手、プロを目指している選手、社会に出てもスポーツに関わりたいOBにメリットのある場を提供いたします。
-課題解決のポイントとしては3点あり、スポーツ選手の低賃金、平等なスポーツ教育の実装、社会に出た後もスポーツに関わるきっかけを与えてくれます。
+
+## 制作背景
+日常で鳥肌が立つ経験はありますか？？スポーツは毎秒鳥肌を立たせるパワーがあります。
+そんなスポーツの課題解決は3点あり、スポーツ選手の低賃金、平等なスポーツ教育の導入、社会に出た後もスポーツに関わるきっかけを与えてくれます。
 ## 実装機能
 
 ### :cop: ユーザー管理機能
@@ -52,6 +54,7 @@ Olympic
 # :evergreen_tree: 本番環境
 
 ## URL
+https://www.olimpic-app.com/articles
 
 ## ユーザー認証
 
@@ -64,7 +67,8 @@ Olympic
  - email:moyashi@gmail.com
  - password:moyashi123
 
-## 制作背景
+
+
 
 ## 必要な機能
 
@@ -83,7 +87,8 @@ Olympic
  - ajax通信による非同期機能
  - react.js/Sassといった新しい言語の導入
 
-## 
+## 細かいUIデザイン
+ - 
 
 # :see_no_evil: 苦労したポイント
 
@@ -125,7 +130,7 @@ Olympic
 | introduce| string |             |
 
 
-### Association
+### :link: Association
 
 - has_many :room_users 
 - has_many :rooms ,through: :room_users
@@ -158,7 +163,7 @@ Olympic
 | provider | string |  |
 | uid | string |  |
 
-### Association
+### :link: Association
 
 - belongs_to :user, optional: true
 
@@ -172,7 +177,7 @@ Olympic
 | category_id | integer | null: false |
 | user_id | integer | null: false |
 
-### Association
+### :link: Association
 
 - belongs_to_active_hash :category
 - has_many :room_users, dependent: :destroy
@@ -187,7 +192,7 @@ Olympic
 | user   | references | null: false, foreign_key: true |
 | room   | references | null: false, foreign_key: true |
 
-### Association
+### :link: Association
 
 - belongs_to :room
 - belongs_to :user
@@ -200,7 +205,7 @@ Olympic
 | user    | references | null: false, foreign_key: true |
 | room    | references | null: false, foreign_key: true |
 
-### Association
+### :link: Association
 
 - belongs_to :room
 - belongs_to :user
@@ -214,7 +219,7 @@ Olympic
 | user_id | integer | null: false |
 | room    | references | null: false, foreign_key: true |
 
-### Association
+### :link: Association
 
 - has_many :room_users
 - has_many :rooms, through: room_users
@@ -228,7 +233,7 @@ Olympic
 | customer_token | string | null: false |
 | user    | references | null: false, foreign_key: true |
 
-### Association
+### :link: Association
 
 - belongs_to :user
 
@@ -243,7 +248,7 @@ Olympic
 | category_id | integer | null: false |
 | user_id | integer | null: false |
 
-### Association
+### :link: Association
 
 - belongs_to_active_hash :category
 - belongs_to :user
@@ -259,7 +264,7 @@ Olympic
 | user_id | integer | null: false |
 | question_id | integer| null: false |
 
-### Association
+### :link: Association
 
 - belongs_to :question  
 - belongs_to :user 
@@ -273,7 +278,7 @@ Olympic
 | user    | references | null: false, foreign_key: true |
 | text | string | null: false |
 
-### Association
+### :link: Association
 
 - belongs_to :user
 - belongs_to :answer
@@ -285,7 +290,7 @@ Olympic
 | following_id | integer |  |
 | followers_id | integer |  |
 
-### Association
+### :link: Association
 
 - belongs_to :following, class_name: "User"
 - belongs_to :follower, class_name: "User"
@@ -298,7 +303,7 @@ Olympic
 | title | string | null: false|
 | text | string | null: false|
 
-### Association
+### :link: Association
 
 - has_one_attached :image
 - belongs_to :user
@@ -314,7 +319,7 @@ Olympic
 | user    | references | null: false, foreign_key: true, unique: true |
 | article | references | null: false, foreign_key: true, unique: true |
 
-### Association
+### :link: Association
 
 - belongs_to :user
 - belongs_to :article
@@ -325,7 +330,7 @@ Olympic
 | ------ | ------ | ----------- |
 | word | string | uniqueness: true |
 
-### Association
+### :link: Association
 
 - has_many :article_tag_relations
 - has_many :articles, through: :article_tag_relations
@@ -337,7 +342,7 @@ Olympic
 | user    | references | null: false, foreign_key: true |
 | tag | references | null: false, foreign_key: true |
 
-### Association
+### :link: Association
 
 - belongs_to :article
 - belongs_to :tag
@@ -349,7 +354,7 @@ Olympic
 | user    | references | null: false, foreign_key: true, unique: true |
 | question | references | null: false, foreign_key: true, unique: true |
 
-### Association
+### :link: Association
 
 - belongs_to :user
 - belongs_to :question
