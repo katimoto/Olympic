@@ -31,7 +31,7 @@
             <div class="more">
               <ul class="more_list">
                 <li>
-                  <%= link_to '編集', edit_article_path(@article.id), method: :get, class:"ren", data: {"turbolinks"=>false} %>
+                  <%= link_to '編集', edit_article_path(@article.id), method: :get, data: {"turbolinks"=>false} %>
                 </li>
                 <li>
                   <%= link_to '削除', article_path(@article.id), method: :delete %>
@@ -45,15 +45,15 @@
           </div>
         </div>
         <div class="container">
-        <ul>
-          <li class="comment-create">
-            <h3 class="text-left title">レビュー</h3>
-          </li>
-          <li id="comments_area">
-            <%= render partial: 'comments/index', locals: { comments: @comments } %>
-          </li>
-        </ul>
-        <hr>
+          <ul>
+            <li class="comment-create">
+              <h3 class="text-left title">レビュー</h3>
+            </li>
+            <li id="comments_area">
+              <%= render partial: 'comments/index', locals: { comments: @comments } %>
+            </li>
+          </ul>
+          <hr>
           <% if user_signed_in? %>
             <div class="comment-create">
                 <h3 class="text-left">レビューを投稿する</h3>

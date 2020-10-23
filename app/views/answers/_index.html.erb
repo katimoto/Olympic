@@ -1,0 +1,60 @@
+<!-- コメント内容(２件) ------------------------------------------------------------------>
+<%= answers.count %>件コメント
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+<% answers.first(2).each do |answer| %>
+  <% unless answer.id.nil? %>
+    <li class="answer-container">
+        <div class="answer-box">
+            <div class="answer-text">
+                <p><%= link_to answer.user.name, "/users/#{answer.user_id}" %></p>
+                <div class="answer-entry">
+                    <%= answer.text %>
+                    <% if answer.user == current_user %>
+                        <%= link_to question_answer_path(answer.question_id, answer.id), method: :delete, remote: true, class: "answer_destroy" do %>
+                            <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
+                        <% end %>
+                    <% end %>
+                </div>
+                <span class="answer-date pull-right">
+                      <%= answer.created_at.to_s(:datetime_jp) %>
+                </span>
+                <p class="text-right"><%= link_to '反応する', new_question_answer_reaction_path(question.id,answer.id) %></p>
+                <div class="ba-child text-center disabled<%= "disabled" if question.best_answer_id != nil %>">
+                  <%= button_to "BA", {controller: 'questions', action: 'update'},
+                                {method: :put, params: {question: {title: question.title,
+                                                                  text: question.text,
+                                                                  category_id: question.category_id,
+                                                                  best_answer_id: answer.id
+                                }}} %>
+                </div>
+            </div>
+        </div>
+        
+    </li>
+  <% end %>
+<% end %>
+<!-- コメント内容(3件目以降) ------------------------------------------------------------------>
+    <div class="collapse" id="collapseExample">
+            <% answers.offset(2).each do |answer| %>
+              <% unless answer.id.nil? %>
+                <li class="answer-container">
+                    <div class="answer-box">
+                        <div class="answer-text">
+                            <p><%= link_to answer.user.name, "/users/#{answer.user_id}" %></p>
+                            <div class="answer-entry">
+                                <%= answer.text %>
+                                <% if answer.user == current_user %>
+                                    <%= link_to question_answer_path(answer.question_id, answer.id), method: :delete, remote: true, class: "answer_destroy" do %>
+                                        <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                            <span class="answer-date pull-right">
+                                  <%= answer.created_at.to_s(:datetime_jp) %>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+              <% end %>
+            <% end %>
+    </div>

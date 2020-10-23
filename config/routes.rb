@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
   resources :questions do
     resource :likes, only: [:create, :destroy]
-    resources :answers do
+    resources :answers, only: [:create, :destroy] do
       resources :reactions
     end
     collection do

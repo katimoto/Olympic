@@ -3,9 +3,8 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     #投稿に紐づいたコメントを作成
     @answer = @question.answers.build(answer_params)
-    @answer.user_id = current_user.id
     @answer.save
-    redirect_to question_path(@question.id)
+    render :index
   end
 
   def destroy
@@ -16,7 +15,7 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.permit(:question_id).merge(user_id: current_user.id, text: params[:answer][:text])
+    params.require(:answer).permit(:text).merge(user_id: current_user.id, question_id: @question.id)
   end
 end
 

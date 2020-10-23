@@ -1,0 +1,3 @@
+console.log("od")
+$("#answers_area").html("<%= j(render 'index', { answers: @answer.question.answers }) %>")
+$("textarea").val('')

@@ -229,8 +229,7 @@ button,
 input,
 select,
 textarea {
-  /* font-family: 'Montserrat', sans-serif; */
-  /* 1 */
+  width: 100%;
   font-size: 100%;
   /* 2 */
   margin: 0;
@@ -416,6 +415,7 @@ img {
 textarea {
   height: auto;
   min-height: 50px;
+  width: 100%;
 }
 
 select {

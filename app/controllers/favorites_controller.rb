@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
+  before_action :move_to_login, except: [:index, :show]
   before_action :set_article, only: [:create, :destroy]
+
 
   def show
     @user = User.find(current_user.id)
@@ -23,6 +25,10 @@ class FavoritesController < ApplicationController
   end
 
   private
+  def move_to_login
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   # こちらを記入しないとajaxが上手く起動しませんでした。
   def set_article
     @article = Article.find(params[:article_id])

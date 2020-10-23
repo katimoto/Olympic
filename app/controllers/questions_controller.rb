@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @users = User.all
     @answer = Answer.new
     @answers = @question.answers.includes(:user)
     @reaction = Reaction.new

@@ -5,6 +5,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :messages, dependent: :destroy
   has_one :room_order, dependent: :destroy
+  has_one_attached :image
 
   validates :name, presence: true
   validates :category_id, numericality: { other_than: 1 } 

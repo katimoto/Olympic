@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
+  before_action :move_to_login, except: [:index, :show]
   before_action :find_room, only: [:edit, :update, :order]
   before_action :search_room, only: [:index, :search]
+  
 
   def index
     @rooms = Room.includes(:user).page(params[:page]).per(20).order("created_at DESC")
@@ -67,9 +69,12 @@ class RoomsController < ApplicationController
   end
 
   private
+  def move_to_login
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 
   def room_params
-    params.require(:room).permit(:name, :price, :text, :category_id, :user_id)
+    params.require(:room).permit(:name, :price, :text, :category_id, :user_id, :image)
   end
 
   def find_room

@@ -6,7 +6,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-  validates :name, presence: true
+  with_options presence: true do
+    validates :name
+    validates :email,    uniqueness: {case_sensitive: false},
+                         format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
+
+    with_options format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i} do
+      validates :password, length: {minimum: 6}
+    end
+  end
 
   has_many :room_users 
   has_many :rooms ,through: :room_users

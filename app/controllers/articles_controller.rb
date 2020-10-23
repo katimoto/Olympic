@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :move_to_login, except: [:index, :show, :search]
   before_action :set_article, only: [:edit, :show]
-  before_action :move_to_index, except: [:index, :show, :search]
   before_action :search_article, only: [:index, :searches]
 
   def news
@@ -73,6 +73,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+  def move_to_login
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   def article_params
     params.require(:articles_tag).permit(:title, :image, :text, :word).merge(user_id: current_user.id)
   end
@@ -94,11 +98,5 @@ class ArticlesController < ApplicationController
 
   def set_article_column
     @article_tag = Tag.select("word").distinct  # 重複なくnameカラムのデータを取り出す
-  end
-
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
   end
 end

@@ -40,35 +40,22 @@
           <% end %> 
         </div>
         <div class="container">
-          <% if current_user %>
-            <%= form_with(model: [@question, @answer], local: true) do |form| %>
-              <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-              <%= form.submit "SEND" %>
-            <% end %>
-          <% else %>
-            <strong><p>※※※ 回答には新規登録/ログインが必要です ※※※</p></strong>
+          <ul>
+            <li class="answer-create">
+              <h3 class="text-left title">レビュー</h3>
+            </li>
+            <li id="answers_area">
+              <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
+            </li>
+          </ul>
+          <hr>
+          <% if user_signed_in? %>
+            <div class="answer-create">
+                <h3 class="text-left">レビューを投稿する</h3>
+                <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
+            </div>
           <% end %>
-          <div class="answers">
-            <h4>＜アンサー一覧＞</h4>
-            <% if @answers %>
-              <% @answers.each do |answer| %>
-                <p>
-                  <strong><%= link_to answer.user.name, "/users/#{answer.user_id}" %>：</strong>
-                  <p class="text-right"><%= link_to '反応する', new_question_answer_reaction_path(@question.id,answer.id) %></p>
-                  <%= answer.text %>
-                </p>
-                <div class="ba-child text-center disabled<%= "disabled" if @question.best_answer_id != nil %>">
-                  <%= button_to "BA", {controller: 'questions', action: 'update'},
-                                {method: :put, params: {question: {title: @question.title,
-                                                                  text: @question.text,
-                                                                  category_id: @question.category_id,
-                                                                  best_answer_id: answer.id
-                                }}} %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div> 
+        </div>
       </div>
     </div>
   </div>
