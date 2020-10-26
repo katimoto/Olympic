@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
     t.string "text", null: false
     t.string "title", null: false
     t.integer "best_answer_id"
-    t.integer "category_id"
+    t.integer "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
