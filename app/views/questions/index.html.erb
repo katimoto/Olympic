@@ -25,6 +25,7 @@
           <div class='question_category'>
             <h3>カテゴリーから探す</h3>
             <div class='category_row'>
+            <% if !@question_ranking %>
               <table class="table-name">
                 <tbody>
                   <tr>
@@ -41,6 +42,7 @@
                   </tr>
                 </tbody>    
               </table> 
+            <% end %>
             </div>
           </div>
           <div class='question_answer'>
@@ -51,6 +53,7 @@
           <div class='question_like'>
             <h3>いいね数ランキング</h3>
             <div class='ranking_like'>
+            <% if !@question_ranking %>
               <table class="table-name">
                 <tbody>
                   <tr>
@@ -67,6 +70,7 @@
                   </tr>
                 </tbody>    
               </table> 
+            <% end %>
             </div>      
           </div>
           <%= link_to new_question_path, data: {"turbolinks"=>false} do %>

@@ -120,14 +120,30 @@ https://www.olimpic-app.com/articles
 [![Image from Gyazo](https://i.gyazo.com/22e4750006f82d111914e59973b670c0.gif)](https://gyazo.com/22e4750006f82d111914e59973b670c0)
 
 # :whale: 開発環境
-
- - Ruby 2.6.5
- - Rails 6.0.0
- - javascript
+【使用技術】
+フロントエンド
+ - HTML/CSS
+ - JavaScript
  - jQuery
- - AWS/Unicorn/Nginx/S3/capistrano
- - Docker/ Cicrle CI/ Kurbetenes/ github
- - EC2/ Amazon Linux AMI 2/ Node.js/ Yarn/ MySql/ MariaDB/ Worker
+バックエンド
+ - Ruby : 2.6.5
+ - Rails : 6.0.0
+Webサーバー
+ - Nginx : 1.18.0
+アプリケーションサーバー
+ - （開発環境）Puma : 4.3.3
+ - （本番環境）Unicorn : 5.4.1
+データベース
+ - （開発環境）MySQL 5.6.47
+ - （本番環境）MariaDB : 5.5.64
+インフラ
+ - （開発環境のみ）Docker : 19.03.13
+ - docker-compose : 1.27.4
+ - AWS (EC2, S3, VPC, Route53, ALB, ACM)
+ - Git, GitHub
+ - CircleCI : 2.1
+ - Capistrano : 3.14.1
+
 
 # :book: テーブル設計
 

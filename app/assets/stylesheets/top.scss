@@ -41,6 +41,8 @@
       background-size: cover;
       background-position: center;
       height: 400px;
+      margin-bottom: 50px;
+      position: relative;
 
       .head_en {
         font-size: 100px;
@@ -55,6 +57,8 @@
         display: flex;
         list-style: none;
         justify-content: left;
+        position: absolute;
+        bottom: -50px;
 
         li {
           display: inline-block;
@@ -63,10 +67,10 @@
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
           border-radius: 10px 10px 0 0;
-          background-color: #fff;
+          background-color: rgb(34, 34, 34);
 
           &:hover {
-            background-color: rgb(34, 34, 34);
+            background-color: #fff;
           }
 
           &:active {
@@ -77,13 +81,13 @@
           }
 
           a {
-            color: rgb(34, 34, 34);
+            color: #fff;
             letter-spacing: 0em;
             font-size: 30px;
             
 
             &:hover {
-              color: rgb(255, 255, 255);
+              color: rgb(34, 34, 34);
             }
           }
         }
@@ -91,7 +95,6 @@
     }
 
     .main_content {
-      margin-top: 5%;
       padding-top: 5%;
       border-top: 1px solid rgb(36, 36, 35);
       display: flex;
@@ -112,6 +115,8 @@
 }
 
 .user_content {
+  padding-top: 5%;
+  border-top: 1px solid rgb(36, 36, 35);
   display: flex;
 
       .user_left {
