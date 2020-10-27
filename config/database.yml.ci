@@ -4,5 +4,5 @@ test:
   pool: 5
   username: 'root'
   port: 3306
-  host: <%= ENV.fetch("MYSQL_HOST", "db") %>
+  host: 127.0.0.1
   database: ci_test
