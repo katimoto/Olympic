@@ -38,8 +38,11 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Bundle Install
-          command: bundle check || bundle install
+          name: install dependencies
+          command: |
+# ①bundler2.0.1以降のものを使っているのであれば、環境変数と合わせて指定する必要があります。
+            gem install bundler -v 2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
