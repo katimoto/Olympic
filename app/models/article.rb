@@ -6,6 +6,8 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tag_relations, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :text, :title, :image, presence: true
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
