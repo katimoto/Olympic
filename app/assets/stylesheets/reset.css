@@ -47,6 +47,7 @@ th,
 td {
 	margin:0;
 	padding:0;
+
 }
 table {
 	border-collapse:collapse;
@@ -89,6 +90,8 @@ h5,
 h6 {
 	font-size:100%;
 	font-weight:normal;
+	color: rgb(36, 36, 35);
+	letter-spacing: normal;
 }
 q:before,
 q:after {

@@ -16,7 +16,7 @@
           <%= form_with(model: @question, local: true) do |form| %>
           <%= render 'shared/error_messages', model: form.object %>
             <h3>編集する</h3>
-            <%= form.text_field :text, placeholder: "title", rows: "10" %>
+            <%= form.text_field :text, placeholder: "タイトル", rows: "10" %>
             <%= render partial: "form", locals: { form: form } %>
           <% end %>
         </div>

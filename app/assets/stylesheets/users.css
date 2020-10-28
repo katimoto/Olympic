@@ -126,3 +126,15 @@
   border-radius: 100px;
   width: 50px;
 }
+
+
+.pipi {
+  color: rgb(158, 78, 78);
+}
+
+.user-follow {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 15px;
+}

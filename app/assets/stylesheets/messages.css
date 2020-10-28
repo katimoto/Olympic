@@ -1,4 +1,8 @@
-
+.sold-out {
+  color: rgb(196, 56, 56);
+  font-weight: bold;
+  display: inline;
+}
 
 .side-bar-header {
   height: 100px;
@@ -27,11 +31,15 @@
   margin: 30px 100px 30px;
   background-color: #fff;
   width: 70%;
-  border: 1px solid rgb(75, 74, 74);
+  height: 500px;
+  background-color: rgb(196, 161, 90);
+  overflow: scroll;
 }
 
 .room {
   padding-top: 3px;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
 }
 
 .room-name a {

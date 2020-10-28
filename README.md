@@ -88,6 +88,8 @@ https://www.olimpic-app.com/articles
  - react.js/Sassといった新しい言語の導入
  - APIの導入（PAY.JP)
  - gemの多様
+ - 画像プレビュー機能
+ - パンくずリスト
 
 # :see_no_evil: 苦労したポイント
 

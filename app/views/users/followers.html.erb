@@ -11,10 +11,12 @@
     <div class='main_content'>
       <% @users.each do |user| %>
         <hr>
-        <%= image_tag user.image.variant(resize: '200x200'), class: 'user-image' if user.image.attached? %>
-        <p><span>email: </span><%= link_to user.email, user_path(user.id) %></p>
-        <div class='users_<%= user.id %>'>
-          <%= render partial: 'relationships/following', locals: {user: user}%>
+        <div class='user-follow'>
+          <%= image_tag user.image.variant(resize: '200x200'), class: 'user-image' if user.image.attached? %>
+          <p><span>email: </span><%= link_to user.email, user_path(user.id) %></p>
+          <div class='users_<%= user.id %>'>
+            <%= render partial: 'relationships/following', locals: {user: user}%>
+          </div>
         </div>
       <% end %>
     </div>
