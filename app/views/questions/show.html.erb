@@ -13,6 +13,7 @@
     <div class='main_content'>
       <div class="contents row">
         <div class="content_post_show">
+          <% if @question.image %>
           <div class='post_picture_show'>
             <%= image_tag @question.image.variant(resize: '50x50'), class: 'question-image' if @question.image.attached? %>
             <span class="name">
@@ -21,6 +22,7 @@
               </a>
             </span>
           </div>
+          <% end %>
           <div class='content_show'>
             <h3><%= @question.title %></h3>
             <p><%= @question.text %></p>

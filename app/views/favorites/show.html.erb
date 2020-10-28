@@ -9,11 +9,32 @@
       <%= render "header"%>
     </div>
     <div class='main_content'>
-      <div class="favorites">
-        <p><%= @name %>さんのお気に入り一覧</p>
+      <p><%= @name %>さんのお気に入り一覧</p>
+      <div class="contents row">
         <% @favorite_articles.each do |article| %>
-          <hr>
-          <p id="fav_content"><span id="fav_content">ファボツイート内容: </span><%=link_to article.text, article_path(article.id) %></p>
+          <div class="content_post">
+            <div class='post_picture'>
+            <%= link_to article_path(article.id) do%>
+              <%= image_tag article.image.variant(resize: '250x250'), class: 'article-image' if article.image.attached? %>
+            <% end %>
+              <span class="name">
+                <a href="/users/<%= article.user.id %>">
+                  <span>投稿者:<%= article.user.name %></span>
+                </a>
+              </span>
+            </div>
+            <div class='content_show'>
+              <h3><%= article.title %></h3>
+              <p>内容：<%= article.text %></p>
+              <% article.tags.each do |tag| %>
+                <h6>#<%= tag.word %></h6>
+              <%end%>
+              <p><%= link_to '詳しく見る', article_path(article.id), method: :get, class:"ren" %></p>
+              <div class='favorites_<%= article.id %>'>
+                <%= render partial: 'favorites/favorite', locals: { article: article } %>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

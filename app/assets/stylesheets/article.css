@@ -23,7 +23,7 @@ summary {
 
 a {
   text-decoration: none;
-  color: rgb(36, 35, 35);
+  color: rgb(99, 202, 39);
 }
 
 a:hover {
@@ -127,7 +127,7 @@ hr {
  * Address styling not present in IE 8/9. */
 mark {
   background: yellow;
-  color: rgb(36, 35, 35);
+  color: #fff;
 }
 
 /*
@@ -480,7 +480,7 @@ div.contents.row {
 }
 
 div.contents.row div.content_post {
-  background-color: #fff;
+  background-color: rgb(224, 155, 17);
   border-radius: 10px;
   height: 350px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);

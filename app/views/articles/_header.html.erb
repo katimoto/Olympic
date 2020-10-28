@@ -5,8 +5,8 @@
     <%= link_to "トップページ", root_path, class:"nav"%>
     <%= link_to "プロフィール", user_path(current_user), class:"nav"%>
     <%= link_to "サロンルーム", room_path(current_user), class:"nav"%>
-    <%= link_to "番宣", search_articles_path, class:"nav" %>
-    <%= link_to "知恵袋", questions_path, class:"nav" %>
+    <%= link_to "記事", search_articles_path, class:"nav" %>
+    <%= link_to "質問", questions_path, class:"nav" %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
   </div>
 <% else %>
