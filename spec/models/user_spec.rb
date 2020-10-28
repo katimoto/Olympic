@@ -19,10 +19,6 @@ describe User do
         @user.email = "test@gmail.com"
         expect(@user).to be_valid
       end
-      it "パスワードは半角英数字混合である" do
-        @user.password = "test123"
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録がうまくいかないとき' do
