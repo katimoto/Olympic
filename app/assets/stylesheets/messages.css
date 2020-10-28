@@ -78,7 +78,7 @@ i {
 }
 
 .messages {
-  background-color: rgba(157,204,224,0.65);
+  background-color: rgba(196, 161, 204, 0.65);
   height: calc(100vh - 100px - 150px);
   width: 100%;
   padding: 46px 40px 0;

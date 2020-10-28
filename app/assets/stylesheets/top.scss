@@ -43,6 +43,7 @@
       .head_en {
         font-size: 100px;
         color: rgb(0, 0, 0);
+        font-weight: bold;
       }
 
       .head__ja {
@@ -104,7 +105,7 @@
       .present {
         font-size: 40px;
         padding-bottom: 50px;
-        border-bottom:1px solid rgb(0, 0, 0);
+        border-bottom:1px solid rgb(196, 161, 90);
         margin-bottom: 50px;
 
         h4 {
@@ -170,12 +171,12 @@
 
           th {
             font-size: 20px;
-            border-bottom:1px solid rgb(0, 0, 0);
+            border-bottom:1px solid rgb(196, 161, 90);
           }
 
           td {
             font-size: 20px;
-            border-bottom:1px solid rgb(0, 0, 0);
+            border-bottom:1px solid rgb(196, 161, 90);
           }
         }
       }
