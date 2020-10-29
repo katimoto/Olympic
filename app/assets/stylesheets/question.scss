@@ -117,3 +117,24 @@ h3 {
     font-size: 30px;
   }
 }
+
+.answer-container {
+  border: 1px solid black;
+
+  .answer-text {
+    text-align: left;
+    font-size: 12px;
+  }
+  .answer-entry {
+    font-size: 20px;
+    overflow: auto;
+  }
+  .answe-date {
+    text-align: right;
+    color: lightgray;
+  }
+  .ba-child {
+    background-color: red;
+    width: 40px;
+  }
+}

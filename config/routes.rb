@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
-  get 'messages/index'
   root to: 'articles#news'
   resources :users, only: [:index, :edit, :update, :show] do
     get 'article', on: :member
@@ -26,7 +25,7 @@ Rails.application.routes.draw do
   resources :questions do
     resource :likes, only: [:create, :destroy]
     resources :answers, only: [:create, :destroy] do
-      resources :reactions
+      resources :reactions, only: [:index, :new, :create, :destroy, :update]
     end
     collection do
       get 'search'
