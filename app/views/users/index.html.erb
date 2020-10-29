@@ -13,7 +13,7 @@
     <div class='main_content'>
       <% @users.each do |user| %>
         <hr>
-        <p><span>email: </span><%= link_to user.email, user_path(user.id) %></p>
+        <p><span>email: </span><%= link_to user.image, user_path(user.id) %></p>
         <div class='users_<%= user.id %>'>
           <%= render partial: 'relationships/following', locals: {user: user}%>
         </div>

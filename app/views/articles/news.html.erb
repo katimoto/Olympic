@@ -9,7 +9,9 @@
       <ul class='show_head'>
         <li><%= link_to "記事一覧", articles_path %></li>
         <li><%= link_to "質問一覧", questions_path %></li>
-        <li><%= link_to "ルーム一覧", room_path(current_user), class: "post", data: {"turbolinks"=>false} %></li>
+        <% if current_user %>
+          <li><%= link_to "ルーム一覧", room_path(current_user), class: "post", data: {"turbolinks"=>false} %></li>
+        <% end %>
         <li><%= link_to "ユーザ一覧", users_path(current_user) %></li>
       <ul class='show_head'>
     </div>
@@ -30,8 +32,8 @@
           <p>・記事機能（タグ、複雑検索、いいねランキングの実装、非同期化）</p>
           <p>・質問機能（カテゴリー別検索、お気に入りランキング、ベストアンサー機能）</p>
           <div class='gif'>
-            <a href="https://gyazo.com/22e4750006f82d111914e59973b670c0"><img src="https://i.gyazo.com/22e4750006f82d111914e59973b670c0.gif" alt="Image from Gyazo" width="500"/></a>
-            <a href="https://gyazo.com/67021664d7183a7b8253341893212d79"><img src="https://i.gyazo.com/67021664d7183a7b8253341893212d79.gif" alt="Image from Gyazo" width="500"/></a>
+            <a href="https://gyazo.com/22e4750006f82d111914e59973b670c0"><img src="https://i.gyazo.com/22e4750006f82d111914e59973b670c0.gif" alt="Image from Gyazo" width="500" height="500"/></a>
+            <a href="https://gyazo.com/67021664d7183a7b8253341893212d79"><img src="https://i.gyazo.com/67021664d7183a7b8253341893212d79.gif" alt="Image from Gyazo" width="500" height="500"/></a>
           </div>
         </div>
         <div class='present'>
@@ -39,15 +41,15 @@
           <p>サロン購入の際に安心感を与える豊富な情報量</p>
           <p>・ユーザーには(記事、質問、お気に入り、購入履歴、購入者にフォロー、フォロワー）の豊富な情報量を掲載</p>
           <div class='gif'>
-            <a href="https://gyazo.com/ad25db3c91893ee4f22d3aa3a509052b"><img src="https://i.gyazo.com/ad25db3c91893ee4f22d3aa3a509052b.gif" alt="Image from Gyazo" width="500"/></a>
+            <a href="https://gyazo.com/ad25db3c91893ee4f22d3aa3a509052b"><img src="https://i.gyazo.com/ad25db3c91893ee4f22d3aa3a509052b.gif" alt="Image from Gyazo" width="500" height="500"/></a>
           </div>
         </div>
         <div class='present'>
           <h4>非同期通信（コメント、お気に入り、削除、チャット機能）</h4>
           <p>スピーディーで、快適な操作性の追求。</p>
           <div class='gif'>
-            <a href="https://gyazo.com/6d76c4ba0e08f5b7d2b26fc6f66646e6"><img src="https://i.gyazo.com/6d76c4ba0e08f5b7d2b26fc6f66646e6.gif" alt="Image from Gyazo" width="500"/></a>
-            <a href="https://gyazo.com/f7971e9ed354f53bb121d382bec1c60e"><img src="https://i.gyazo.com/f7971e9ed354f53bb121d382bec1c60e.gif" alt="Image from Gyazo" width="500"/></a>
+            <a href="https://gyazo.com/6d76c4ba0e08f5b7d2b26fc6f66646e6"><img src="https://i.gyazo.com/6d76c4ba0e08f5b7d2b26fc6f66646e6.gif" alt="Image from Gyazo" width="500" height="500"/></a>
+            <a href="https://gyazo.com/f7971e9ed354f53bb121d382bec1c60e"><img src="https://i.gyazo.com/f7971e9ed354f53bb121d382bec1c60e.gif" alt="Image from Gyazo" width="500" height="500"/></a>
           </div>
         </div>
         <div class='present'>
@@ -79,4 +81,4 @@
     </div>
   </div>
 </div>
-<% breadcrumb :root %>
+

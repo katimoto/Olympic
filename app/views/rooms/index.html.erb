@@ -47,11 +47,9 @@
                         <% end %>
                       </th>
                       <td>
-                        <% if user_signed_in? && room.user_id != current_user.id %>
-                          <% if !room.room_order %>
-                            <%= link_to '購入画面へ', order_new_room_path(room.id) %>
-                          <% end %>
-                        <% end %>
+                      <% if !room.room_order %>
+                        <%= link_to '購入画面へ', order_new_room_path(room.id) %>
+                      <% end %>
                       </td>
                   </tbody>    
                 </table> 

@@ -16,8 +16,7 @@
             <%= @room.name %>
           </h2>
           <div class='room-img-content'>
-            
-
+            <%= image_tag @room.image.variant(resize: '200x200')%>
           </div>
           <div class="room-price-box">
             <span class="room-price">
@@ -26,7 +25,9 @@
           </div>
 
           <% if user_signed_in? && @room.user_id != current_user.id %>
+            <% if !@room.room_order %>
             <%= link_to '購入する', order_room_path(@room.id), method: :post %>
+            <% end %>
           <% end %>
 
 

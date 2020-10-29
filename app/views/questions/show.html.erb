@@ -12,9 +12,9 @@
     </div>
     <div class='main_content'>
       <div class="contents row">
-        <div class="content_post_show">
+        <div class="question_post_show">
           <% if @question.image %>
-          <div class='post_picture_show'>
+          <div class='question_picture_show'>
             <%= image_tag @question.image.variant(resize: '50x50'), class: 'question-image' if @question.image.attached? %>
             <span class="name">
               <a href="/users/<%= @question.user.id %>">
