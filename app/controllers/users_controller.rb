@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
   def edit
   end
 
@@ -17,20 +18,20 @@ class UsersController < ApplicationController
   def article
     @user = User.find(params[:id])
     @name = @user.name
-    @articles = @user.articles.page(params[:page]).per(6).order("created_at DESC")
+    @articles = @user.articles.page(params[:page]).per(6).order('created_at DESC')
   end
 
   def question
     @user = User.find(params[:id])
     @name = @user.name
-    @questions = @user.questions.page(params[:page]).per(8).order("created_at DESC")
+    @questions = @user.questions.page(params[:page]).per(8).order('created_at DESC')
   end
 
   def show
     @user = User.find(params[:id])
     @name = @user.name
-    @articles = @user.articles.page(params[:page]).per(6).order("created_at DESC")
-    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order("created_at DESC")
+    @articles = @user.articles.page(params[:page]).per(6).order('created_at DESC')
+    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order('created_at DESC')
     @questions = @user.questions
     @sport = Category.find_by(id: params[:category_id])
 
