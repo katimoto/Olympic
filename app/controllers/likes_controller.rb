@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     # buildはnewと同じ意味で、アソシエーションしながらインスタンスをnewする時に形式的に使われる。
     @like = current_user.likes.build(question_id: params[:question_id])
     @like.save
-    
+
     respond_to do |format|
       format.html
       format.js
@@ -25,6 +25,7 @@ class LikesController < ApplicationController
   end
 
   private
+
   def set_question
     @question = Question.find(params[:question_id])
   end

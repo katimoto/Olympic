@@ -7,31 +7,31 @@ RSpec.describe Article, type: :model do
   end
 
   describe '記事の保存' do
-    context "記事が保存できる場合" do
-      it "画像とテキストとタイトルがあれば記事は保存される" do
+    context '記事が保存できる場合' do
+      it '画像とテキストとタイトルがあれば記事は保存される' do
         expect(@article).to be_valid
       end
     end
-    context "記事が保存できない場合" do
-      it "テキストがないと記事は保存できない" do
-        @article.text = ""
+    context '記事が保存できない場合' do
+      it 'テキストがないと記事は保存できない' do
+        @article.text = ''
         @article.valid?
-        expect(@article.errors.full_messages).to include("Textを入力してください")
-      end     
-      it "タイトルがないと記事は保存できない" do
-        @article.title = ""
+        expect(@article.errors.full_messages).to include('Textを入力してください')
+      end
+      it 'タイトルがないと記事は保存できない' do
+        @article.title = ''
         @article.valid?
-        expect(@article.errors.full_messages).to include("Titleを入力してください")
-      end     
-      it "画像がないと記事は保存できない" do
-        @article.image = ""
+        expect(@article.errors.full_messages).to include('Titleを入力してください')
+      end
+      it '画像がないと記事は保存できない' do
+        @article.image = ''
         @article.valid?
         expect(@article.errors.full_messages).to include("Text can't be blank")
-      end     
-      it "ユーザーが紐付いていないと記事は保存できない" do
+      end
+      it 'ユーザーが紐付いていないと記事は保存できない' do
         @article.user = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include("Userを入力してください")
+        expect(@article.errors.full_messages).to include('Userを入力してください')
       end
     end
   end

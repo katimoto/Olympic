@@ -7,7 +7,7 @@ RSpec.describe Message, type: :model do
   end
 
   describe 'メッセージの保存' do
-    context "メッセージが保存できる場合" do
+    context 'メッセージが保存できる場合' do
       it 'contentとimageが存在していれば保存できること' do
         expect(@message).to be_valid
       end
@@ -22,12 +22,12 @@ RSpec.describe Message, type: :model do
         expect(@message).to be_valid
       end
     end
-    context "メッセージが保存できない場合" do
+    context 'メッセージが保存できない場合' do
       it 'contentとimageが空では保存できないこと' do
         @message.content = nil
         @message.image = nil
         @message.valid?
-        expect(@message.errors.full_messages).to include("Contentを入力してください")
+        expect(@message.errors.full_messages).to include('Contentを入力してください')
       end
     end
   end

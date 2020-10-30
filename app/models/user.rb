@@ -8,16 +8,16 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :email,    uniqueness: {case_sensitive: false},
-                         format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
+    validates :email,    uniqueness: { case_sensitive: false },
+                         format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
-    with_options format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i} do
-      validates :password, length: {minimum: 6}
+    with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
+      validates :password, length: { minimum: 6 }
     end
   end
 
-  has_many :room_users 
-  has_many :rooms ,through: :room_users
+  has_many :room_users
+  has_many :rooms, through: :room_users
   has_many :messages
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -32,11 +32,11 @@ class User < ApplicationRecord
   has_many :reactions
   has_one :room_orders
 
-  # 自分がフォローしているユーザーとの関連 
-  has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
+  # 自分がフォローしているユーザーとの関連
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
   # 自分がフォローされているユーザーとの関連
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
 
   def self.from_omniauth(auth)
@@ -44,7 +44,7 @@ class User < ApplicationRecord
     # sns認証したことがあればアソシエーションで取得
     # 無ければemailでユーザー検索して取得orビルド(保存はしない)
     user = User.where(email: auth.info.email).first_or_initialize(
-          nickname: auth.info.name, email: auth.info.email
+      nickname: auth.info.name, email: auth.info.email
     )
 
     if user.persisted?

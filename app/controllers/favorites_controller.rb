@@ -2,11 +2,10 @@ class FavoritesController < ApplicationController
   before_action :move_to_login, except: [:index, :show]
   before_action :set_article, only: [:create, :destroy]
 
-
   def show
     @user = User.find(current_user.id)
     @name = @user.name
-    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order("created_at DESC")
+    @favorite_articles = @user.favorite_articles.page(params[:page]).per(3).order('created_at DESC')
   end
 
   def create
@@ -15,16 +14,15 @@ class FavoritesController < ApplicationController
     # buildはnewと同じ意味で、アソシエーションしながらインスタンスをnewする時に形式的に使われる。
     favorite = current_user.favorites.build(article_id: params[:article_id])
     favorite.save
-
   end
 
   def destroy
     favorite = Favorite.find_by(article_id: params[:article_id], user_id: current_user.id)
     favorite.destroy
-
   end
 
   private
+
   def move_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end

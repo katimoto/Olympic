@@ -8,12 +8,12 @@ class Room < ApplicationRecord
   has_one_attached :image
 
   validates :name, :category_id, :price, :text, :image, presence: true
-  validates :category_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 1 }
   validates :price,
-  numericality: {
-    greater_than_or_equal_to: 300,
-    less_than: 9999999
-  }
+            numericality: {
+              greater_than_or_equal_to: 300,
+              less_than: 9_999_999
+            }
   PRICE_REGEX = /\A[0-9]+\z/.freeze
   validates_format_of :price, with: PRICE_REGEX, message: 'には半角数字で入力して下さい'
 end
