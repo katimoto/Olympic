@@ -14,6 +14,7 @@
     </div>
     <div class='nav_main'>
       <div class='up2'>
+      記事一覧
       </div>
       <div class='down2'>
         <%= render "header"%>
@@ -38,7 +39,9 @@
       <div class='main_menu'>
         <h1 class="head_en">Article</h1>
         <h3 class="head__ja">記事一覧</h3>
-        <%= render 'heading'%>
+        <% @articles.each do |article| %>
+          <%= image_tag article.user.image.variant(resize: '50x50') if article.user.image.attached? %>
+        <% end %>
       </div>
       <div class='main_content'>
         <div class="contents row">
