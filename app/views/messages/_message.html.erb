@@ -15,6 +15,6 @@
       <%= message.content%>
     </div>
     <div id="user-name" data-json="<%= current_user.name.to_json %>"></div>
-    <%= image_tag message.image.variant(resize:'500x500'), class: 'message-image' if message.image.attached?%>
+    <%= image_tag message.image, class: 'message-image' if message.image.attached?%>
   </div>
 </div>
