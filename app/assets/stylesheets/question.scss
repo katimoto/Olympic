@@ -107,6 +107,9 @@ h3 {
 
 #qf {
   height: 20%;
+  width: 30%;
+  display: flex;
+  align-items: center;
 
   #qt {
     height: 50%;
@@ -114,7 +117,7 @@ h3 {
 
   #qs {
     height: 50%;
-    font-size: 30px;
+    width: 30%;
   }
 }
 

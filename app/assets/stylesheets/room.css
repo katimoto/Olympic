@@ -124,3 +124,19 @@ select {
 .field_with_errors{
   display: contents;
 }
+
+#q_name_eq {
+  width: 50%;
+}
+
+#q_category_id_eq {
+  width: 50%;
+  margin: 50px 0;
+}
+
+#chomo {
+  margin-top: 30px;
+  width: 50%;
+  background-color: #b85f5f;
+  border-radius: 30px;
+}

@@ -1,42 +1,56 @@
 <div class='wrapper'>
-  <div class='nav_main'>
-    <%= render "header"%>
+  <div class='up1'>
+    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
   </div>
-  <div class='main'>
-    <div class='main_menu'>
-      <h1 class="head_en">Article</h1>
-      <h3 class="head__ja">記事一覧</h3>
-      <%= render 'heading'%>
+  <div class='down1'>
+    <div class='side_main'>
+    <% @rooms = Room.all %>
+    <% @rooms.each do |room| %>
+      <%= image_tag room.user.image if room.user.image.attached? %>
+    <% end %>
     </div>
-    <div class='main_content'>
-      <div class='aside'>
-        <div class='article_like'>
-          <h3>いいね数ランキング</h3>
-          <div class='ranking_like'>
-          <% if !@article_ranking %>
-            <th>１位：</th>
-            <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
-            <th>２位：</th>
-            <td><%= link_to @article_ranking.second.user.name, user_path(@article_ranking.second.user) %></td>
-            <th>３位：</th>
-            <td><%= link_to @article_ranking.third.user.name, user_path(@article_ranking.third.user) %></td>
-          <% end %>
+    <div class='nav_main'>
+      <div class='up2'>
+      </div>
+      <div class='down2'>
+        <%= render "header"%>
+        <div class='aside'>
+          <div class='article_like'>
+            <h3>いいね数ランキング</h3>
+            <div class='ranking_like'>
+            <% if !@article_ranking %>
+              <th>１位：</th>
+              <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
+              <th>２位：</th>
+              <td><%= link_to @article_ranking.second.user.name, user_path(@article_ranking.second.user) %></td>
+              <th>３位：</th>
+              <td><%= link_to @article_ranking.third.user.name, user_path(@article_ranking.third.user) %></td>
+            <% end %>
+            </div>
           </div>
         </div>
       </div>
-      <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-        <%= form.submit "検索", class: "search-btn" %>
-      <% end %>
-      <div class="contents row">
-        <% @articles.each do |article| %>
-          <%= render partial: "article", locals: { article: article } %>
-        <% end %>
-        <%= paginate @articles %>
-      </div>
     </div>
-    <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
-      <%= image_tag 'surf.png', class:"surf_img" %>
-    <% end %>
+    <div class='main'>
+      <div class='main_menu'>
+        <h1 class="head_en">Article</h1>
+        <h3 class="head__ja">記事一覧</h3>
+        <%= render 'heading'%>
+      </div>
+      <div class='main_content'>
+        <div class="contents row">
+          <% @articles.each do |article| %>
+            <%= render partial: "article", locals: { article: article } %>
+          <% end %>
+          <%= paginate @articles %>
+        </div>
+      </div>
+      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
+        <%= image_tag 'surf.png', class:"surf_img" %>
+      <% end %>
+    </div>
   </div>
 </div>

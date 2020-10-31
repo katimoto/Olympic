@@ -43,9 +43,9 @@ jobs:
       - run: bundle exec rake db:schema:load
 
 
-      # - run:
-      #     name: Rubocop
-      #     command: bundle exec rubocop
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
 
 
       - run:
@@ -71,14 +71,14 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-      - add_ssh_keys:
-          fingerprints:
-            - "1a:ac:8d:53:49:c4:89:85:55:26:84:21:94:18:bf:cf"
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "1a:ac:8d:53:49:c4:89:85:55:26:84:21:94:18:bf:cf"
 
-      - deploy:
-          name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy
+      # - deploy:
+      #     name: Capistrano deploy
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" != "master" ]; then
+      #         exit 0
+      #       fi
+      #       bundle exec cap production deploy
