@@ -15,7 +15,9 @@
     <div class='side_main'>
     <% @rooms = Room.all %>
     <% @rooms.each do |room| %>
-      <%= image_tag room.user.image if room.user.image.attached? %>
+      <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
+        <%= image_tag room.user.image if room.user.image.attached? %>
+      <% end %>
     <% end %>
     <%= link_to rooms_path do %>
       <i class="fas fa-plus"></i>

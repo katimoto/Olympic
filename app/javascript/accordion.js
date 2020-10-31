@@ -1,14 +1,12 @@
 $(function() {
-  $('.show_head').click(function() {
-    var $answer = $(this).find('.show_heads');
+  $('.navigation').click(function() {
+    var $answer = $(this).find('.show_head');
     if ($answer.hasClass('open')) {
-      $answer.removeClass('open');
       $answer.slideUp();
-      $(this).find('span').text('+');
+      $answer.removeClass('open');
     } else {
-      $answer.addClass('open');
       $answer.slideDown();
-      $(this).find('span').text('-');
+      $answer.addClass('open');
     }
   });
 });
