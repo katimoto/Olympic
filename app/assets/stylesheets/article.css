@@ -478,7 +478,7 @@ div.contents.row {
 }
 
 div.contents.row div.content_post {
-  background-color: rgb(224, 155, 17);
+  background-color: transparent;
   border-radius: 10px;
   height: 350px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);

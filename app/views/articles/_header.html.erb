@@ -2,15 +2,15 @@
 <h6 class="olympic">オンラインピック</h6>
 <% if user_signed_in? %>
   <div class="navigation">
-    <%= link_to "トップページ", root_path, class:"nav"%>
+    <%= link_to "▼トップページ", root_path, class:"nav"%>
     <%= render "articles/heading"%>
-    <%= link_to "プロフィール", user_path(current_user), class:"nav"%>
+    <%= link_to "▼プロフィール", user_path(current_user), class:"nav"%>
     <%= render "users/header"%>
-    <%= link_to "サロンルーム", room_path(current_user), class:"nav"%>
+    <%= link_to "▼サロンルーム", room_path(current_user), class:"nav"%>
     <%= render "rooms/header"%>
-    <%= link_to "記事", search_articles_path, class:"nav" %>
+    <%= link_to "▼記事", search_articles_path, class:"nav" %>
     <%= render "articles/heading"%>
-    <%= link_to "質問", questions_path, class:"nav" %>
+    <%= link_to "▼質問", questions_path, class:"nav" %>
     <%= render "questions/header"%>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
   </div>

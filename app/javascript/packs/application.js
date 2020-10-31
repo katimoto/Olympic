@@ -11,6 +11,7 @@ require('jquery')
 require("../tag")
 require("../card")
 require("scroll.js")
+require("accordion.js")
 require("./preview")
 window.$ = $;
 

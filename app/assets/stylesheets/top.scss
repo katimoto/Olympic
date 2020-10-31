@@ -6,10 +6,10 @@
   width: 100%;
 
   .up1 {
-    background-color: lightgreen;
+    background-color: rgb(34, 34, 36);
     height: 7vh;
     width: 100%;
-    border: 1px solid lightyellow;
+    border: 1px solid rgb(61, 61, 61);
     display: flex;
     justify-content: center;
 
@@ -20,6 +20,10 @@
       width: 20%;
       display: flex;
     }
+    .user-profile {
+      border-radius: 5px;
+      float: right;
+    }
   }
   .down1 {
     background-color: lightpink;
@@ -28,38 +32,57 @@
     display: flex;
   
     .side_main {
-      background-color: lightseagreen;
+      background-color: rgb(35, 35, 41);
       width: 5%;
-      border: 1px solid lightyellow;
+      border: 1px solid rgb(61, 61, 61);
     }
     .nav_main {
       width: 20%;
       height: calc(100%-7vh);
       background-color: rgb(196, 161, 90);
       font-weight: bold;
-      border: 1px solid lightyellow;
+      border: 1px solid rgb(61, 61, 61);
       .up2 {
-        background-color: lightskyblue;
-        border-bottom: 1px solid lightyellow;
+        background-color: rgb(35, 35, 41);
+        border-bottom: 1px solid rgb(61, 61, 61);
         height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          color: rgb(180, 179, 179);
+          font-size: 30px;
+        }
       }
       .down2 {
-        background-color: rgb(70, 167, 113);
-        border-bottom: 1px solid lightyellow;
+        background-color: rgb(35, 35, 41);
+        border-bottom: 1px solid rgb(61, 61, 61);
         height: 90.4%;
         .navigation {
           display: flex;
           flex-direction: column;
           .nav {
             display: block;
-            color: black;
+            color: rgb(180, 179, 179);
+            letter-spacing: 0.2rem;
+            padding-left: 10px;
+          }
+          li {
+            font-size: 12px;            
+            font-weight: normal;
+            padding-left: 40px;
+            a {
+              color: rgb(180, 179, 179);
+              letter-spacing: 0.2rem;
+              padding-top: 5px;
+            }
           }
         }
       }
     }
 
     .main {
-      background-color: #fff;
+      background-color: rgb(40, 40, 51);
       text-align: center;
       width: 75%;
       position: relative;
@@ -81,21 +104,20 @@
       }
 
       .main_menu {
-        color: rgb(26, 25, 25);
-        background-color: magenta;
+        color: rgb(175, 175, 175);
         height: 10vh;
         position: relative;
-        border-bottom: 1px solid lightyellow;
+        border-bottom: 1px solid rgb(61, 61, 61);
 
         .head_en {
           font-size: 10px;
-          color: rgb(0, 0, 0);
+          color: rgb(179, 173, 173);
           font-weight: bold;
         }
 
         .head__ja {
           font-size: 10px;
-          color: rgb(0, 0, 0);
+          color: rgb(190, 187, 187);
           font-weight: bold;
         }
       }
@@ -107,7 +129,7 @@
         overflow-y: scroll;
         transform: translateZ(0);
         height: 85vh;
-        border-bottom: 1px solid lightyellow;
+        border-bottom: 1px solid rgb(61, 61, 61);
 
         .aside {
           height: 100px;
@@ -133,7 +155,7 @@
             font-size: 1rem;
           }        
           li {
-            color: rgb(44, 44, 44);
+            color: rgb(202, 202, 202);
             letter-spacing: 2px;
             font-size: 1rem;
             text-align: center;
@@ -215,4 +237,8 @@
     color: #eee;
     font-size: 15px;
   }
+}
+
+.firework {
+  size: 7x;
 }
