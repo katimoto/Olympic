@@ -12,6 +12,7 @@
     border: 1px solid rgb(61, 61, 61);
     display: flex;
     justify-content: center;
+    position: relative;
 
     .search-form {
       background-color: transparent;
@@ -21,12 +22,12 @@
       display: flex;
     }
     .user-profile {
-      border-radius: 5px;
       float: right;
+      position: absolute;
+      right: 10px;
     }
   }
   .down1 {
-    background-color: lightpink;
     height: calc(100%-10vh);
     width: 100%;
     display: flex;
@@ -61,16 +62,21 @@
         .navigation {
           display: flex;
           flex-direction: column;
-          .nav {
-            display: block;
+          display: block;
+          color: rgb(180, 179, 179);
+          letter-spacing: 0.2rem;
+          padding-left: 10px;
+          margin-bottom: 10px;
+          a {
             color: rgb(180, 179, 179);
             letter-spacing: 0.2rem;
-            padding-left: 10px;
+            padding-top: 5px;
           }
-          li {
+          .ppp {
             font-size: 12px;            
             font-weight: normal;
             padding-left: 40px;
+            display: none;
             a {
               color: rgb(180, 179, 179);
               letter-spacing: 0.2rem;
@@ -86,6 +92,7 @@
       text-align: center;
       width: 75%;
       position: relative;
+      border: 1px solid rgb(61, 61, 61);
 
       .surf_img {
         position: absolute;
@@ -108,16 +115,13 @@
         height: 10vh;
         position: relative;
         border-bottom: 1px solid rgb(61, 61, 61);
+        background-color: rgb(35, 35, 44);
+        position: relative;
 
         .head_en {
-          font-size: 10px;
+          font-size: 20px;
+          padding-top: 10px;
           color: rgb(179, 173, 173);
-          font-weight: bold;
-        }
-
-        .head__ja {
-          font-size: 10px;
-          color: rgb(190, 187, 187);
           font-weight: bold;
         }
       }
@@ -241,4 +245,8 @@
 
 .firework {
   size: 7x;
+}
+
+.image-profile {
+  border-radius: 30px;
 }

@@ -2,17 +2,37 @@
 <h6 class="olympic">オンラインピック</h6>
 <% if user_signed_in? %>
   <div class="navigation">
-    <%= link_to "▼トップページ", root_path, class:"nav"%>
-    <%= render "articles/heading"%>
-    <%= link_to "▼プロフィール", user_path(current_user), class:"nav"%>
-    <%= render "users/header"%>
-    <%= link_to "▼サロンルーム", room_path(current_user), class:"nav"%>
-    <%= render "rooms/header"%>
-    <%= link_to "▼記事", search_articles_path, class:"nav" %>
-    <%= render "articles/heading"%>
-    <%= link_to "▼質問", questions_path, class:"nav" %>
-    <%= render "questions/header"%>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout" %>
+    <p> ▼トップページ</p>
+    <div class='ppp'>
+      <%= render "articles/heading"%>
+    </div>
+  </div>
+  <div class="navigation">
+    <p> ▼プロフィール</p>
+    <div class='ppp'>
+      <%= render "users/header"%>
+    </div>
+  </div>
+  <div class="navigation">
+    <p> ▼サロンルーム</p>
+    <div class='ppp'>
+      <%= render "rooms/header"%>
+    </div>
+  </div>
+  <div class="navigation">
+    <p> ▼記事</p>
+    <div class='ppp'>
+      <%= render "articles/heading"%>
+    </div>
+  </div>
+  <div class="navigation">
+    <p> ▼質問</p>
+    <div class='ppp'>
+      <%= render "questions/header"%>
+    </div>
+  </div>
+  <div class="navigation">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout", data: {confirm: "削除しますか？"} %>
   </div>
 <% else %>
   <div class="not_login">
@@ -20,11 +40,3 @@
     <%= link_to "サインアップ", new_user_registration_path, class: "signup", data: {"turbolinks"=>false} %>
   </div>
 <% end %>
-
-
-
-
-
-
-
-

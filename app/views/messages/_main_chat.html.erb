@@ -9,7 +9,7 @@
       <%= link_to room_path(current_user) do %>
         <i class="fas fa-fast-backward"></i>
       <% end %>
-      <%= link_to room_path(@room), method: :delete do %>
+      <%= link_to room_path(@room), method: :delete, data: {confirm: "削除しますか？"} do %>
         <i class="fas fa-toilet"></i>
       <% end %>
     </div>
