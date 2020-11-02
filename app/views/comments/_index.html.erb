@@ -10,7 +10,7 @@
                 <div class="comment-entry">
                     <%= comment.text %>
                     <% if comment.user == current_user %>
-                        <%= link_to article_comment_path(comment.article_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+                        <%= link_to article_comment_path(comment.article_id, comment.id), method: :delete, remote: true, class: "comment_destroy", data: {confirm: "削除しますか？"} do %>
                             <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
                         <% end %>
                     <% end %>
@@ -34,7 +34,7 @@
                             <div class="comment-entry">
                                 <%= comment.text %>
                                 <% if comment.user == current_user %>
-                                    <%= link_to article_comment_path(comment.article_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+                                    <%= link_to article_comment_path(comment.article_id, comment.id), method: :delete, remote: true, class: "comment_destroy", data: {confirm: "削除しますか？"} do %>
                                         <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
                                     <% end %>
                                 <% end %>
