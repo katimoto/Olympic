@@ -1,12 +1,12 @@
-$(function() {
+$(document).on("turbolinks:load", (function() {
   $('.navigation').click(function() {
-    var $answer = $(this).find('.show_head');
+    var $answer = $(this).find('.ppp');
     if ($answer.hasClass('open')) {
-      $answer.slideUp();
+      $answer.slideUp(500);
       $answer.removeClass('open');
     } else {
       $answer.slideDown();
       $answer.addClass('open');
     }
   });
-});
+}));
