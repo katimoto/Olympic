@@ -489,3 +489,10 @@ div.contents.row div.content_post {
   height: 400px;
   width: 600px;
 } 
+
+.aside {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0px;
+}
