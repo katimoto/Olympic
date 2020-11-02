@@ -10,7 +10,7 @@
                 <div class="answer-entry">
                     <%= answer.text %>
                     <% if answer.user == current_user %>
-                        <%= link_to question_answer_path(answer.question_id, answer.id), method: :delete, remote: true, class: "answer_destroy" do %>
+                        <%= link_to question_answer_path(answer.question_id, answer.id), method: :delete, remote: true, class: "answer_destroy", data: {confirm: "削除しますか？"} do %>
                             <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
                         <% end %>
                     <% end %>
@@ -44,7 +44,7 @@
                             <div class="answer-entry">
                                 <%= answer.text %>
                                 <% if answer.user == current_user %>
-                                    <%= link_to question_answer_path(answer.question_id, answer.id), method: :delete, remote: true, class: "answer_destroy" do %>
+                                    <%= link_to question_answer_path(answer.question_id, answer.id), method: :delete, remote: true, class: "answer_destroy", data: {confirm: "削除しますか？"} do %>
                                         <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
                                     <% end %>
                                 <% end %>
