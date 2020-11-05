@@ -140,3 +140,7 @@ select {
   background-color: #b85f5f;
   border-radius: 30px;
 }
+
+.room-show {
+  background-color: transparent;
+}

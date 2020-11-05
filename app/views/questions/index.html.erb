@@ -1,9 +1,9 @@
 <div class='wrapper'>
   <div class='up1'>
-    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
+      <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
+        <%= form.text_field :keyword, placeholder: "質問を探す", class: "search-input", id: "qt" %>
+        <%= form.submit "Go", class: "search-btn", id: "qs" %>
+      <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
       <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
     <% end %>
@@ -55,10 +55,6 @@
         </div>
       </div>
       <div class='main_content'>
-        <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
-          <%= form.text_field :keyword, placeholder: "質問を探す", class: "search-input", id: "qt" %>
-          <%= form.submit "Go", class: "search-btn", id: "qs" %>
-        <% end %>
         <div class='question_wrapper'>
           <div class='question_index'>
             <h1>質問一覧</h1>
