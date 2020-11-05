@@ -1,75 +1,75 @@
-version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.6.5-node-browsers
-        environment:
-          - BUNDLER_VERSION: 2.0.1
-          - RAILS_ENV: 'test'
-      - image: circleci/mysql:5.6.47
-        environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          - MYSQL_ROOT_HOST: '%'
+# version: 2.1
+# jobs:
+#   build:
+#     docker:
+#       - image: circleci/ruby:2.6.5-node-browsers
+#         environment:
+#           - BUNDLER_VERSION: 2.0.1
+#           - RAILS_ENV: 'test'
+#       - image: circleci/mysql:5.6.47
+#         environment:
+#           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+#           - MYSQL_ROOT_HOST: '%'
 
 
 
-    working_directory: ~/original/Olympic
+#     working_directory: ~/original/Olympic
 
-    steps:
-      - checkout
-
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 2.0.1
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+#     steps:
+#       - checkout
 
 
-      - run: mv config/database.yml.ci config/database.yml 
+#       - restore_cache:
+#           keys:
+#             - v1-dependencies-{{ checksum "Gemfile.lock" }}
+#             - v1-dependencies-
+
+#       - run:
+#           name: install dependencies
+#           command: |
+#             gem install bundler -v 2.0.1
+#             bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+#       - save_cache:
+#           paths:
+#             - ./vendor/bundle
+#           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
 
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+#       - run: mv config/database.yml.ci config/database.yml 
 
 
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
+#       - run: bundle exec rake db:create
+#       - run: bundle exec rake db:schema:load
 
 
-      - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
+#       - run:
+#           name: Rubocop
+#           command: bundle exec rubocop
+
+
+#       - run:
+#           name: run tests
+#           command: |
+#             mkdir /tmp/test-results
+#             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+#               circleci tests split --split-by=timings)"
 
 
 
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
+#             bundle exec rspec \
+#               --format progress \
+#               --format RspecJunitFormatter \
+#               --out /tmp/test-results/rspec.xml \
+#               --format progress \
+#               $TEST_FILES
 
 
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+#       - store_test_results:
+#           path: /tmp/test-results
+#       - store_artifacts:
+#           path: /tmp/test-results
+#           destination: test-results
 
       # - add_ssh_keys:
       #     fingerprints:

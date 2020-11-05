@@ -1,5 +1,12 @@
 
 
+a{
+transition: all 1s;
+}
+a:hover{
+transform: translate(5px);
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
