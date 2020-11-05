@@ -1,88 +1,138 @@
 <div class='wrapper'>
-  <div class='nav_main'>
-    <%= render "articles/header"%>
+  <div class='up1'>
+    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+    <%= link_to user_path(current_user), class: "user-profile" do %>
+      <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
+    <% end %>
+    <%= link_to root_path, class: "help", data: {confirm: "アプリの使い方を確認しますか？"} do %>
+      <i class="far fa-question-circle"></i>
+    <% end %>
   </div>
-  <div class='main'>
-    <div class='main_menu'>
-      <h1 class="head_en">Let’s Purchase</h1>
-      <h3 class="head__ja">購入ページ</h3>
-      <%= render "articles/header"%>
+  <div class='down1'>
+    <div class='side_main'>
+    <% @rooms = Room.all %>
+    <% @rooms.each do |room| %>
+      <% if room.user_id == current_user.id %>
+        <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
+          <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= link_to rooms_path do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
     </div>
-    <div class='main_content'>
-      <%# 商品の概要 %>
-      <div class="room-show">
-        <div class="room-box">
-          <h2 class="name">
-            <%= @room.name %>
-          </h2>
-          <div class='room-img-content'>
-            <%= image_tag @room.image.variant(resize: '200x200')%>
-          </div>
-          <div class="room-price-box">
-            <span class="room-price">
-              <%= @room.price %>
-            </span>
-          </div>
-
-          <% if user_signed_in? && @room.user_id != current_user.id %>
-            <% if !@room.room_order %>
-            <%= link_to '購入する', order_room_path(@room.id), method: :post %>
-            <% end %>
-          <% end %>
-
-
-          <div class="room-explain-box">
-            <span><%= @room.text %></span>
-          </div>
-          <table class="detail-table">
-            <tbody>
-              <tr>
-                <th class="detail-room">出品者</th>
-                <td class="detail-value"><%= @room.user.name %></td>
-              </tr>
-              <tr>
-                <th class="detail-room">カテゴリー</th>
-                <td class="detail-value"><%= Category.find(@room.category_id).name %></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="option">
-            <div class="favorite-btn">
-              <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-              <span>お気に入り 0</span>
-            </div>
-            <div class="report-btn">
-              <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-              <span>不適切な商品の通報</span>
-            </div>
-          </div>
-        </div>
-        <%# /商品の概要 %>
-
-        <div class="comment-box">
-          <form>
-            <textarea class="comment-text"></textarea>
-            <p class="comment-warn">
-              相手のことを考え丁寧なコメントを心がけましょう。
-              <br>
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            </p>
-            <button type="submit" class="comment-btn">
-              <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-              <span>コメントする<span>
-            </button>
-          </form>
-        </div>
-        <div class="links">
-          <a href="#" class="change-room-btn">
-            ＜ 前の商品
-          </a>
-          <a href="#" class="change-room-btn">
-            後ろの商品 ＞
-          </a>
-        </div>
-        <a href="#" class='another-room'><%= "商品のカテゴリー名" %>をもっと見る</a>
+    <div class='nav_main'>
+      <div class='up2'>
+        <%= link_to search_articles_path do %>
+          <p>記事一覧<p>
+        <% end %>
       </div>
+      <div class='down2'>
+        <%= render "header"%>
+      </div>
+    </div>
+    <div class='main'>
+      <div class='main_menu'>
+        <h1 class="head_en">Article</h1>
+        <div class='aside'>
+          <div class='article_like'>
+            <h3>いいね数ランキング</h3>
+          </div>
+          <div class='ranking_like'>
+          <% if @article_ranking %>
+            <th>１位：</th>
+            <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
+            <th>２位：</th>
+            <td><%= link_to @article_ranking.second.user.name, user_path(@article_ranking.second.user) %></td>
+            <th>３位：</th>
+            <td><%= link_to @article_ranking.third.user.name, user_path(@article_ranking.third.user) %></td>
+          <% end %>
+          </div>
+        </div>
+      </div>
+      <div class='main_content'>
+        <%# 商品の概要 %>
+        <div class="room-show">
+          <div class="room-box">
+            <h2 class="name">
+              <%= @room.name %>
+            </h2>
+            <div class='room-img-content'>
+              <%= image_tag @room.image.variant(resize: '200x200')%>
+            </div>
+            <div class="room-price-box">
+              <span class="room-price">
+                <%= @room.price %>
+              </span>
+            </div>
+
+            <% if user_signed_in? && @room.user_id != current_user.id %>
+              <% if !@room.room_order %>
+              <%= link_to '購入する', order_room_path(@room.id), method: :post %>
+              <% end %>
+            <% end %>
+
+
+            <div class="room-explain-box">
+              <span><%= @room.text %></span>
+            </div>
+            <table class="detail-table">
+              <tbody>
+                <tr>
+                  <th class="detail-room">出品者</th>
+                  <td class="detail-value"><%= @room.user.name %></td>
+                </tr>
+                <tr>
+                  <th class="detail-room">カテゴリー</th>
+                  <td class="detail-value"><%= Category.find(@room.category_id).name %></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="option">
+              <div class="favorite-btn">
+                <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+                <span>お気に入り 0</span>
+              </div>
+              <div class="report-btn">
+                <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+                <span>不適切な商品の通報</span>
+              </div>
+            </div>
+          </div>
+          <%# /商品の概要 %>
+
+          <div class="comment-box">
+            <form>
+              <textarea class="comment-text"></textarea>
+              <p class="comment-warn">
+                相手のことを考え丁寧なコメントを心がけましょう。
+                <br>
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              </p>
+              <button type="submit" class="comment-btn">
+                <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+                <span>コメントする<span>
+              </button>
+            </form>
+          </div>
+          <div class="links">
+            <a href="#" class="change-room-btn">
+              ＜ 前の商品
+            </a>
+            <a href="#" class="change-room-btn">
+              後ろの商品 ＞
+            </a>
+          </div>
+          <a href="#" class='another-room'><%= "商品のカテゴリー名" %>をもっと見る</a>
+        </div>
+      </div>
+      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
+        <i class="fas fa-plus-circle firework"></i>
+      <% end %>
     </div>
   </div>
 </div>
