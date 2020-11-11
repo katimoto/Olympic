@@ -7,7 +7,7 @@ h1 {
 
 h2 {
   margin-bottom: 10px;
-  color: rgb(36, 35, 35);
+  color: rgb(180, 179, 179);
   font-size: 14px;
 }
 
@@ -54,7 +54,7 @@ li {
 .chat-room-form__action-btn {
   display: inline-block;
   padding: 12px 20px;
-  color: rgb(36, 35, 35);
+  color: rgb(180, 179, 179);
   background-color: #38aef0;
   border: 0;
 }

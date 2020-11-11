@@ -21,7 +21,7 @@
 .create-room a {
   border: 1px solid lightblue;
   padding: 14px;
-  color: rgb(36, 35, 35);
+  color: rgb(180, 179, 179);
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@
 
 .room-name a {
   text-decoration: none;
-  color: rgb(36, 35, 35)
+  color: rgb(180, 179, 179);
 }
 
 .chat {
@@ -59,7 +59,7 @@
 }
 
 .header-title {
-  color: rgb(36, 35, 35);
+  color: rgb(180, 179, 179);
   font-size: 24px;
   margin-top: 36px;
 }
@@ -100,7 +100,7 @@ i {
 }
 
 .message-user {
-  color: rgb(36, 35, 35);
+  color: rgb(180, 179, 179);
   font-size: 16px;
 }
 
