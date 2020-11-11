@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   get 'likes/destroy'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   root to: 'articles#news'
   resources :users, only: [:index, :edit, :update, :show] do
     get 'article', on: :member
