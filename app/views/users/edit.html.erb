@@ -1,8 +1,8 @@
 <div class='wrapper'>
   <div class='up1'>
-    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
+    <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form", id: "qf") do |form| %>
+      <%= form.text_field :keyword, placeholder: "タイトルで探す", class: "search-input", id: "qt" %>
+      <%= form.submit "Go", class: "search-btn", id: "qs" %>
     <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
       <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>

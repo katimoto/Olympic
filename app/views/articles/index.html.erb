@@ -1,8 +1,9 @@
 <div class='wrapper'>
   <div class='up1'>
-    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
+    <%= search_form_for @p, url: searches_articles_path, class: "upp" do |f| %>
+      <%= f.collection_select :word_eq, @article_tag, :word, :word, include_blank: '指定なし' %>
+      <br>
+    <%= f.submit '検索' %>
     <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
       <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
@@ -56,12 +57,6 @@
       </div>
       <div class='main_content'>
         <div class='content'>
-          <%= search_form_for @p, url: searches_articles_path do |f| %>
-            <%= f.label :word_eq, 'タグ検索：' %>
-            <%= f.collection_select :word_eq, @article_tag, :word, :word, include_blank: '指定なし' %>
-            <br>
-          <%= f.submit '検索' %>
-          <% end %>
           <div class='article_show'>
             <div class="contents row">
               <%= article_lists(@articles) %>

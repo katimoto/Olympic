@@ -1,9 +1,10 @@
-<%= form.text_field :title, placeholder: "タイトル", class:"input-tag" %>
-<label class="form-image">
-  <span class="image-file">画像</span>
-  <%= form.file_field :image, id: 'pre_image' %>
-  <div id="image-list"></div>
-</label>
-<%= form.text_area :text, placeholder: "テキスト", rows: "10" %>
-<%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-<%= form.submit "SEND" %>
+<form>
+  <%= form.text_field :title, placeholder: "タイトル", class:"input-tag" %>
+  <label class="form-image">
+    <%= form.file_field :image, id: 'pre_image' %>
+    <div id="image-list"></div>
+  </label>
+  <%= form.text_area :text, placeholder: "テキスト", rows: "10" %>
+  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+  <%= form.submit "SEND" %>
+</form>

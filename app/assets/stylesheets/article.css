@@ -456,18 +456,6 @@ ul li {
   margin: 0;
 }
 
-.form {
-  background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
-  background-size: cover;
-}
-
-.form .contents {
-  position: absolute;
-  left: 0;
-  top: 30%;
-  bottom: 0;
-  right: 0;
-}
 
 div.contents.row {
   padding: 0;

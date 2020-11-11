@@ -114,6 +114,7 @@ select {
 	font-family:inherit;
 	font-size:inherit;
 	font-weight:inherit;
+	padding: 10px 0;
 	*font-size:100%; /*to enable resizing for IE*/
 }
 /*because legend doesn't inherit in IE */
