@@ -12,6 +12,7 @@ class Users::SessionsController < Devise::SessionsController
       user.password = "guest123"
       user.name = "ゲストユーザー"
       user.category_id = "5"
+      user.image = '/assets/default.png'
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in user
