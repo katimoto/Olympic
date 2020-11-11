@@ -5,7 +5,11 @@
         <%= form.submit "Go", class: "search-btn", id: "qs" %>
       <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
-      <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
+      <% if current_user.name == "ゲストユーザー" %>
+        <%= image_tag 'default.png', class: "image-profile" %>
+      <% else %>
+        <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
+      <% end %>
     <% end %>
     <%= link_to root_path, class: "help" do %>
       <i class="far fa-question-circle"></i>
