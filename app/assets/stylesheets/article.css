@@ -53,7 +53,7 @@ template {
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom. */
 html {
-  /* font-family: 'Montserrat', sans-serif; */
+
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -136,7 +136,7 @@ code,
 kbd,
 pre,
 samp {
-  /* font-family: 'Montserrat', sans-serif; */
+
   font-size: 1em;
 }
 

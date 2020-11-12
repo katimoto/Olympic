@@ -6,7 +6,6 @@ $blue: #4784AD;
 form {
   margin: 10% auto;
   min-width: 9rem;
-  height: 500px;
 }
   
 input, textarea {
@@ -74,7 +73,7 @@ textarea {
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Roboto','Open Sans';
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
@@ -84,7 +83,7 @@ body {
   padding: 2rem;
   background: #f9f9f9;
   color: #2f2f2f;
-  font-family: 'Open Sans';
+  font-family: 'Roboto','Open Sans';
 }
 
 .upp {
