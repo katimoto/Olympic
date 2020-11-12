@@ -5,7 +5,7 @@
       <%= form.submit "Go", class: "search-btn", id: "qs" %>
     <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
-      <% if @user.name == "ゲストユーザー" %>
+      <% if current_user.name == "ゲストユーザー" %>
         <%= image_tag 'default.png', class: "image-profile" %>
       <% else %>
         <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
@@ -61,7 +61,7 @@
       <div class='main_content'>
         <div class='user_content'>
           <div class='user_left'>
-          <% if @user.name == "ゲストユーザー" %>
+          <% if current_user.name == "ゲストユーザー" %>
             <%= image_tag ('default.png'), class: 'user-image' %>
           <% else %>
             <%= image_tag @user.image.variant(resize: '200x200'), class: 'user-image' if @user.image.attached? %>

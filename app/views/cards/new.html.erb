@@ -81,7 +81,9 @@
               <p>年</p>
             </div>
           </div>
-          <%= f.submit "登録する" , class:"button" %>
+          <%= f.submit, class:"button" do %>
+            <i class="far fa-paper-plane"></i>
+          <% end %>
         <% end %>
       </div>
       <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
