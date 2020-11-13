@@ -17,8 +17,7 @@
       width: 100%;
 
       .content_post_question {
-        background-color: #ffff;
-        border: 1px solid rgb(36, 35, 35);
+        background-color: #a00037;
         padding-bottom: 20px;
         height: 100px;
         position: relative;
@@ -103,7 +102,6 @@ h3 {
 }
 
 .answer-container {
-  border: 1px solid black;
 
   .answer-text {
     text-align: left;
@@ -115,7 +113,6 @@ h3 {
   }
   .answe-date {
     text-align: right;
-    color: lightgray;
   }
   .ba-child {
     background-color: red;
