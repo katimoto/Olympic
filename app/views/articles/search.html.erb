@@ -47,7 +47,7 @@
             <h3>いいね数ランキング</h3>
           </div>
           <div class='ranking_like'>
-          <% if @article_ranking %>
+          <% if @article_ranking.exists?(3) %>
             <th>１位：</th>
             <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
             <th>２位：</th>

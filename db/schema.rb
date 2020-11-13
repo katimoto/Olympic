@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
-    t.string "text", null: false
+    t.text "text", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.bigint "room_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "text", null: false
+    t.text "text", null: false
     t.string "title", null: false
     t.integer "best_answer_id"
     t.integer "category_id", null: false
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
   create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "answer_id"
     t.bigint "user_id"
-    t.string "text", null: false
+    t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["answer_id"], name: "index_reactions_on_answer_id"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_034037) do
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "price", null: false
+    t.integer "price", null: false
     t.text "text", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false

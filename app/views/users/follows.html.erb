@@ -60,7 +60,6 @@
       </div>
       <div class='main_content'>
         <% @users.each do |user| %>
-          <hr>
           <div class='user-follow'>
             <p><span><%= image_tag user.image.variant(resize: '50x50'), class:"image-profile" if user.image.attached? %></span><%= link_to user.name, user_path(user.id) %></p>
             <div class='users_<%= user.id %>'>
