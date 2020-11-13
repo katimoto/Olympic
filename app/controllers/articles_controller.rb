@@ -8,8 +8,11 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.includes(:user).page(params[:page]).per(6).order('created_at DESC')
-    @questions = Question.includes(:user).page(params[:page]).per(10).order('created_at DESC')
     set_article_column
+    @results = @p.result.includes(:articles)  # 検索条件にマッチした商品の情報を取得
+    article_favorite_count = Article.joins(:favorites).group(:article_id).count
+    article_favorited_ids = Hash[article_favorite_count.sort_by { |_, v| -v }].keys
+    @article_ranking = Article.where(id: article_favorited_ids)
   end
 
   def new

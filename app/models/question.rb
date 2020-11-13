@@ -3,9 +3,9 @@ class Question < ApplicationRecord
   belongs_to_active_hash :category
 
   belongs_to :user
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_one_attached :image
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   validates :title, :text, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1 }

@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :search_question, only: [:index, :search]
 
   def index
-    @questions = Question.includes(:user).page(params[:page]).per(6).order('created_at DESC')
+    @questions = Question.includes(:user).page(params[:page]).per(10).order('created_at DESC')
     set_question_column
     question_like_count = Question.joins(:likes).group(:question_id).count
     question_liked_ids = Hash[question_like_count.sort_by { |_, v| -v }].keys
