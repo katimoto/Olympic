@@ -1,13 +1,5 @@
 <div class='wrapper'>
   <div class='up1'>
-    <%= search_form_for @p, url: search_questions_path do |f| %>
-      <%= f.label :created_at_eq, '時系列：' %>
-      <%= f.collection_select :created_at_eq, @question_created, :created_at, :created_at, include_blank: '指定なし' %>
-      <br>
-      <%= f.label :category_id_eq, 'カテゴリー：' %>
-      <%= f.collection_select :category_id_eq, @question_category, :id, :id, include_blank: '指定なし' %>
-    <%= f.submit '検索' %>
-    <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
       <% if current_user.name == "ゲストユーザー" %>
         <%= image_tag 'default.png', class: "image-profile" %>
@@ -64,6 +56,14 @@
       </div>
       <div class='main_content'>
         <div class="contents row">
+          <%= search_form_for @p, url: search_questions_path do |f| %>
+            <%= f.label :created_at_eq, '時系列：' %>
+            <%= f.collection_select :created_at_eq, @question_created, :created_at, :created_at, include_blank: '指定なし' %>
+            <br>
+            <%= f.label :category_id_eq, 'カテゴリー：' %>
+            <%= f.collection_select :category_id_eq, @question_category, :id, :id, include_blank: '指定なし' %>
+            <%= f.submit '検索' %>
+          <% end %>
           <% @questions.each do |question| %>
             <%= render partial: "question", locals: { question: question } %>
           <% end %>

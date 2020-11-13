@@ -12,7 +12,7 @@ class User < ApplicationRecord
                          format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
     with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
-      validates :password, length: { minimum: 6 }
+      validates :password, length: { minimum: 6 }, on: :create
     end
   end
 

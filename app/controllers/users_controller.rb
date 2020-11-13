@@ -8,10 +8,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if current_user.update(user_params)
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user),notice: 'プロフィールが変更されました'
     else
-      render :show
+      render :edit
     end
   end
 
