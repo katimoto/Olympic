@@ -29,10 +29,9 @@
   padding: 20px;
   overflow: scroll;
   margin: 30px 100px 30px;
-  background-color: #fff;
+  border: 1px solid #fff;
   width: 70%;
   height: 500px;
-  background-color: rgb(196, 161, 90);
   overflow: scroll;
 }
 
@@ -73,9 +72,9 @@
 }
 
 i {
-  font-size: 30px;
-  margin-left: 10px;
-  color: rgb(72, 151, 224);
+  font-size: 40px;
+  margin: 10px;
+  color: #a00037;
 }
 
 .messages {

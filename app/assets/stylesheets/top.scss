@@ -1,5 +1,5 @@
 th, tr {
-  color: rgb(180, 179, 179);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 a{
@@ -13,15 +13,19 @@ transform: translate(5px);
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: #0097a7;
 
   .up1 {
-    background-color: rgb(34, 34, 36);
+    background-color: #006978;
     height: 7vh;
     width: 100%;
-    border: 1px solid rgb(61, 61, 61);
+    z-index: 6;
     display: flex;
     justify-content: center;
     position: relative;
+    font-size: large;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
 
     .search-form {
       background-color: transparent;
@@ -42,52 +46,55 @@ transform: translate(5px);
     display: flex;
   
     .side_main {
-      background-color: rgb(35, 35, 41);
+      background-color: #e0e0e0;
+      color: rgba(0, 0, 0, 0.7);
       width: 5%;
-      border: 1px solid rgb(61, 61, 61);
+      z-index: 5;
+      margin: 10px;
     }
     .nav_main {
       width: 20%;
       height: calc(100%-7vh);
-      background-color: rgb(196, 161, 90);
       font-weight: bold;
-      border: 1px solid rgb(61, 61, 61);
       .up2 {
-        background-color: rgb(35, 35, 41);
-        border-bottom: 1px solid rgb(61, 61, 61);
+        background-color:  #ff5c8d;
         height: 10vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 10px;
+        z-index: 4;
         p {
-          color: rgb(180, 179, 179);
-          font-size: 30px;
+          color: rgba(0, 0, 0, 0.7);
+          font-size: large;
         }
       }
       .down2 {
-        background-color: rgb(35, 35, 41);
-        border-bottom: 1px solid rgb(61, 61, 61);
-        height: 90.4%;
+        background-color:#d81b60;;
+        height: 70vh;
+        margin: 10px;
         .navigation {
           display: flex;
           flex-direction: column;
           display: block;
-          color: rgb(180, 179, 179);
+          color: rgba(0, 0, 0, 0.7);
           letter-spacing: 0.2rem;
           padding-left: 10px;
           margin-bottom: 10px;
+          margin: 10px;
+          z-index: 3;
           a {
-            color: rgb(180, 179, 179);
+            color: rgba(0, 0, 0, 0.7);
             letter-spacing: 0.2rem;
             padding-top: 5px;
           }
           .ppp {
             font-size: 12px;            
-            font-weight: normal;
+            font-weight: bold;
             padding-left: 40px;
             display: none;
             a {
-              color: rgb(180, 179, 179);
+              color: rgba(0, 0, 0, 0.7);
               letter-spacing: 0.2rem;
               padding-top: 5px;
             }
@@ -97,11 +104,9 @@ transform: translate(5px);
     }
 
     .main {
-      background-color: rgb(40, 40, 51);
       text-align: center;
       width: 75%;
       position: relative;
-      border: 1px solid rgb(61, 61, 61);
 
       .surf_img {
         position: absolute;
@@ -120,29 +125,31 @@ transform: translate(5px);
       }
 
       .main_menu {
-        color: rgb(175, 175, 175);
+        color: rgba(255, 255, 255, 0.7);
         height: 10vh;
         position: relative;
-        border-bottom: 1px solid rgb(61, 61, 61);
-        background-color: rgb(35, 35, 44);
+        background-color: #a00037;
         position: relative;
+        margin: 10px;
+        z-index: 2;
 
         .head_en {
           font-size: 20px;
           padding-top: 10px;
-          color: rgb(179, 173, 173);
+          color: rgba(0, 0, 0, 0.7);
           font-weight: bold;
         }
       }
 
       .main_content {
-        border-top: 1px solid rgb(36, 36, 35);
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
         transform: translateZ(0);
-        height: 85vh;
-        border-bottom: 1px solid rgb(61, 61, 61);
+        height: 70vh;
+        background-color: #e0e0e0;
+        margin: 10px;
+        z-index: 1;
 
         .aside {
           height: 100px;
@@ -168,13 +175,25 @@ transform: translate(5px);
             font-size: 1rem;
           }        
           li {
-            color: rgb(202, 202, 202);
+            color: rgba(0, 0, 0, 0.7);
             letter-spacing: 2px;
             font-size: 1rem;
             text-align: center;
           }
         }
       }
+    }
+  }
+  .footer {
+    background-color: #56c8d8;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: #a00037;
+      font-size: large;
+      font-weight: bold;
     }
   }
 }
@@ -190,7 +209,6 @@ transform: translate(5px);
 
 .user_content {
   padding-top: 5%;
-  border-top: 1px solid rgb(36, 36, 35);
   display: flex;
 
       .user_left {
@@ -254,6 +272,9 @@ transform: translate(5px);
 
 .firework {
   size: 7x;
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
 }
 
 .image-profile {

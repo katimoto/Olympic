@@ -71,7 +71,7 @@
             <div class='question_category'>
               <h3>カテゴリーから探す</h3>
               <div class='category_row'>
-              <% if !@question_ranking %>
+              <% if @question_ranking.exists? %>
                 <table class="table-name">
                   <tbody>
                     <tr>
@@ -94,12 +94,30 @@
             <div class='question_answer'>
               <h3>回答数ランキング</h3>
               <div class='ranking_answer'>
+              <% if @question_ranking.exists? %>
+                <table class="table-name">
+                  <tbody>
+                    <tr>
+                      <th>１位：</th>
+                      <td><%= @question_ranking.first.user.name %></td>
+                    </tr>
+                    <tr>
+                      <th>２位</th>
+                      <td><%= @question_ranking.second.user.name %></td>
+                    </tr>
+                    <tr>
+                      <th>３位</th>
+                      <td><%= @question_ranking.third.user.name %></td>
+                    </tr>
+                  </tbody>    
+                </table> 
+              <% end %>
               </div>
             </div>
             <div class='question_like'>
               <h3>いいね数ランキング</h3>
               <div class='ranking_like'>
-              <% if !@question_ranking %>
+              <% if @question_ranking.exists? %>
                 <table class="table-name">
                   <tbody>
                     <tr>
