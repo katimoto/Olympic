@@ -27,8 +27,8 @@ li {
   width: 100%;
   margin: 60px auto;
   padding: 40px;
-  background-color: #eee;
-  border: 1px solid #ddd;
+  background-color: #a00037;
+  z-index: 2;
   border-radius: 20px;
 }
 .chat-room-form__errors {

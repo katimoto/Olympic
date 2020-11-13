@@ -57,7 +57,7 @@ transform: translate(5px);
       height: calc(100%-7vh);
       font-weight: bold;
       .up2 {
-        background-color:  #ff5c8d;
+        background-color:  #f44336;
         height: 10vh;
         display: flex;
         justify-content: center;
@@ -128,7 +128,7 @@ transform: translate(5px);
         color: rgba(255, 255, 255, 0.7);
         height: 10vh;
         position: relative;
-        background-color: #a00037;
+        background-color: #ffb300;
         position: relative;
         margin: 10px;
         z-index: 2;
@@ -147,7 +147,7 @@ transform: translate(5px);
         overflow-y: scroll;
         transform: translateZ(0);
         height: 70vh;
-        background-color: #e0e0e0;
+        background-color: #0097a7;
         margin: 10px;
         z-index: 1;
 
@@ -234,7 +234,7 @@ transform: translate(5px);
 
         .table-name{
           height: 500px;
-          margin-left: 200px;
+          margin-left: 50px;
           margin-top: 100px;
 
           th {
