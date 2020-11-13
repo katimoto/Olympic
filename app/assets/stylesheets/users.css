@@ -134,3 +134,42 @@
   border-bottom: 1px solid rgb(196, 161, 90);
   padding-bottom: 15px;
 }
+
+a.btn {
+  background-color: rgb(141, 189, 65);
+  float: right;
+  margin-top: 20px;
+}
+
+
+.fbtn {
+  background-color: rgb(35, 32, 184);
+  float: right;
+  margin-top: 20px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+}
+
+.gbtn {
+  background-color: rgb(196, 36, 36);
+  float: right;
+  margin-top: 20px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+}
