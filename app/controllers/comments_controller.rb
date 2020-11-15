@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  def show 
+    @article = Article.find(params[:article_id])
+  end
+
   def create
     @article = Article.find(params[:article_id])
     # 投稿に紐づいたコメントを作成

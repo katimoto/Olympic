@@ -11,13 +11,18 @@
   </div>
   <div class='content_show'>
     <h3><%= article.title %></h3>
-    <p>内容：<%= article.text %></p>
+    <p>内容：<%= article.text.truncate(100, omission: '...(詳細へ)') %></p>
     <% article.tags.each do |tag| %>
       <h6>#<%= tag.word %></h6>
     <%end%>
     <p><%= link_to '詳しく見る', article_path(article.id), method: :get, class:"ren" %></p>
-    <div class='favorites_<%= article.id %>'>
-      <%= render partial: 'favorites/favorite', locals: { article: article } %>
+    <div class='aaa'>
+      <div class='favorites_<%= article.id %>'>
+        <%= render partial: 'favorites/favorite', locals: { article: article } %>
+      </div>
+      <div class='iconcon'>
+        <%= render partial: 'comments/show', locals: { article: article } %>
+      </div>
     </div>
   </div>
 </div>

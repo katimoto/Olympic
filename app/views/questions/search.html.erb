@@ -27,8 +27,8 @@
     </div>
     <div class='nav_main'>
       <div class='up2'>
-        <%= link_to search_articles_path do %>
-          <p>記事一覧<p>
+        <%= link_to questions_path do %>
+          <p>質問一覧<p>
         <% end %>
       </div>
       <div class='down2'>
@@ -37,7 +37,7 @@
     </div>
     <div class='main'>
       <div class='main_menu'>
-        <h1 class="head_en">Article</h1>
+        <h1 class="head_en">質問検索</h1>
         <div class='aside'>
           <div class='article_like'>
             <h3>いいね数ランキング</h3>
@@ -64,18 +64,12 @@
             <%= f.collection_select :category_id_eq, @question_category, :id, :id, include_blank: '指定なし' %>
             <%= f.submit '検索' %>
           <% end %>
-          <% @questions.each do |question| %>
-            <%= render partial: "question", locals: { question: question } %>
-          <% end %>
         </div>
       </div>
-      <%= link_to new_question_path, data: {"turbolinks"=>false} do %>
-        <%= image_tag 'bat.png', class:"bat_img" %>
-      <% end %>
-      </div>
-      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
-        <i class="fas fa-plus-circle firework"></i>
-      <% end %>
+    </div>
+    <%= link_to new_question_path, data: {"turbolinks"=>false} do %>
+      <i class="fas fa-plus-circle firework"></i>
+    <% end %>
     </div>
   </div>
   <div class='footer'>

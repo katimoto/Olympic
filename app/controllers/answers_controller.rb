@@ -1,4 +1,8 @@
 class AnswersController < ApplicationController
+  def show 
+    @question = Question.find(params[:question_id])
+  end
+
   def create
     @question = Question.find(params[:question_id])
     # 投稿に紐づいたコメントを作成

@@ -27,8 +27,8 @@
     </div>
     <div class='nav_main'>
       <div class='up2'>
-        <%= link_to search_articles_path do %>
-          <p>記事一覧<p>
+        <%= link_to room_path(current_user) do %>
+          <p>ルーム一覧<p>
         <% end %>
       </div>
       <div class='down2'>
@@ -61,9 +61,9 @@
           </div>
         </div>
       </div>
-      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
-        <i class="fas fa-plus-circle firework"></i>
-      <% end %>
     </div>
+  </div>
+  <div class='footer'>
+  <p>@Copyright Olimpic Apps 2020</p>
   </div>
 </div>

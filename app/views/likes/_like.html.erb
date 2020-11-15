@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <% if question.liked_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
     <%=link_to question_likes_path(question.id), method: :delete, remote: true do %>
-      <p id="favo"><i class="far fa-thumbs-up"></i><%= question.likes.count %><p>
+      <p id="favo"><i class="far fa-thumbs-up"></i>:<%= question.likes.count %><p>
     <% end %>
   <% else %>
     <%=link_to question_likes_path(question.id), method: :post, remote: true do %>
-      <p id="favo"><i class="far fa-thumbs-up"></i><%= question.likes.count %></p>
+      <p id="favo"><i class="far fa-thumbs-up"></i>:<%= question.likes.count %></p>
     <% end %>
   <% end %>
 <% else %>
-  <p id="favo"><i class="far fa-thumbs-up"></i><%= question.likes.count %></p>
+  <p id="favo"><i class="far fa-thumbs-up"></i>:<%= question.likes.count %></p>
 <% end %>

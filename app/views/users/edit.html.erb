@@ -31,8 +31,8 @@
     </div>
     <div class='nav_main'>
       <div class='up2'>
-        <%= link_to search_articles_path do %>
-          <p>記事一覧<p>
+        <%= link_to user_path(@user) do %>
+          <p>ユーザー編集<p>
         <% end %>
       </div>
       <div class='down2'>
@@ -41,7 +41,7 @@
     </div>
     <div class='main'>
       <div class='main_menu'>
-        <h1 class="head_en">Article</h1>
+        <h1 class="head_en">ユーザー編集</h1>
         <div class='aside'>
           <div class='article_like'>
             <h3>いいね数ランキング</h3>
