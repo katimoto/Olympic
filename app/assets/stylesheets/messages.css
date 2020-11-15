@@ -44,7 +44,7 @@
 
 .room-name a {
   text-decoration: none;
-  color: rgb(180, 179, 179);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .chat {
@@ -58,7 +58,7 @@
 }
 
 .header-title {
-  color: rgb(180, 179, 179);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 24px;
   margin-top: 36px;
 }
@@ -99,12 +99,12 @@ i {
 }
 
 .message-user {
-  color: rgb(180, 179, 179);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 16px;
 }
 
 .message-date {
-  color: #999;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 12px;
   padding-left: 10px;
 }
@@ -114,7 +114,7 @@ i {
 }
 
 .message-content {
-  color: rgb(36, 35, 35);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 14px;
   text-align: left;
 }
@@ -145,7 +145,7 @@ i {
 .message-form-submit {
   background-color: #38AEF0;
   border: none;
-  color: rgb(36, 35, 35);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 16px;
   height: 50px;
   margin-left: 15px;
@@ -155,7 +155,7 @@ i {
 
 .form-image {
   font-size: 12px;
-  color: rgb(36, 35, 35);
+  color: rgba(0, 0, 0, 0.7);
   padding: 12px;
   width: 60px;
   margin: 5px 10px;

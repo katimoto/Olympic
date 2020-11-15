@@ -43,19 +43,7 @@
       <div class='main_menu'>
         <h1 class="head_en">ルーム一覧</h1>
         <div class='aside'>
-          <div class='article_like'>
-            <h3>いいね数ランキング</h3>
-          </div>
-          <div class='ranking_like'>
-          <% if @article_ranking %>
-            <th>１位：</th>
-            <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
-            <th>２位：</th>
-            <td><%= link_to @article_ranking.second.user.name, user_path(@article_ranking.second.user) %></td>
-            <th>３位：</th>
-            <td><%= link_to @article_ranking.third.user.name, user_path(@article_ranking.third.user) %></td>
-          <% end %>
-          </div>
+          <%= render 'rooms/header'%>
         </div>
       </div>
       <div class='main_content'>
