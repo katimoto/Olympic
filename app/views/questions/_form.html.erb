@@ -6,5 +6,5 @@
   </label>
   <%= form.text_area :text, placeholder: "テキスト", rows: "10" %>
   <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-  <%= form.submit "SEND" %>
+  <%= form.submit "送信", class: 'chat-room-form__action-btn' %>
 </form>
