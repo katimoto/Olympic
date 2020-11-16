@@ -43,15 +43,15 @@
       <div class='main_menu'>
         <h1 class="head_en">フォロー</h1>
         <div class='aside'>
-          <div class='hhh'>
-            <%= render 'users/header'%>
-          </div>
+            <%= render 'users/heading'%>
         </div>
       </div>
       <div class='main_content'>
         <% @users.each do |user| %>
           <div class='user-follow'>
-            <p><span><%= image_tag user.image.variant(resize: '50x50'), class:"image-profile" if user.image.attached? %></span><%= link_to user.name, user_path(user.id) %></p>
+          <%= link_to user_path(user.id) do %>
+            <p><span><%= image_tag user.image.variant(resize: '50x50'), class:"image-profile" if user.image.attached? %></span><%=user.name%></p>
+          <% end %>
             <div class='users_<%= user.id %>'>
               <%= render partial: 'relationships/following', locals: {user: user}%>
             </div>
