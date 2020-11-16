@@ -54,7 +54,10 @@
               <% @room.each do |room| %>
                 <div class="room">
                   <div class="room-name">
-                    <%= link_to room.name, room_messages_path(room), data: {"turbolinks"=>false} %>
+                    <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
+                     <%= image_tag room.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached? %>
+                     <%= room.name %>
+                    <% end %>
                   </div>
                 </div>
               <% end %>
@@ -63,7 +66,7 @@
           </div>
         </div>
       </div>
-      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
+      <%= link_to new_room_path, data: {"turbolinks"=>false} do %>
         <i class="fas fa-plus-circle firework"></i>
       <% end %>
     </div>
