@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:news]
   before_action :move_to_login, except: [:index, :show, :search, :news]
   before_action :set_article, only: [:edit, :show]
   before_action :search_article, only: [:index, :searches]
