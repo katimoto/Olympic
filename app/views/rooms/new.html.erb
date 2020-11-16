@@ -74,15 +74,12 @@
               <div class='chat-room-form__field--left'></div>
               <%= f.hidden_field :user_id, value: current_user.id%>
               <div class='chat-room-form__field--right'>
-                <%= f.submit class: 'chat-room-form__action-btn'%>
+                <%= f.submit "送信", class: 'chat-room-form__action-btn'%>
               </div>
             </div>
           <% end %>
         </div>
       </div>
-      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
-        <i class="fas fa-plus-circle firework"></i>
-      <% end %>
     </div>
   </div>
   <div class='footer'>
