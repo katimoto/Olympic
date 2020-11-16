@@ -3,7 +3,7 @@ th, tr {
 }
 
 a{
-transition: all 1s;
+transition: all 0.3s;
 }
 a:hover{
 transform: translate(5px);
@@ -53,6 +53,7 @@ transform: translate(5px);
       z-index: 5;
       margin: 10px;
       box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
+      border-radius: 5px;
     }
     .nav_main {
       width: 20%;
@@ -67,6 +68,7 @@ transform: translate(5px);
         margin: 10px;
         z-index: 4;
         box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
+        border-radius: 5px;
         p {
           color: rgba(0, 0, 0, 0.7);
           font-size: large;
@@ -77,16 +79,19 @@ transform: translate(5px);
         height: 70vh;
         margin: 10px;
         box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
+        border-radius: 5px;
+        overflow: auto;
         .navigation {
           display: flex;
           flex-direction: column;
           display: block;
           color: rgba(0, 0, 0, 0.7);
           letter-spacing: 0.2rem;
-          padding-left: 10px;
-          margin-bottom: 10px;
           margin: 10px;
           z-index: 3;
+          padding: 5px;
+          border-radius: 10px;
+          background-color: #f44332;
           a {
             color: rgba(0, 0, 0, 0.7);
             letter-spacing: 0.2rem;
@@ -101,6 +106,9 @@ transform: translate(5px);
               color: rgba(0, 0, 0, 0.7);
               letter-spacing: 0.2rem;
               padding-top: 5px;
+              &:hover {
+                color: #fff;
+              }
             }
           }
         }
@@ -121,12 +129,40 @@ transform: translate(5px);
         margin: 10px;
         z-index: 2;
         box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
+        border-radius: 5px;
 
         .head_en {
           font-size: 20px;
           padding-top: 10px;
           color: rgba(0, 0, 0, 0.7);
           font-weight: bold;
+        }
+        .aside > .show_head {
+          display: flex;
+          li {
+            text-align: left;
+            margin-left: 10px;
+            padding: 5px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            background-color: #b0003a;
+            &:hover {
+              background-color: #f44332;
+            }
+          }
+        }
+        .aside > .article_like > h3 {
+          background-color: blue;
+          padding: 5px;
+          border-radius: 5px;
+        }
+        .aside > .ranking_like > a {
+          background-color: #b0003a;
+          padding: 5px;
+          border-radius: 5px;
+          &:hover {
+            background-color: #f44332;
+          }
         }
       }
 
@@ -150,7 +186,7 @@ transform: translate(5px);
         .present {
           font-size: 40px;
           padding-bottom: 50px;
-          border-bottom:1px solid rgb(196, 161, 90);
+          border-bottom:1px solid #fff;
           margin-bottom: 50px;
 
           h4 {
@@ -223,7 +259,7 @@ transform: translate(5px);
         }
 
         .follow {
-          background-color: rgb(196, 161, 90);
+          background-color: #fff;
           color: #eee;
           margin-top: 20px;
           padding: 10px;
@@ -241,12 +277,12 @@ transform: translate(5px);
 
           th {
             font-size: 20px;
-            border-bottom:1px solid rgb(196, 161, 90);
+            border-bottom:1px solid #fff;
           }
 
           td {
             font-size: 20px;
-            border-bottom:1px solid rgb(196, 161, 90);
+            border-bottom:1px solid #fff;
           }
         }
       }
@@ -273,7 +309,7 @@ transform: translate(5px);
 }
 
 .firework {
-  size: 7x;
+  font-size: 100px;
   position: absolute;
   bottom: 10px;
   right: 50px;

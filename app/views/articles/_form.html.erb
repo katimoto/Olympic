@@ -7,6 +7,4 @@
 <%= form.text_field :word, placeholder: "タグ", class:"input-tag" %>
 <div id="search-result">
 </div>
-<%= form.submit do %>
-  <i class="far fa-paper-plane"></i>
-<% end %>
+<%= form.submit "送信", class: 'chat-room-form__action-btn'%>

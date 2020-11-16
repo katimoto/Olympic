@@ -1,37 +1,40 @@
+<h1><i class="fas fa-book-open"></i>目次</h1>
 <%= breadcrumbs separator: " &rsaquo; "%>
 <% if user_signed_in? %>
   <div class="navigation">
-    <p>トップページ</p>
+    <p><i class="fas fa-thumbtack"></i>トップページ</p>
     <div class='ppp'>
       <%= render "articles/heading"%>
     </div>
   </div>
   <div class="navigation">
-    <p>プロフィール</p>
+    <p><i class="fas fa-address-card"></i>プロフィール</p>
     <div class='ppp'>
       <%= render "users/header"%>
     </div>
   </div>
   <div class="navigation">
-    <p>サロンルーム</p>
+    <p><i class="fas fa-comment-alt"></i>サロンルーム</p>
     <div class='ppp'>
       <%= render "rooms/header"%>
     </div>
   </div>
   <div class="navigation">
-    <p>記事</p>
+    <p><i class="fas fa-book"></i>記事</p>
     <div class='ppp'>
       <%= render "articles/heading"%>
     </div>
   </div>
   <div class="navigation">
-    <p>質問</p>
+    <p><i class="fas fa-question"></i>質問</p>
     <div class='ppp'>
       <%= render "questions/header"%>
     </div>
   </div>
   <div class="navigation">
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav logout", data: {confirm: "ログアウトしますか？"} %>
+    <%= link_to destroy_user_session_path, method: :delete, class:"nav logout", data: {confirm: "ログアウトしますか？"} do %>
+      <p><i class="fas fa-sign-out-alt"></i>ログアウト</p>
+    <% end %>
   </div>
 <% else %>
   <div class="not_login">

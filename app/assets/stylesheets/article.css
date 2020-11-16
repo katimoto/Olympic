@@ -466,9 +466,9 @@ div.contents.row {
 div.contents.row div.content_post {
   background-color: #d81b60;
   border-radius: 10px;
-  height: 350px;
+  height: 450px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
-  margin: 10px 5px 10px 8px;
+  margin: 20px 9px 10px 8px;
 }
 
 #map {
