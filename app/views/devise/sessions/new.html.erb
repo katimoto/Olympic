@@ -1,3 +1,60 @@
+<div class='wrapper'>
+  <div class='up1'>
+    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user), class: "user-profile" do %>
+        <% if current_user.name == "ゲストユーザー" %>
+          <%= image_tag 'default.png', class: "image-profile" %>
+        <% else %>
+          <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= link_to root_path, class: "help" do %>
+      <i class="far fa-question-circle"></i>
+    <% end %>
+  </div>
+  <div class='down1'>
+    <div class='side_main'>
+    <%= link_to rooms_path do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+    </div>
+    <div class='nav_main'>
+      <div class='up2'>
+        <%= link_to root_path do %>
+          <p>アプリの概要<p>
+        <% end %>
+      </div>
+      <div class='down2'>
+        <%= render "articles/header"%>
+      </div>
+    </div>
+    <div class='main'>
+      <div class='main_menu'>
+        <h1 class="head_en">記事編集</h1>
+        <div class='aside'>
+          <div class="navigation">
+            <p><i class="fas fa-thumbtack"></i>トップページ</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-address-card"></i>プロフィール</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-comment-alt"></i>サロンルーム</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-book"></i>記事</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-question"></i>質問</p>
+          </div>
+        </div>
+      </div>
+      <div class='main_content'>
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
@@ -42,4 +99,13 @@
     </div>
   </div>
 </div>
-
+      </div>
+      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
+        <i class="fas fa-plus-circle firework"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class='footer'>
+  <p>@Copyright Olimpic Apps 2020</p>
+  </div>
+</div>
