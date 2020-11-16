@@ -1,86 +1,149 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Create Account</h2>
-      <h5>新規アカウントの作成</h5>
-      <%= render "devise/shared/links"%>
-    </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
-        <%= devise_error_messages!%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :name%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
-          </div>
-        </div>
-        <label class="form-image">
-          <span class="image-file">画像</span>
-          <%= f.file_field :image, id: 'pre_image' %>
-          <div id="image-list"></div>
-        </label>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :category%>
-          </div>
-          <div class='field-input'>
-            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :career%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :career%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :introduce%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :introduce%>
-          </div>
-        </div>
-        <%if @sns_id.present? %>
-          <%= hidden_field_tag :sns_auth, true %>
+<div class='wrapper'>
+  <div class='up1'>
+    <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user), class: "user-profile" do %>
+        <% if current_user.name == "ゲストユーザー" %>
+          <%= image_tag 'default.png', class: "image-profile" %>
         <% else %>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :password%>
-            <i>(英数字8文字以上)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password, autocomplete: "off"%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :password_confirmation%>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
-          </div>
-        </div>
+          <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
         <% end %>
-        <div class='actions'>
-          <%= f.submit "Create Account", class: 'btn'%>
-        </div>
+      <% end %>
+    <% end %>
+    <%= link_to root_path, class: "help" do %>
+      <i class="far fa-question-circle"></i>
+    <% end %>
+  </div>
+  <div class='down1'>
+    <div class='side_main'>
+    <%= link_to rooms_path do %>
+      <i class="fas fa-plus"></i>
     <% end %>
     </div>
-    <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
-    <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post%>
+    <div class='nav_main'>
+      <div class='up2'>
+        <%= link_to root_path do %>
+          <p>アプリの概要<p>
+        <% end %>
+      </div>
+      <div class='down2'>
+        <%= render "articles/header"%>
+      </div>
+    </div>
+    <div class='main'>
+      <div class='main_menu'>
+        <h1 class="head_en">サインアップ</h1>
+        <div class='aside'>
+          <div class="navigation">
+            <p><i class="fas fa-thumbtack"></i>トップページ</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-address-card"></i>プロフィール</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-comment-alt"></i>サロンルーム</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-book"></i>記事</p>
+          </div>
+          <div class="navigation">
+            <p><i class="fas fa-question"></i>質問</p>
+          </div>
+        </div>
+      </div>
+      <div class='main_content'>
+        <div class='account-page' id='account-page'>
+          <div class='account-page__inner clearfix'>
+            <div class='account-page__inner--left account-page__header'>
+              <h2>Create Account</h2>
+              <h5>新規アカウントの作成</h5>
+              <%= render "devise/shared/links"%>
+            </div>
+            <div class='account-page__inner--right user-form'>
+              <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
+                <%= devise_error_messages!%>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :name%>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.text_field :name, autofocus: true%>
+                  </div>
+                </div>
+                <label class="form-image">
+                  <span class="image-file">画像</span>
+                  <%= f.file_field :image, id: 'pre_image' %>
+                  <div id="image-list"></div>
+                </label>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :email%>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.email_field :email%>
+                  </div>
+                </div>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :category%>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+                  </div>
+                </div>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :career%>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.text_field :career%>
+                  </div>
+                </div>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :introduce%>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.text_field :introduce%>
+                  </div>
+                </div>
+                <%if @sns_id.present? %>
+                  <%= hidden_field_tag :sns_auth, true %>
+                <% else %>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :password%>
+                    <i>(英数字8文字以上)</i>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.password_field :password, autocomplete: "off"%>
+                  </div>
+                </div>
+                <div class='field'>
+                  <div class='field-label'>
+                    <%= f.label :password_confirmation%>
+                  </div>
+                  <div class='field-input'>
+                    <%= f.password_field :password_confirmation, autocomplete: "off"%>
+                  </div>
+                </div>
+                <% end %>
+                <div class='actions'>
+                  <%= f.submit "Create Account", class: 'btn'%>
+                </div>
+            <% end %>
+            </div>
+            <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
+            <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='footer'>
+  <p>@Copyright Olimpic Apps 2020</p>
   </div>
 </div>
-
