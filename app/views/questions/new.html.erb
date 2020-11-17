@@ -22,7 +22,7 @@
     <% end %>
     <% @rooms = Room.all %>
     <% @rooms.each do |room| %>
-      <% if room.user_id == current_user.id %>
+      <% if room.user.id == current_user.id  || room.room_order.user.id == current_user.id%>
         <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
           <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
         <% end %>
@@ -51,7 +51,7 @@
           <div class="container">
             <%= form_with(model: @question, local: true) do |form| %>
             <%= render 'shared/error_messages', model: form.object %>
-              <h3>質問しちゃう？？</h3>
+              <h3>質問フォーム</h3>
               <%= render partial: "form", locals: { form: form } %>
             <% end %>
           </div>

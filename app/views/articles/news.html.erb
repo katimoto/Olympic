@@ -25,7 +25,7 @@
     <% if user_signed_in? %>
       <% @rooms = Room.all %>
       <% @rooms.each do |room| %>
-        <% if room.user_id == current_user.id %>
+        <% if room.user.id == current_user.id  || room.room_order.user.id == current_user.id%>
           <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
             <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
           <% end %>
@@ -45,7 +45,7 @@
     </div>
     <div class='main'>
       <div class='main_menu'>
-        <h1 class="head_en">サインイン</h1>
+        <h1 class="head_en">アプリの概要</h1>
         <div class='aside'>
           <div class="navigation">
             <p><i class="fas fa-thumbtack"></i>トップページ</p>

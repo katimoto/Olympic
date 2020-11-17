@@ -1,5 +1,9 @@
 <% if article.comment_ids.empty? %>
-  <i class="far fa-comment"></i>: <%= article.comment_ids.count %>
+  <div class='bomen'>
+    <i class="far fa-comment"></i>: <%= article.comment_ids.count %>
+  </div>
 <% else %>
-  <i class="far fa-comment"></i>: <%= article.comment_ids.count %>
+  <div class='bomen'>
+    <i class="far fa-comment"></i>: <%= article.comment_ids.count %>
+  </div>
 <% end %>

@@ -92,7 +92,15 @@
                 </div>
               <% end %>
               <div class='actions'>
-                <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'btn' %>
+              <div class='btn'>
+                <%=  form_for(User.new, url:user_session_path) do |f| %>
+                  <%= f.hidden_field :email, value: "guest@gmail.com" %>
+                  <%= f.hidden_field :password, value: "guest123" %>
+                  <%= f.submit "かんたんログイン", class:"top-easy-in btn" %>
+                  <p class="top-nav">採用ご担当者様用</p>
+                <% end %>
+              </div>
+              </div>
                 <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'gbtn'%>
                 <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: 'fbtn'%>
               </div>

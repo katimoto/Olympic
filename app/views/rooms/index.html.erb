@@ -22,9 +22,9 @@
     <% end %>
     <% @rooms = Room.all %>
     <% @rooms.each do |room| %>
-      <% if room %>
+      <% if room.user.id == current_user.id  || room.room_order.user.id == current_user.id%>
         <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
-          <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
+          <%= image_tag room.image, class:"image-profile" if room.user.image.attached? %>
         <% end %>
       <% end %>
     <% end %>
@@ -75,7 +75,8 @@
                   <table class="table-name">
                     <tbody>
                       <tr>
-                        <th><%= room.name %>
+                        <th><%= image_tag room.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached? %>
+                        <%= room.name %>
                           <% if room.room_order %>
                             <div class='sold-out'>
                               <span>soldout!!</span>
@@ -96,9 +97,6 @@
           </div>
         </div>
       </div>
-      <%= link_to new_room_path, data: {"turbolinks"=>false} do %>
-        <i class="fas fa-plus-circle firework"></i>
-      <% end %>
     </div>
   </div>
   <div class='footer'>

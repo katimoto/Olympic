@@ -7,17 +7,17 @@
         <div class="comment-box">
             <div class="comment-text">
                 <p><%= link_to comment.user.name, "/users/#{comment.user_id}" %></p>
+                <span class="comment-date pull-right">
+                      <%= comment.created_at.to_s(:datetime_jp) %>
+                </span>
                 <div class="comment-entry">
                     <%= comment.text %>
                     <% if comment.user == current_user %>
                         <%= link_to article_comment_path(comment.article_id, comment.id), method: :delete, remote: true, class: "comment_destroy", data: {confirm: "削除しますか？"} do %>
-                            <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
+                            <i class="fas fa-trash" style="color: rgb(36, 36, 35); font-size: 10px;"></i>
                         <% end %>
                     <% end %>
                 </div>
-                <span class="comment-date pull-right">
-                      <%= comment.created_at.to_s(:datetime_jp) %>
-                </span>
             </div>
         </div>
     </li>
@@ -31,17 +31,17 @@
                     <div class="comment-box">
                         <div class="comment-text">
                             <p><%= link_to comment.user.name, "/users/#{comment.user_id}" %></p>
+                            <span class="comment-date pull-right">
+                                  <%= comment.created_at.to_s(:datetime_jp) %>
+                            </span>
                             <div class="comment-entry">
                                 <%= comment.text %>
                                 <% if comment.user == current_user %>
                                     <%= link_to article_comment_path(comment.article_id, comment.id), method: :delete, remote: true, class: "comment_destroy", data: {confirm: "削除しますか？"} do %>
-                                        <i class="fas fa-trash" style="color: rgb(36, 36, 35);"></i>
+                                        <i class="fas fa-trash" style="color: rgb(36, 36, 35); font-size: 10px;"></i>
                                     <% end %>
                                 <% end %>
                             </div>
-                            <span class="comment-date pull-right">
-                                  <%= comment.created_at.to_s(:datetime_jp) %>
-                            </span>
                         </div>
                     </div>
                 </li>

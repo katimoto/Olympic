@@ -1,19 +1,35 @@
 User.create(
     [
-        {name: '鈴木太郎', email: 'sitsumon1@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11'},
-        {name: '佐々木太郎', email: 'sitsumon2@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11'},
-        {name: '田中太郎', email: 'sitsumon3@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11'},
-        {name: '高橋花子', email: 'kaitou1@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11'},
-        {name: '斎藤花子', email: 'kaitou2@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11'},
-        {name: '池田花子', email: 'kaitou3@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11'}])
+        {name: '鈴木太郎', email: 'sitsumon1@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '2', user.image: ""},
+        {name: '佐々木太郎', email: 'sitsumon2@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '7', user.image: ""},
+        {name: '田中太郎', email: 'sitsumon3@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '9', user.image: ""},
+        {name: '高橋花子', email: 'kaitou1@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '11', user.image: ""},
+        {name: '斎藤花子', email: 'kaitou2@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '14', user.image: ""},
+        {name: '宮本太郎', email: 'sitsumon4@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '16', user.image: ""},
+        {name: '宇多川太郎', email: 'sitsumon5@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '19', user.image: ""},
+        {name: '新橋太郎', email: 'sitsumon6@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '2', user.image: ""},
+        {name: '坂本花子', email: 'kaitou4@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '3', user.image: ""},
+        {name: '斎藤今日子', email: 'kaitou5@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '14', user.image: ""},
+        {name: 'ゲストユーザー', email: 'guest@gmail.com', password: 'guest123', password_confirmation: 'guest123', category_id: '12', user.image: ""},
+        {name: '池田リナ', email: 'kaitou6@gmail.com', password: 'aa11aa11', password_confirmation: 'aa11aa11', category_id: '5', user.image: ""}])
  
 Question.create(
     [
         {title: '東京のお土産で喜ばれるもの', text: '今週末東京に行きますが、東京土産で喜ばれるものありますか？', user_id: 1},
         {title: '好きな動物', text: '一番好きな動物は何ですか？', user_id: 1},
         {title: '美味しいご飯や', text: '名古屋周辺の美味しいご飯屋さん教えてください', user_id: 2},
-        {title: '明日の天気', text: '明日の天気は？', user_id: 2},
+        {title: '明日の天気', text: '明日の天気は？', user_id: 4},
         {title: '読書時間について', text: '一日の読書時間はどれぐらい？', user_id: 3},
+        {title: '東京のお土産で喜ばれるもの', text: '今週末東京に行きますが、東京土産で喜ばれるものありますか？', user_id: 1},
+        {title: '好きな動物', text: '一番好きな動物は何ですか？', user_id: 5},
+        {title: '美味しいご飯や', text: '名古屋周辺の美味しいご飯屋さん教えてください', user_id: 2},
+        {title: '明日の天気', text: '明日の天気は？', user_id: 5},
+        {title: '読書時間について', text: '一日の読書時間はどれぐらい？', user_id: 8},
+        {title: '東京のお土産で喜ばれるもの', text: '今週末東京に行きますが、東京土産で喜ばれるものありますか？', user_id: 1},
+        {title: '好きな動物', text: '一番好きな動物は何ですか？', user_id: 9},
+        {title: '美味しいご飯や', text: '名古屋周辺の美味しいご飯屋さん教えてください', user_id: 10},
+        {title: '明日の天気', text: '明日の天気は？', user_id: 2},
+        {title: '読書時間について', text: '一日の読書時間はどれぐらい？', user_id: 3},                
         {title: '英語の勉強法', text: '英語はどうやって勉強したらいいですか？', user_id: 3}])
  
 Answer.create(

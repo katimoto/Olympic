@@ -22,7 +22,7 @@
     <% end %>
     <% @rooms = Room.all %>
     <% @rooms.each do |room| %>
-      <% if room.user_id == current_user.id %>
+      <% if room.user.id == current_user.id  || room.room_order.user.id == current_user.id%>
         <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
           <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
         <% end %>
@@ -59,7 +59,7 @@
             <div class='question_category'>
               <h3>カテゴリーから探す</h3>
               <div class='category_row'>
-              <% if @question_ranking.exists?(3) %>
+              <% if @questions.exists? %>
                 <table class="table-name">
                   <tbody>
                     <tr>
@@ -74,6 +74,14 @@
                       <th>３位</th>
                       <td><%= Category.find(9).name %></td>
                     </tr>
+                    <tr>
+                      <th>４位：</th>
+                      <td><%= Category.find(5).name %></td>
+                    </tr>
+                    <tr>
+                      <th>５位</th>
+                      <td><%= Category.find(3).name %></td>
+                    </tr>                                                         
                   </tbody>    
                 </table> 
               <% end %>
@@ -82,21 +90,29 @@
             <div class='question_answer'>
               <h3>回答数ランキング</h3>
               <div class='ranking_answer'>
-              <% if @question_ranking.exists?(3) %>
+              <% if !@questions2.empty? %>
                 <table class="table-name">
                   <tbody>
                     <tr>
                       <th>１位：</th>
-                      <td><%= @question_ranking.first.user.name %></td>
+                      <td><%= @questions2.first.name %></td>
                     </tr>
                     <tr>
                       <th>２位</th>
-                      <td><%= @question_ranking.second.user.name %></td>
+                      <td><%= @questions2.second.name %></td>
                     </tr>
                     <tr>
                       <th>３位</th>
-                      <td><%= @question_ranking.third.user.name %></td>
+                      <td><%= @questions2.third.name %></td>
                     </tr>
+                    <tr>
+                      <th>４位：</th>
+                      <td><%= @questions2.fourth.name %></td>
+                    </tr>
+                    <tr>
+                      <th>５位</th>
+                      <td><%= @questions2.fifth.name %></td>
+                    </tr>                                                       
                   </tbody>    
                 </table> 
               <% end %>
@@ -105,21 +121,30 @@
             <div class='question_like'>
               <h3>いいね数ランキング</h3>
               <div class='ranking_like'>
-              <% if @question_ranking.exists?(3) %>
+              <% if !@question_ranking.empty? %>
                 <table class="table-name">
                   <tbody>
                     <tr>
                       <th>１位：</th>
-                      <td><%= @question_ranking.first.title %></td>
+                      <td><%= @question_ranking.first.name %></td>
                     </tr>
                     <tr>
                       <th>２位</th>
-                      <td><%= @question_ranking.second.title %></td>
+                      <td><%= @question_ranking.second.name %></td>
                     </tr>
                     <tr>
                       <th>３位</th>
-                      <td><%= @question_ranking.third.title %></td>
+                      <td><%= @question_ranking.third.name %></td>
                     </tr>
+                    <tr>
+                      <th>４位：</th>
+                      <td><%= @question_ranking.fourth.name %></td>
+                    </tr>
+                    <tr>
+                      <th>５位</th>
+                      <td><%= @question_ranking.fifth.name %></td>
+                    </tr>
+                    <tr>                                                       
                   </tbody>    
                 </table> 
               <% end %>

@@ -122,12 +122,6 @@
   border-radius: 20px;
 }
 
-
-
-.pipi {
-  color: rgb(158, 78, 78);
-}
-
 .user-follow {
   display: flex;
   justify-content: center;
@@ -172,4 +166,62 @@ a.btn {
   text-align: center;
   border: none;
   border-radius: 2px;
+}
+
+.user_index {
+  background-color: transparent;
+  .content {
+    background-color: #fff;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .flex {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .user_img {
+        margin-left: 30px;
+      }
+      .name {
+        font-size: 20px;
+        margin-left: 20px;
+        opacity: 0.9;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .category {
+        font-size: 20px;
+        margin-left: 20px;
+        opacity: 0.9;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .count {
+        font-size: 20px;
+        margin-left: 20px;
+        opacity: 0.9;
+        color: rgba(0, 0, 0, 0.7);
+      }
+    }
+    .pollow {
+      margin-right: 10px;
+      .chopo {
+        background-color: #56c8d8;
+        padding: 5px;
+        border-radius: 10px;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .bopo {
+        background-color: #ff6090;
+        padding: 5px;
+        border-radius: 10px;
+        color: rgba(0, 0, 0, 0.7);
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }

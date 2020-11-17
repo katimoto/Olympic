@@ -22,7 +22,7 @@
     <% end %>
     <% @rooms = Room.all %>
     <% @rooms.each do |room| %>
-      <% if room.user_id == current_user.id %>
+      <% if room.user.id == current_user.id  || room.room_order.user.id == current_user.id%>
         <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
           <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
         <% end %>
@@ -43,19 +43,7 @@
       <div class='main_menu'>
         <h1 class="head_en">Article</h1>
         <div class='aside'>
-          <div class='article_like'>
-            <h3>いいね数ランキング</h3>
-          </div>
-          <div class='ranking_like'>
-          <% if @article_ranking %>
-            <th>１位：</th>
-            <td><%= link_to @article_ranking.first.user.name, user_path(@article_ranking.first.user) %></td>
-            <th>２位：</th>
-            <td><%= link_to @article_ranking.second.user.name, user_path(@article_ranking.second.user) %></td>
-            <th>３位：</th>
-            <td><%= link_to @article_ranking.third.user.name, user_path(@article_ranking.third.user) %></td>
-          <% end %>
-          </div>
+          <%= render 'users/heading'%>
         </div>
       </div>
       <div class='main_content'>

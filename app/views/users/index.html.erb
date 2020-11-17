@@ -22,7 +22,7 @@
     <% end %>
     <% @rooms = Room.all %>
     <% @rooms.each do |room| %>
-      <% if room.user_id == current_user.id %>
+      <% if room.user.id == current_user.id  || room.room_order.user.id == current_user.id%>
         <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
           <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
         <% end %>
@@ -31,7 +31,7 @@
     </div>
     <div class='nav_main'>
       <div class='up2'>
-        <%= link_to user_path(@user) do %>
+        <%= link_to users_path do %>
           <p>ユーザートップ<p>
         <% end %>
       </div>
@@ -43,23 +43,39 @@
       <div class='main_menu'>
         <h1 class="head_en">ユーザー一覧</h1>
         <div class='aside'>
-            <%= render 'users/heading'%>
+            <%= render 'users/header'%>
         </div>
       </div>
       <div class='main_content'>
-        <% @users.each do |user| %>
-          <p><span><%= user.name %>: </span><%= link_to user_path(user.id) do %>
-            <%= image_tag user.image.variant(resize: '50x50'), class:"image-profile" if user.image.attached? %>
+        <div class='user_index'>
+          <% @users.each do |user| %>
+          <div class='content'>
+            <%= link_to user_path(user.id) do %>
+            <div class='flex'>
+              <div class='user_img'>
+                <%= image_tag user.image.variant(resize: '50x50'), class:"image-profile" if user.image.attached? %>
+              </div>
+              <div class='name'>
+                <%= user.name %>
+              </div>
+              <div class='category'>
+                <%= user.category.name %>
+              </div>
+              <div class='count'>
+                フォロワー数：<%= user.followers.count %>
+              </div>
+              <div class='count'>
+                フォロー数：<%= user.followings.count %>
+              </div>
+            </div>
             <% end %>
-          </p>
-          <div class='users_<%= user.id %>'>
-            <%= render partial: 'relationships/following', locals: {user: user}%>
+            <div class='users_<%= user.id %> pollow'>
+              <%= render partial: 'relationships/following', locals: {user: user}%>
+            </div>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-      <%= link_to new_article_path, data: {"turbolinks"=>false} do %>
-        <i class="fas fa-plus-circle firework"></i>
-      <% end %>
     </div>
   </div>
   <div class='footer'>

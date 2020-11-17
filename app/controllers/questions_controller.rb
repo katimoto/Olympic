@@ -7,7 +7,8 @@ class QuestionsController < ApplicationController
     set_question_column
     question_like_count = Question.joins(:likes).group(:question_id).count
     question_liked_ids = Hash[question_like_count.sort_by { |_, v| -v }].keys
-    @question_ranking = Question.where(id: question_liked_ids)
+    @question_ranking = User.includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
+    @questions2 = User.includes(:answers).sort {|a,b| b.answers.size <=> a.answers.size}
   end
 
   def new
