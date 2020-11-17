@@ -9,9 +9,7 @@
     </div>
     <p class="q_time"><%= question.created_at.to_s(:datetime_jp) %></p>
   </div>
-  <div class='iconcon'>
     <%= render partial: 'answers/show', locals: {question: question} %>
-  </div>
 </div>
 
 

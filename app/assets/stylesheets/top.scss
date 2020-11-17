@@ -44,7 +44,7 @@ transition: all 0.3s;
     display: flex;
   
     .side_main {
-      background-color: #e0e0e0;
+      background-color: #5ddef4;
       color: rgba(0, 0, 0, 0.7);
       width: 5%;
       z-index: 5;
@@ -57,7 +57,7 @@ transition: all 0.3s;
       height: calc(100%-7vh);
       font-weight: bold;
       .up2 {
-        background-color:  #f44336;
+        background-color:  #00acc1;
         height: 10vh;
         display: flex;
         justify-content: center;
@@ -72,7 +72,7 @@ transition: all 0.3s;
         }
       }
       .down2 {
-        background-color:#d81b60;;
+        background-color:#00acc1;;
         height: 70vh;
         margin: 10px;
         box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
@@ -88,7 +88,7 @@ transition: all 0.3s;
           z-index: 3;
           padding: 5px;
           border-radius: 10px;
-          background-color: #f44332;
+          background-color: #007c91;
           a {
             color: rgba(0, 0, 0, 0.7);
             letter-spacing: 0.2rem;
@@ -121,7 +121,7 @@ transition: all 0.3s;
         color: rgba(255, 255, 255, 0.7);
         height: 10vh;
         position: relative;
-        background-color: #ffb300;
+        background-color: #007c91;
         position: relative;
         margin: 10px;
         z-index: 2;
@@ -320,11 +320,13 @@ transition: all 0.3s;
 
 .fa-comment {
   color: #fff;
+  font-size: 20px;
 }
 
 .fa-thumbs-up {
   color: #fff;
-}
+  font-size: 20px;
+  }
 
 .fabo {
   position: absolute;

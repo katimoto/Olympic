@@ -17,10 +17,12 @@
       width: 100%;
 
       .content_post_question {
-        background-color: #a00037;
         padding-bottom: 20px;
         height: 100px;
+        background-color: #ff795c;
         position: relative;
+        border-bottom: 1px solid black;
+        border-radius: 10px;
 
         .question_text {
           display: flex;
@@ -119,3 +121,4 @@ h3 {
     width: 40px;
   }
 }
+
