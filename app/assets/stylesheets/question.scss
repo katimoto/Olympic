@@ -9,7 +9,7 @@
       text-align: left;
       font-size: 30px;
       margin-left: 30px;
-      color: rgb(180, 179, 179);
+      color: rgba(0, 0, 0, 0.7);
       margin-bottom: 20px;
     }
 
@@ -19,24 +19,32 @@
       .content_post_question {
         padding-bottom: 20px;
         height: 100px;
-        background-color: #ff795c;
+        background-color: lightblue;
         position: relative;
         border-bottom: 1px solid black;
         border-radius: 10px;
+        position: relative;
 
         .question_text {
           display: flex;
           flex-direction: column;
           
           .q_category {
-            font-size: 12px;
-            text-align: left;
-            
-          }
-          .q_title {
             font-size: 16px;
             text-align: left;
+            color: #fff;
+            position: absolute;
+            right: 5px;
           }
+          .q_title {
+            font-size: 20px;
+            text-align: left;
+          }
+          .q_text {
+            font-size: 16px;
+            text-align: left;
+            margin-left: 10px;
+          }          
         }
 
         .question_sub {
@@ -46,6 +54,7 @@
             position: absolute;
             bottom: 5px;
             left: 5px;
+            display: flex;
           }
           .q_time {
             text-align: right;
@@ -74,6 +83,7 @@
         height: 300px;
         border:1px solid #fff;
         margin: 0 20px 100px;
+        overflow: auto;
       }
     }
 
@@ -84,6 +94,16 @@
         height: 300px;
         border:1px solid #fff;
         margin: 0 20px 100px;
+        td {
+          background-color: #ffff72;
+          padding: 5px;
+          font-weight: bold;
+          border-radius: 10px;
+          margin: 2px;
+          width: 100%;
+          white-space: nowrap;
+          display: inline-block;
+        }
       }
     }
 
@@ -94,6 +114,16 @@
         height: 300px;
         border:1px solid #fff;
         margin: 0 20px 100px;
+        td {
+          background-color: #ffff72;
+          padding: 5px;
+          font-weight: bold;
+          border-radius: 10px;
+          margin: 2px;
+          width: 100%;
+          white-space: nowrap;
+          display: inline-block;
+        }
       }
     }
   }
@@ -122,3 +152,13 @@ h3 {
   }
 }
 
+.categg {
+  background-color: #ffff72;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 2px;
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
+}

@@ -456,13 +456,12 @@ ul li {
 div.contents.row {
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid #eaeaea;
   display: flex;
   flex-wrap: wrap;
 }
 
 div.contents.row div.content_post {
-  background-color: #006db3;
+  background-color: #006978;
   border-radius: 10px;
   height: 450px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);

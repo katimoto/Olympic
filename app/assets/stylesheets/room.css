@@ -27,7 +27,7 @@ li {
   width: 100%;
   margin: 60px auto;
   padding: 40px;
-  background-color: #a00037;
+  background-color: #006978;
   z-index: 2;
   border-radius: 20px;
 }
@@ -50,6 +50,7 @@ li {
   width: 100%;
   line-height: 30px;
   padding: 10px 15px;
+  margin: 10px 0;
 }
 .chat-room-form__action-btn {
   display: inline-block;

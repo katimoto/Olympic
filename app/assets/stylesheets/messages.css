@@ -27,12 +27,12 @@
 
 .rooms {
   padding: 20px;
-  overflow: scroll;
   margin: 30px 100px 30px;
-  border: 1px solid #fff;
   width: 70%;
   height: 500px;
   overflow: scroll;
+  background-color: #006978;
+  border-radius: 20px;
 }
 
 .room {
@@ -40,6 +40,9 @@
   border-bottom: 1px solid black;
   padding-bottom: 5px;
   padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .room-name a {
@@ -72,13 +75,13 @@
 }
 
 i {
-  font-size: 40px;
+  font-size: 30px;
   margin: 10px;
-  color: #a00037;
+  color: #c8b900;
 }
 
 .messages {
-  background-color: rgba(196, 161, 204, 0.65);
+  background-color: #006978;
   height: calc(100vh - 100px - 150px);
   width: 100%;
   padding: 46px 40px 0;
@@ -92,6 +95,18 @@ i {
   border-radius: 10px;
   padding: 10px;
   width: 70%;
+  display: inline-block;
+  float: left;
+}
+
+.message2 {
+  margin: 10px 0;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px;
+  width: 70%;
+  display: inline-block;
+  float: right;
 }
 
 .upper-message{
