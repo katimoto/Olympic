@@ -1,17 +1,17 @@
 User.create(
     [
-        {name: '鈴木太郎', email: 'sitsumon1@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 3},
-        {name: '佐々木太郎', email: 'sitsumon2@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 7},
-        {name: '田中太郎', email: 'sitsumon3@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 9},
-        {name: '高橋花子', email: 'kaitou1@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 11},
-        {name: '斎藤花子', email: 'kaitou2@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 14},
-        {name: '宮本太郎', email: 'sitsumon4@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 16},
-        {name: '宇多川太郎', email: 'sitsumon5@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 19},
-        {name: '新橋太郎', email: 'sitsumon6@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 3},
-        {name: '坂本花子', email: 'kaitou4@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 3},
-        {name: '斎藤今日子', email: 'kaitou5@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 14},
+        {name: '佐々木太郎', email: 'sitsumon2@gmail.com', password: 'aoyashi123', password_confirmation: 'aoyashi123', category_id: 7},
+        {name: '田中太郎', email: 'sitsumon3@gmail.com', password: 'ioyashi123', password_confirmation: 'ioyashi123', category_id: 9},
+        {name: '高橋花子', email: 'kaitou1@gmail.com', password: 'uoyashi123', password_confirmation: 'uoyashi123', category_id: 11},
+        {name: '斎藤花子', email: 'kaitou2@gmail.com', password: 'eoyashi123', password_confirmation: 'eoyashi123', category_id: 14},
+        {name: '宮本太郎', email: 'sitsumon4@gmail.com', password: 'ooyashi123', password_confirmation: 'ooyashi123', category_id: 16},
+        {name: '宇多川太郎', email: 'sitsumon5@gmail.com', password: 'koyashi123', password_confirmation: 'koyashi123', category_id: 19},
+        {name: '新橋太郎', email: 'sitsumon6@gmail.com', password: 'soyashi123', password_confirmation: 'soyashi123', category_id: 3},
+        {name: '坂本花子', email: 'kaitou4@gmail.com', password: 'toyashi123', password_confirmation: 'toyashi123', category_id: 3},
+        {name: '斎藤今日子', email: 'kaitou5@gmail.com', password: 'noyashi123', password_confirmation: 'noyashi123', category_id: 14},
         {name: 'ゲストユーザー', email: 'guest@gmail.com', password: 'guest123', password_confirmation: 'guest123', category_id: 12},
-        {name: '池田リナ', email: 'kaitou6@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 5}])
+        {name: '鈴木太郎', email: 'sitsumon1@gmail.com', password: 'moyashi123', password_confirmation: 'moyashi123', category_id: 3},
+        {name: '池田リナ', email: 'kaitou6@gmail.com', password: 'yoyashi123', password_confirmation: 'yoyashi123', category_id: 5}])
  
 Question.create(
     [
