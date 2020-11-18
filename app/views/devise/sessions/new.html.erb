@@ -89,20 +89,19 @@
                   <div class='actions'>
                     <%= f.submit "Log in", class: 'btn'%>
                   </div>
-                </div>
               <% end %>
-              <div class='actions'>
-              <div class='btn'>
-                <%=  form_for(User.new, url:user_session_path) do |f| %>
-                  <%= f.hidden_field :email, value: "guest@gmail.com" %>
-                  <%= f.hidden_field :password, value: "guest123" %>
-                  <%= f.submit "かんたんログイン", class:"top-easy-in btn" %>
-                  <p class="top-nav">採用ご担当者様用</p>
-                <% end %>
-              </div>
-              </div>
-                <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'gbtn'%>
-                <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: 'fbtn'%>
+                  <div class='btn'>
+                    <%=  form_for(User.new, url:user_session_path) do |f| %>
+                      <%= f.hidden_field :email, value: "guest@gmail.com" %>
+                      <%= f.hidden_field :password, value: "guest123" %>
+                      <%= f.submit "ゲストログイン", class:"gggg" %>
+                    <% end %>
+                  </div>
+                  <div class='pork'>
+                    <%= link_to 'Google', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'gbtn'%>
+                    <%= link_to 'Facebook', user_facebook_omniauth_authorize_path, method: :post, class: 'fbtn'%>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -62,7 +62,7 @@
             <div class='content_show'>
               <h3><%= @question.title %></h3>
               <p><%= @question.text %></p>
-              <%= @question.category.name %>
+              #<%= @question.category.name %>
             </div>
             <% if user_signed_in? && current_user.id == @question.user_id %>
             <div class="more">
