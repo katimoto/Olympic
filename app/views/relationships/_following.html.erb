@@ -2,14 +2,14 @@
     <% if user.followed_by?(current_user) %>
       <div class='chopo'>
         <p><%=link_to user_relationships_path(user.id), method: :delete, remote: true do %>
-        <p>フォローする</p>
+        <p>フォロー解除</p>
         <% end %>
         </p>
       </div>
     <% else %>
       <div class='bopo'>
         <p><%=link_to user_relationships_path(user.id), method: :post, remote: true do %></p>
-        <p>フォロー解除</p>
+        <p>フォローする</p>
         <% end %>
       </div>
     <% end %>
