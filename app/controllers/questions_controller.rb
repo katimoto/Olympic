@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
     question_liked_ids = Hash[question_like_count.sort_by { |_, v| -v }].keys
     @question_ranking = User.includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
     @questions2 = User.includes(:answers).sort {|a,b| b.answers.size <=> a.answers.size}
+    @categorys = Category.where.not(id: 1)
   end
 
   def new

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :upadate, :article, :question, :follows, :followers]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(12).order('created_at ASC')
   end
 
   def edit
@@ -41,11 +41,11 @@ class UsersController < ApplicationController
   end
 
   def follows
-    @users = @user.followings
+    @users = @user.followings.page(params[:page]).per(12).order('created_at ASC')
   end
 
   def followers
-    @users = @user.followers
+    @users = @user.followers.page(params[:page]).per(12).order('created_at ASC')
   end
 
   private

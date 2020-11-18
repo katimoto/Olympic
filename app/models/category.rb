@@ -21,4 +21,13 @@ class Category < ActiveHash::Base
     { id: 19, name: 'アイスホッケー' },
     { id: 20, name: 'その他' }
   ]
+
+  def self.category(category)
+    if 1 < params[:id].to_i && params[:id].to_i < 21
+      Question.where(category_id: params[:id])
+    else 
+      Question.all
+    end
+  end
 end
+
