@@ -6,7 +6,7 @@
     <% end %>
     <% if user_signed_in? %>
       <%= link_to user_path(current_user), class: "user-profile" do %>
-        <% if current_user.name == "ゲストユーザー" %>
+        <% if current_user.image.nil? %>
           <%= image_tag 'default.png', class: "image-profile" %>
         <% else %>
           <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
@@ -48,19 +48,29 @@
         <h1 class="head_en">アプリの概要</h1>
         <div class='aside'>
           <div class="navigation">
-            <p><i class="fas fa-thumbtack"></i>トップページ</p>
+            <%= link_to root_path do%>
+              <p><i class="fas fa-thumbtack"></i>トップページ</p>
+            <% end %>
           </div>
           <div class="navigation">
-            <p><i class="fas fa-address-card"></i>プロフィール</p>
+            <%= link_to user_path(current_user) do%>
+              <p><i class="fas fa-address-card"></i>プロフィール</p>
+            <% end %>
           </div>
           <div class="navigation">
-            <p><i class="fas fa-comment-alt"></i>サロンルーム</p>
+            <%= link_to rooms_path do%>
+              <p><i class="fas fa-comment-alt"></i>サロンルーム</p>
+            <% end %>
           </div>
           <div class="navigation">
-            <p><i class="fas fa-book"></i>記事</p>
+            <%= link_to articles_path do%>
+              <p><i class="fas fa-book"></i>記事</p>
+            <% end %>
           </div>
           <div class="navigation">
-            <p><i class="fas fa-question"></i>質問</p>
+            <%= link_to questions_path do%>
+              <p><i class="fas fa-question"></i>質問</p>
+            <% end %>
           </div>
         </div>
       </div>
