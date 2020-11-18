@@ -5,7 +5,7 @@
       <%= form.submit "Go", class: "search-btn", id: "qs" %>
     <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
-      <% if current_user.name == "ゲストユーザー" %>
+      <% if current_user.image.nil? %>
         <%= image_tag 'default.png', class: "image-profile" %>
       <% else %>
         <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
@@ -77,6 +77,7 @@
             </div>
           </div>
           <% end %>
+          <%= paginate @users %>
         </div>
       </div>
     </div>

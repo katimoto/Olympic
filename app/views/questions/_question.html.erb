@@ -1,15 +1,18 @@
 <div class="content_post_question">
   <div class='question_text'>
-    <div class='q_category'><%=link_to question.category.name, questions_path %></div>
-    <div class='q_title'><%= link_to question.title, question_path(question.id), method: :get %></div>
+    <%= link_to question_path(question.id), method: :get do %>
+      <div class='q_category'>#<%= question.category.name%></div>
+      <div class='q_title'><%= question.title %></div>
+      <div class='q_text'><%= question.text.truncate(30, omission: '...(詳細へ)') %></div>
+    <% end %>
   </div>
   <div class='question_sub'>
     <div class='likes_<%= question.id %> likey'>
       <%= render partial: 'likes/like', locals: { question: question } %>
+      <%= render partial: 'answers/show', locals: {question: question} %>
     </div>
     <p class="q_time"><%= question.created_at.to_s(:datetime_jp) %></p>
   </div>
-    <%= render partial: 'answers/show', locals: {question: question} %>
 </div>
 
 

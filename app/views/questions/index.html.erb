@@ -5,7 +5,7 @@
         <%= form.submit "Go", class: "search-btn", id: "qs" %>
       <% end %>
     <%= link_to user_path(current_user), class: "user-profile" do %>
-      <% if current_user.name == "ゲストユーザー" %>
+      <% if current_user.image.nil? %>
         <%= image_tag 'default.png', class: "image-profile" %>
       <% else %>
         <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
@@ -59,32 +59,25 @@
             <div class='question_category'>
               <h3>カテゴリーから探す</h3>
               <div class='category_row'>
-              <% if @questions.exists? %>
-                <table class="table-name">
-                  <tbody>
-                    <tr>
-                      <th>１位：</th>
-                      <td><%= Category.find(5).name %></td>
-                    </tr>
-                    <tr>
-                      <th>２位</th>
-                      <td><%= Category.find(3).name %></td>
-                    </tr>
-                    <tr>
-                      <th>３位</th>
-                      <td><%= Category.find(9).name %></td>
-                    </tr>
-                    <tr>
-                      <th>４位：</th>
-                      <td><%= Category.find(5).name %></td>
-                    </tr>
-                    <tr>
-                      <th>５位</th>
-                      <td><%= Category.find(3).name %></td>
-                    </tr>                                                         
-                  </tbody>    
-                </table> 
-              <% end %>
+                <%= tag.span Category.find(2).name, class:'categg' %>
+                <%= tag.span Category.find(3).name, class:'categg' %>
+                <%= tag.span Category.find(4).name, class:'categg' %>
+                <%= tag.span Category.find(5).name, class:'categg' %>
+                <%= tag.span Category.find(6).name, class:'categg' %>
+                <%= tag.span Category.find(7).name, class:'categg' %>
+                <%= tag.span Category.find(8).name, class:'categg' %>
+                <%= tag.span Category.find(9).name, class:'categg' %>
+                <%= tag.span Category.find(10).name, class:'categg' %>
+                <%= tag.span Category.find(11).name, class:'categg' %>
+                <%= tag.span Category.find(12).name, class:'categg' %>
+                <%= tag.span Category.find(13).name, class:'categg' %>
+                <%= tag.span Category.find(14).name, class:'categg' %>
+                <%= tag.span Category.find(15).name, class:'categg' %>
+                <%= tag.span Category.find(16).name, class:'categg' %>
+                <%= tag.span Category.find(17).name, class:'categg' %>
+                <%= tag.span Category.find(18).name, class:'categg' %>
+                <%= tag.span Category.find(19).name, class:'categg' %>
+                <%= tag.span Category.find(20).name, class:'categg' %>
               </div>
             </div>
             <div class='question_answer'>
