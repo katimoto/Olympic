@@ -7,7 +7,7 @@ class Room < ApplicationRecord
   has_one :room_order, dependent: :destroy
   has_one_attached :image
 
-  validates :name, :category_id, :price, :text, :image, presence: true
+  validates :name, :category_id, :price, :text, presence: true
   validates :category_id, numericality: { other_than: 1 }
   validates :price,
             numericality: {

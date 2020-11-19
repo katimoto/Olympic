@@ -61,7 +61,16 @@ class RoomsController < ApplicationController
   def order_new
     @room = Room.find(params[:id])
   end
+  
+  def order_edit
+  end
 
+  def order_update
+    @room = Room.find(params[:id])
+    @room.update(room_params)
+    redirect_to rooms_path
+  end
+    
   def search
     @results = @p.result.includes(:user) # 検索条件にマッチした商品の情報を取得
     set_room_column

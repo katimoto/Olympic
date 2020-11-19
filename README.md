@@ -2,6 +2,9 @@
 
 # :ocean: アプリ名:Olympic
 
+## URL
+https://www.olimpic-app.com/articles
+
 # :speaker: 概要
 記事、チャット、質問を通じて、マイナースポーツ界の発展につながるようなサービスです。このアプリはプロスポーツ選手、プロを目指している選手、社会に出てもスポーツに関わりたいOBにメリットのある場を提供いたします。
 
@@ -55,22 +58,6 @@
  - Action Cableの導入
 
 # :evergreen_tree: 本番環境
-
-## URL
-https://www.olimpic-app.com/articles
-
-## ユーザー認証
-
- - ID:katimoto
- - password:1211
-
-## テストアカウント
-
- - ユーザー名：moyashi
- - email:moyashi@gmail.com
- - password:moyashi123
-
-
 
 
 ## 必要な機能

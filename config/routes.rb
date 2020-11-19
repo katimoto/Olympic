@@ -41,6 +41,8 @@ Rails.application.routes.draw do
     end
     post 'order', on: :member
     get 'order_new', on: :member
+    get 'order_edit', on: :member
+    post 'order_update', on: :member
     resources :messages, only: [:index, :create]
   end
   resources :cards, only: [:new, :create, :show]
