@@ -12,8 +12,37 @@ https://www.olimpic-app.com/articles
 日常で鳥肌が立つ経験はありますか？？スポーツは毎秒鳥肌を立たせるパワーがあります。
 そんなスポーツの課題解決は3点あり、スポーツ選手の低賃金、平等なスポーツ教育の導入、社会に出た後もスポーツに関わるきっかけを与えてくれます。
 
-## インフラ構成図
+## ER図
 [![Image from Gyazo](https://i.gyazo.com/26dcd8adeca1a1ce2f93e1a749444635.png)](https://gyazo.com/26dcd8adeca1a1ce2f93e1a749444635)
+
+## インフラ構成図
+[![Image from Gyazo](https://i.gyazo.com/8b0b65553498937e441a89d2e307292d.png)](https://gyazo.com/8b0b65553498937e441a89d2e307292d)
+
+# :whale: 開発環境
+【使用技術】
+フロントエンド
+ - HTML/CSS
+ - JavaScript
+ - jQuery
+バックエンド
+ - Ruby : 2.6.5
+ - Rails : 6.0.0
+Webサーバー
+ - Nginx : 1.18.0
+アプリケーションサーバー
+ - （開発環境）Puma : 4.3.3
+ - （本番環境）Unicorn : 5.4.1
+データベース
+ - （開発環境）MySQL 5.6.47
+ - （本番環境）MariaDB : 5.5.64
+インフラ
+ - （開発環境のみ）Docker : 19.03.13
+ - docker-compose : 1.27.4
+ - AWS (EC2, S3, VPC, Route53, ALB, ACM)
+ - Git, GitHub
+ - CircleCI : 2.1
+ - Capistrano : 3.14.1
+ 
 ## 実装機能
 
 ### :cop: ユーザー管理機能
@@ -110,31 +139,6 @@ https://www.olimpic-app.com/articles
 [![Image from Gyazo](https://i.gyazo.com/6d76c4ba0e08f5b7d2b26fc6f66646e6.gif)](https://gyazo.com/6d76c4ba0e08f5b7d2b26fc6f66646e6)
 
 [![Image from Gyazo](https://i.gyazo.com/22e4750006f82d111914e59973b670c0.gif)](https://gyazo.com/22e4750006f82d111914e59973b670c0)
-
-# :whale: 開発環境
-【使用技術】
-フロントエンド
- - HTML/CSS
- - JavaScript
- - jQuery
-バックエンド
- - Ruby : 2.6.5
- - Rails : 6.0.0
-Webサーバー
- - Nginx : 1.18.0
-アプリケーションサーバー
- - （開発環境）Puma : 4.3.3
- - （本番環境）Unicorn : 5.4.1
-データベース
- - （開発環境）MySQL 5.6.47
- - （本番環境）MariaDB : 5.5.64
-インフラ
- - （開発環境のみ）Docker : 19.03.13
- - docker-compose : 1.27.4
- - AWS (EC2, S3, VPC, Route53, ALB, ACM)
- - Git, GitHub
- - CircleCI : 2.1
- - Capistrano : 3.14.1
 
 
 # :book: テーブル設計
