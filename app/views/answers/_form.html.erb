@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if user_signed_in? %>
   <%= form_with(model: [question, answer], remote: true) do |form| %>
     <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
     <%= form.submit "送信" %>

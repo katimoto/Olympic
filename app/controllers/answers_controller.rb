@@ -7,6 +7,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     # 投稿に紐づいたコメントを作成
     @answer = @question.answers.build(answer_params)
+    @answer.user_id = current_user.id
     @answer.save
     render :index
   end
