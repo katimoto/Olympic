@@ -4,16 +4,7 @@
       <%= form.text_field :keyword, placeholder: "タグで検索する", class: "search-input" %>
       <%= form.submit "検索", class: "search-btn" %>
     <% end %>
-    <%= link_to user_path(current_user), class: "user-profile" do %>
-      <% if current_user.image.nil? %>
-        <%= image_tag 'default.png', class: "image-profile" %>
-      <% else %>
-        <%= image_tag current_user.image.variant(resize: '50x50'), class:"image-profile" if current_user.image.attached?%>
-      <% end %>
-    <% end %>
-    <%= link_to root_path, class: "help" do %>
-      <i class="far fa-question-circle"></i>
-    <% end %>
+    <%= render 'shared/up1'%>
   </div>
   <div class='down1'>
     <div class='side_main'>
@@ -24,7 +15,7 @@
     <% @rooms.each do |room| %>
       <% if room.user.id == current_user.id%>
         <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
-          <%= image_tag room.user.image, class:"image-profile" if room.user.image.attached? %>
+          <%= image_tag room.image, class:"image-profile" if room.user.image.attached? %>
         <% end %>
       <% end %>
     <% end %>

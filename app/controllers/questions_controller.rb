@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
   # end
 
   def search
-    @results = @p.result.includes(:user) # 検索条件にマッチした商品の情報を取得
+    @results = @p.result.includes(:user).page(params[:page]).per(8).order('created_at DESC') # 検索条件にマッチした商品の情報を取得
     @questions = SearchQuestionsService.search(params[:keyword]).page(params[:page]).per(8).order('created_at DESC')
     set_question_column
   end

@@ -1,0 +1,15 @@
+<div class='side_main'>
+<i class="fas fa-comment-alt"></i>
+<p>ルーム</p>
+<%= link_to rooms_path do %>
+  <i class="fas fa-plus"></i>
+<% end %>
+<% @rooms = Room.all %>
+<% @rooms.each do |room| %>
+  <% if room.user.id == current_user.id %>
+    <%= link_to room_messages_path(room), data: {"turbolinks"=>false} do %>
+      <%= image_tag room.image, class:"image-profile" if room.user.image.attached? %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
