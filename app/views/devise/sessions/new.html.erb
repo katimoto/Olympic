@@ -92,7 +92,7 @@
               <% end %>
                   <div class='btn'>
                     <%=  form_for(User.new, url:user_session_path) do |f| %>
-                      <%= f.hidden_field :email, value: "guest@gmail.com" %>
+                      <%= f.hidden_field :email, value: "gue@gmail.com" %>
                       <%= f.hidden_field :password, value: "guest123" %>
                       <%= f.submit "ゲストログイン", class:"gggg" %>
                     <% end %>
